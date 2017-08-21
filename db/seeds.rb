@@ -12,16 +12,33 @@ User.destroy_all
 
 
 puts "Let's generate a lot of useless things..."
-puts "Users creation"
+puts "Ok well... Choogle's team users creation"
 
-1.upto(20) do |n|
-    User.create!(
-      # first_name: Faker::Name.first_name,
-      # last_name: Faker::Name.last_name,
-      email: Faker::Internet.email,
-      password: '123456',
-    )
-end
+# 1.upto(20) do |n|
+#     User.create!(
+#       # first_name: Faker::Name.first_name,
+#       # last_name: Faker::Name.last_name,
+#       email: Faker::Internet.email,
+#       password: '123456',
+#     )
+# end
+
+User.create!(
+  email: 'lea@gmail.com',
+  password: '123456',
+)
+User.create!(
+  email: 'romain@gmail.com',
+  password: '123456',
+)
+User.create!(
+  email: 'simon@gmail.com',
+  password: '123456',
+)
+User.create!(
+  email: 'clement@gmail.com',
+  password: '123456',
+)
 
 puts "Comments creation"
 
@@ -34,7 +51,7 @@ end
 
 puts "Choogles creation"
 
-1.upto(20) do |n|
+1.upto(35) do |n|
     Choogle.create!(
       slug: Faker::Number.number(10),
       title: Faker::Superhero.name,
@@ -47,7 +64,7 @@ end
 
 puts "Places creation"
 
-1.upto(50) do |n|
+1.upto(60) do |n|
     Place.create!(
       address: Faker::Address.country,
       name: Faker::Company.name,
@@ -56,7 +73,7 @@ end
 
 puts "Proposals creation"
 
-1.upto(100) do |n|
+1.upto(140) do |n|
     Proposal.create!(
       choogle_id: Choogle.all.sample.id,
       place_id: Place.all.sample.id,
