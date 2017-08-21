@@ -6,5 +6,5 @@ class Proposal < ApplicationRecord
   has_many :proposal_tags
 
   geocoded_by :place
-  after_validation :geocode, if: :place_changed?
+  after_validation :geocode, if: :place_id_changed?
 end
