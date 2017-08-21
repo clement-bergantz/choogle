@@ -10,9 +10,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "New Choogle", new_choogle_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "First Choogle (show)", choogle_path(Choogle.first), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "New Proposal", new_choogle_proposal_path(Choogle.first), class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
