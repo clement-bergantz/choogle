@@ -10,10 +10,83 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821134059) do
+ActiveRecord::Schema.define(version: 20170821135434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "choogles", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "due_at"
+    t.datetime "happens_at"
+    t.integer  "user_id"
+    t.integer  "comment_id"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_choogles_on_comment_id", using: :btree
+    t.index ["user_id"], name: "index_choogles_on_user_id", using: :btree
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "choogle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["choogle_id"], name: "index_notifications_on_choogle_id", using: :btree
+    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "proposal_tags", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "proposal_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["proposal_id"], name: "index_proposal_tags_on_proposal_id", using: :btree
+    t.index ["tag_id"], name: "index_proposal_tags_on_tag_id", using: :btree
+  end
+
+  create_table "proposals", force: :cascade do |t|
+    t.integer  "choogle_id"
+    t.integer  "place_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["choogle_id"], name: "index_proposals_on_choogle_id", using: :btree
+    t.index ["place_id"], name: "index_proposals_on_place_id", using: :btree
+    t.index ["user_id"], name: "index_proposals_on_user_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "upvotes", force: :cascade do |t|
+    t.integer  "proposal_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["proposal_id"], name: "index_upvotes_on_proposal_id", using: :btree
+    t.index ["user_id"], name: "index_upvotes_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,4 +105,16 @@ ActiveRecord::Schema.define(version: 20170821134059) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "choogles", "comments"
+  add_foreign_key "choogles", "users"
+  add_foreign_key "comments", "users"
+  add_foreign_key "notifications", "choogles"
+  add_foreign_key "notifications", "users"
+  add_foreign_key "proposal_tags", "proposals"
+  add_foreign_key "proposal_tags", "tags"
+  add_foreign_key "proposals", "choogles"
+  add_foreign_key "proposals", "places"
+  add_foreign_key "proposals", "users"
+  add_foreign_key "upvotes", "proposals"
+  add_foreign_key "upvotes", "users"
 end

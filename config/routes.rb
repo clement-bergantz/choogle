@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :choogles, only: [:new, :create, :show], shallow: true do 
+  	resources :proposals, only: [:new, :create]
+  	resources :notifications, only: [:new, :create]
+  end
 end
