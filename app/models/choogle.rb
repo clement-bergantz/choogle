@@ -6,8 +6,8 @@ class Choogle < ApplicationRecord
   validates :slug, presence: true
   validates :title, presence: true
 
-  validates :happens_at, presence: true, :uniqueness => { :scope => [:due_at, :happens_at] }
-  validates :due_at, presence: true, :uniqueness => { :scope => [:due_at, :happens_at] }
+  validates :happens_at, presence: true
+  validates :due_at, presence: true
 
   validate :happens_at_cannot_be_in_the_past, :due_at_must_be_before_happens_at
 
