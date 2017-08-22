@@ -6,10 +6,10 @@ class ChooglesController < ApplicationController
 
   def new
     @choogle = Choogle.new
-    @user = User.find(current_user)
   end
 
   def create
+    raise
     @user = current_user
     @choogle = @user.choogle.new(choogle_params)
     @choogle.slug = Faker::Number.number(10)
