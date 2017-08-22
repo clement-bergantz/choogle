@@ -21,6 +21,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'faker'
 gem 'geocoder'
+gem 'google_places'
 
 # Gemfile
 gem "coffee-rails"

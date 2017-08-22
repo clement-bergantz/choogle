@@ -14,40 +14,18 @@ $(document).ready(function() {
 
 function onPlaceChanged() {
   var place = this.getPlace();
-  console.log(place.place_id)
-  console.log(place.name)
   // var components = getAddressComponents(place);
-
-  // $('#proposal_place').trigger('blur').val(components.address);
+  // $('#proposal_place').trigger('blur').val(place);
 }
 
-// function getAddressComponents(place) {
-//   // If you want lat/lng, you can look at:
-//   // - place.geometry.location.lat()
-//   // - place.geometry.location.lng()
-//
-//   var street_number = null;
-//   var route = null;
-//   var zip_code = null;
-//   var city = null;
-//   var country_code = null;
-//   for (var i in place.address_components) {
-//     var component = place.address_components[i];
-//     for (var j in component.types) {
-//       var type = component.types[j];
-//       if (type == 'street_number') {
-//         street_number = component.long_name;
-//       } else if (type == 'route') {
-//         route = component.long_name;
-//       } else if (type == 'postal_code') {
-//         zip_code = component.long_name;
-//       } else if (type == 'locality') {
-//         city = component.long_name;
-//       } else if (type == 'country') {
-//         country_code = component.short_name;
-//       }
-//     }
-//   }
+function getAddressComponents(place) {
+  // If you want lat/lng, you can look at:
+  // - place.geometry.location.lat()
+  // - place.geometry.location.lng()
+
+  var place_id = place.place_id;
+
+ }
 //
  //   return {
  //     address: street_number == null ? route : (street_number + ' ' + route),
