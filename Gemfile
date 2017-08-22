@@ -27,7 +27,7 @@ gem "coffee-rails"
 gem "gmaps4rails"
 
 source 'https://rails-assets.org' do
-  gem "rails-assets-underscore",
+  gem "rails-assets-underscore"
   gem 'rails-assets-flatpickr'
 end
 
