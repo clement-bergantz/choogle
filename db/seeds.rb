@@ -35,7 +35,7 @@ puts "Choogles creation"
 
 1.upto(30) do |n|
     Choogle.create!(
-      slug: Faker::Number.number(10),
+      slug: SecureRandom.urlsafe_base64(5),
       title: Faker::Superhero.name,
       due_at: "Mon, #{rand(1..15)} Oct 2017 21:20:44 UTC +00:00",
       happens_at: "Mon, #{rand(16..31)} Oct 2017 21:20:44 UTC +00:00",
