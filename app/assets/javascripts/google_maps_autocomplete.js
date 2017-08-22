@@ -13,7 +13,7 @@ $(document).ready(function() {
 });
 
 function onPlaceChanged() {
-  var place = this.getPlace();
+  var place = this.getPlace().place_id;
   // var components = getAddressComponents(place);
 
   // $('#proposal_place').trigger('blur').val(components.address);
@@ -47,10 +47,10 @@ function onPlaceChanged() {
 //     }
 //   }
 //
-//   return {
-//     address: street_number == null ? route : (street_number + ' ' + route),
-//     zip_code: zip_code,
-//     city: city,
-//     country_code: country_code
-//   };
-// }
+ //   return {
+ //     address: street_number == null ? route : (street_number + ' ' + route),
+ //     zip_code: zip_code,
+ //     city: city,
+ //     country_code: country_code
+ //   };
+ // }
