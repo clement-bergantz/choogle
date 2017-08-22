@@ -9,6 +9,7 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.0.5'
 gem 'redis'
+gem 'omniauth-facebook'
 
 #Front-End
 gem 'autoprefixer-rails'
@@ -19,6 +20,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'faker'
+gem 'geocoder'
 
 group :development, :test do
   gem 'pry-byebug'
