@@ -2,7 +2,7 @@ $(document).ready(function() {
   var proposal_place = $('#proposal_place').get(0);
 
   if (proposal_place) {
-    var autocomplete = new google.maps.places.Autocomplete(proposal_place, { types: ['geocode'] });
+    var autocomplete = new google.maps.places.Autocomplete(proposal_place, { types: ['establishment'] });
     google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
     google.maps.event.addDomListener(proposal_place, 'keydown', function(e) {
       if (e.keyCode == 13) {
