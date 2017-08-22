@@ -19,7 +19,7 @@ class Choogle < ApplicationRecord
   end
 
   def due_at_must_be_before_happens_at
-    if due_at > happens_at
+    if due_at >= happens_at
       errors.add(:due_at, "Due date should be set before Choogle date!")
     end
   end
