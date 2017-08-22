@@ -3,6 +3,7 @@ class ProposalsController < ApplicationController
   def new
     @choogle = Choogle.find(params[:choogle_id])
     @proposal = Proposal.new
+    @proposals = Proposal.all.last(3)
   end
 
   def create
@@ -14,7 +15,7 @@ class ProposalsController < ApplicationController
     # We are looking in the DB if the Object exists
     if Place.find_by(api_google_id: place_info.place_id).nil?
       # If it doesn't: let's create one!
-      @place = Place.new(address: place_info.address_components)
+      @place = Place.new(address: place_info.formatted_address)
       @place.name = place_info.name
       # We are getting the API id, which will be useful in the future the query Google about our own Places Objects.
       # Ex: if I want to fetch a Place rating on a "place" instance of Place
