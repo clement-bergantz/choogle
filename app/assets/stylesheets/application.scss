@@ -8,8 +8,8 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "https://npmcdn.com/flatpickr/dist/themes/confetti.css";
-@import "flatpickr/dist/themes/confetti.css";
+@import "components/_flatpickr.css";
+@import "flatpickr/components/_flatpickr.css";
 
 // Your CSS partials
 @import "layouts/index";
