@@ -9,6 +9,7 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.0.5'
 gem 'redis'
+gem 'omniauth-facebook'
 
 #Front-End
 gem 'autoprefixer-rails'
