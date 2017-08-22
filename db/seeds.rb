@@ -33,7 +33,7 @@ User.create!(
 
 puts "Choogles creation"
 
-1.upto(35) do |n|
+1.upto(30) do |n|
     Choogle.create!(
       slug: Faker::Number.number(10),
       title: Faker::Superhero.name,
@@ -58,10 +58,10 @@ puts "Places creation"
 def google_id(address)
   @client = GooglePlaces::Client.new(ENV['GOOGLE_API_SERVER_KEY'])
   place_info = @client.spots_by_query(address)[0]
-  api_google_id = place_info.place_id
+  place_info.nil? ? "not find" : place_info.place_id
 end
 
-1.upto(1) do |n|
+1.upto(20) do |n|
   country = Faker::Address.country
     Place.create!(
       address: country,
@@ -72,7 +72,7 @@ end
 
 puts "Proposals creation"
 
-1.upto(140) do |n|
+1.upto(120) do |n|
     Proposal.create!(
       choogle_id: Choogle.all.sample.id,
       place_id: Place.all.sample.id,
