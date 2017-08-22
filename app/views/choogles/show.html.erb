@@ -1,49 +1,32 @@
 
+<div class="main-container">
 
+  <div class="choogle-container">
+    <div class="choogle-infos">
+      <h1><%= @choogle.title %></h1>
+      <p></p>
+      <!-- Timer -->
+      <!-- Liens with slug -->
+      <!-- Notify me CTA -->
+    </div>
 
-<div class="Choogle-content">
-  <h1><%= @choogle.title %></h1>
-  <p></p>
-  <!-- Timer -->
-  <!-- Liens with slug -->
-  <!-- Notify me CTA -->
-</div>
-
-<div class="choogle-maps">
-  <div id="map" style="width: 100%; height: 600px;"></div>
-
-    <% content_for(:after_js) do %>
-      <%= javascript_tag do %>
-        $(document).ready(function() {
-          var handler = Gmaps.build('Google');
-          handler.buildMap({ internal: { id: 'map' } }, function() {
-            markers = handler.addMarkers(<%= raw @hash.to_json %>);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-            if (markers.length == 0) {
-              handler.getMap().setZoom(2);
-            } else if (markers.length == 1) {
-              handler.getMap().setZoom(14);
-            }
-          });
-        });
-      <% end %>
-    <% end %>
-</div>
-
-
-<div class="proposal">
-  <div class='proposal-upvote'>
-    <div class="proposal-arrow"></div>
-    <div class='proposal-count'>95</div>
+    <div class="proposals">
+      <div class='proposal-upvote'>
+        <div class="proposal-arrow"></div>
+        <div class='proposal-count'>95</div>
+      </div>
+      <div class='proposal-body'>
+        <h3>Kudoz</h3>
+        <p>Best job offers on your phone</p>
+      </div>
+      <ul class="list-inline proposal-controls hidden-sm hidden-xs">
+        <li><a href=""><i class="fa fa-heart"></i></a></li>
+        <li><a href=""><i class="fa fa-share"></i></a></li>
+        <li><a href=""><i class="fa fa-star"></i></a></li>
+      </ul>
+    </div>
   </div>
-  <div class='proposal-body'>
-    <h3>Kudoz</h3>
-    <p>Best job offers on your phone</p>
-  </div>
-  <ul class="list-inline proposal-controls hidden-sm hidden-xs">
-    <li><a href=""><i class="fa fa-heart"></i></a></li>
-    <li><a href=""><i class="fa fa-share"></i></a></li>
-    <li><a href=""><i class="fa fa-star"></i></a></li>
-  </ul>
+
+  <div id="map" style="width: 20%; height: 100vh;"></div>
+  <%= render "shared/map" %>
 </div>
