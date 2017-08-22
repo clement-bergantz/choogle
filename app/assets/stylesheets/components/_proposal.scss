@@ -1,9 +1,12 @@
-.proposals {
+.proposal {
   display: flex;
   align-items: center;
   padding: 20px;
   border-radius: 3px;
   transition: all 0.15s ease;
+  margin: 20px;
+  margin-right: 0px;
+  background-color: white;
 }
 
 /* Body design */
@@ -65,7 +68,7 @@
   color: #E6E6E6;
 }
 .proposal-controls a:hover {
-  color: #D3473C !important
+  color: #FF504D !important
 }
 .proposal-controls-hidden a {
   color: transparent;
@@ -76,22 +79,25 @@
 
 /* Hover effects */
 .proposal:hover {
-  background: #f7f7fa;
+  background: #FFCAC9;
   cursor: pointer;
 }
 .proposal-upvote:hover, .proposal-upvote.proposal-upvote-upvoted {
-  color: #5898f1;
+  color: $red;
   cursor: pointer;
 }
 .proposal-upvote-upvoted .proposal-arrow {
-  border-bottom-color: #5898f1;
+  border-bottom-color: #FF504D;
 }
-// .proposal:hover .proposal-upvote {
-//   transform: scale(1.2)
-// }
+.proposal:hover .proposal-upvote {
+  transform: scale(1.1)
+}
 .proposal:hover .proposal-controls-hidden a {
   color: #E6E6E6;
 }
 .proposal-upvote:hover .proposal-arrow {
-  border-bottom: 9px solid #5898f1;
+  border-bottom: 9px solid #FF504D;
 }
+
+/* Empty proposal */
+
