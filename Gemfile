@@ -21,7 +21,15 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'faker'
 gem 'geocoder'
-gem 'rails-assets-flatpickr', source: 'https://rails-assets.org'
+
+# Gemfile
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore",
+  gem 'rails-assets-flatpickr'
+end
 
 group :development, :test do
   gem 'pry-byebug'
