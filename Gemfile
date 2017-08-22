@@ -28,6 +28,7 @@ gem "gmaps4rails"
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
+  gem 'rails-assets-flatpickr'
 end
 
 group :development, :test do
@@ -37,5 +38,6 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'faker'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
