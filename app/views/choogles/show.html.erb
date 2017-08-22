@@ -4,10 +4,17 @@
   <div class="choogle-container">
     <div class="choogle-infos">
       <h1><%= @choogle.title %></h1>
-      <p></p>
+      <p>Event date : <%= @choogle.happens_at %></p>
+      <p>Due date : <%= @choogle.due_at %></p>
+      
       <!-- Timer -->
+      <p>Time left : </p>
+      <div id="timer" data-timer="<%= (@choogle.due_at) %>">
+        <%= render "choogles/timer"  %>
+      </div>
+
       <!-- Liens with slug -->
-      <!-- Notify me CTA -->
+
     </div>
 
     <% @choogle.proposals.each do |proposal| %>

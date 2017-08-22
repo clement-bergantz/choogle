@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822092355) do
+ActiveRecord::Schema.define(version: 20170822124242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20170822092355) do
     t.string   "title"
     t.datetime "due_at"
     t.datetime "happens_at"
-    t.integer  "user_id"
     t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
     t.index ["user_id"], name: "index_choogles_on_user_id", using: :btree
   end
 
@@ -48,10 +48,11 @@ ActiveRecord::Schema.define(version: 20170822092355) do
   create_table "places", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "api_google_id"
   end
 
   create_table "proposal_tags", force: :cascade do |t|

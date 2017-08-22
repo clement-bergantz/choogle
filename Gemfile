@@ -21,6 +21,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'faker'
 gem 'geocoder'
+gem 'google_places'
 
 # Gemfile
 gem "coffee-rails"
@@ -28,6 +29,7 @@ gem "gmaps4rails"
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
+  gem 'rails-assets-flatpickr'
 end
 
 group :development, :test do
@@ -37,5 +39,6 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'faker'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
