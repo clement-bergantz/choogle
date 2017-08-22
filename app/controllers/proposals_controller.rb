@@ -6,13 +6,14 @@ class ProposalsController < ApplicationController
   end
 
   def create
-    @proposal = Proposal.new(proposal_params)
-    if Place.find_by(params[:place]).nil?
-      @place = Place.find_by(params(:place))
+    @proposal = Proposal.new
+    if Place.find_by(address: proposal_params["place"]).nil?
+      @place = Place.new(address: proposal_params["place"])
     else
-      @place = Place.create.new(name: params[:place])
+      @place = Place.find_by(address: proposal_params["place"])
     end
     @proposal.place = @place
+    @proposal.user = current_user
     @proposal.choogle = Choogle.find(params[:choogle_id])
     @proposal.save
 
@@ -22,6 +23,6 @@ class ProposalsController < ApplicationController
   private
 
   def proposal_params
-    params.require(:proposal).permit()
+    params.require(:proposal).permit(:place)
   end
 end
