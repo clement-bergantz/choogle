@@ -1,0 +1,45 @@
+.help-block {
+  position: absolute;
+}
+
+.setup1-windows {
+  margin-bottom: 100px;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.wrapper-form {
+  background-color: orange;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  height: 400px;
+  margin: 1rem;
+  width: 500px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.form-date-element {
+  height: 40px !important;
+  width: 180px !important;
+}
+
+.form-title-element {
+  padding: 30px 45px;
+}
+
+.date-form form {
+  padding: 30px;
+}
