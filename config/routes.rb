@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'choogles/show'
-
   devise_for :users
   root to: 'pages#home'
 
