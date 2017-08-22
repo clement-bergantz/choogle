@@ -40,15 +40,6 @@ User.create!(
   password: '123456',
 )
 
-puts "Comments creation"
-
-1.upto(50) do |n|
-    Comment.create!(
-      content: Faker::Lorem.sentence,
-      user_id: User.all.sample.id,
-    )
-end
-
 puts "Choogles creation"
 
 1.upto(35) do |n|
@@ -57,8 +48,17 @@ puts "Choogles creation"
       title: Faker::Superhero.name,
       due_at: "Mon, #{rand(1..15)} Oct 2017 21:20:44 UTC +00:00",
       happens_at: "Mon, #{rand(16..31)} Oct 2017 21:20:44 UTC +00:00",
-      comment_id: Comment.all.sample.id,
       user_id: User.all.sample.id,
+    )
+end
+
+puts "Comments creation"
+
+1.upto(50) do |n|
+    Comment.create!(
+      content: Faker::Lorem.sentence,
+      user_id: User.all.sample.id,
+      choogle_id: Choogle.all.sample.id,
     )
 end
 
