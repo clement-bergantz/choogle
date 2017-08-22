@@ -14,6 +14,8 @@ $(document).ready(function() {
 
 function onPlaceChanged() {
   var place = this.getPlace();
+  console.log(place.place_id)
+  console.log(place.name)
   // var components = getAddressComponents(place);
 
   // $('#proposal_place').trigger('blur').val(components.address);
