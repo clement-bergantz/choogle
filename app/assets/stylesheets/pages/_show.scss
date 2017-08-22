@@ -7,9 +7,11 @@
 }
 
 #map {
-  flex: 0 0 450px;
+  flex-shrink: 0;
+  width: 30%;
   height: 100vh;
   position: sticky !important;
   top: 0 !important;
+  margin: 20px;
 }
 
