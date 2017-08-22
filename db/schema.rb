@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822055929) do
+ActiveRecord::Schema.define(version: 20170822092637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,10 @@ ActiveRecord::Schema.define(version: 20170822055929) do
     t.string   "title"
     t.datetime "due_at"
     t.datetime "happens_at"
-    t.integer  "user_id"
-    t.integer  "comment_id"
     t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["comment_id"], name: "index_choogles_on_comment_id", using: :btree
+    t.integer  "user_id"
     t.index ["user_id"], name: "index_choogles_on_user_id", using: :btree
   end
 
@@ -33,6 +31,8 @@ ActiveRecord::Schema.define(version: 20170822055929) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "choogle_id"
+    t.index ["choogle_id"], name: "index_comments_on_choogle_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20170822055929) do
     t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "proposal_tags", force: :cascade do |t|
@@ -112,8 +114,8 @@ ActiveRecord::Schema.define(version: 20170822055929) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "choogles", "comments"
   add_foreign_key "choogles", "users"
+  add_foreign_key "comments", "choogles"
   add_foreign_key "comments", "users"
   add_foreign_key "notifications", "choogles"
   add_foreign_key "notifications", "users"
