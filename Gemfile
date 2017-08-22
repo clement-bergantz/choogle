@@ -22,6 +22,8 @@ gem 'uglifier'
 gem 'faker'
 gem 'geocoder'
 gem 'google_places'
+gem 'simple_form_autocomplete'
+
 
 # Gemfile
 gem "coffee-rails"
