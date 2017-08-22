@@ -19,6 +19,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'faker'
+gem 'geocoder'
 
 group :development, :test do
   gem 'pry-byebug'
