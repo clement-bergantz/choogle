@@ -1,4 +1,4 @@
-<%= simple_form_for @choogle do |f| %>
+<%= simple_form_for(@choogle) do |f| %>
   <%= f.error_notification %>
   <%= f.input :title, label: "Give a title for your Choogle" %>
   <%= f.input :happens_at, as: :text, label: "happens_at", input_html: { class: 'flatpickr-input' } %>

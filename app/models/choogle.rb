@@ -1,6 +1,6 @@
 class Choogle < ApplicationRecord
   belongs_to :user
-  belongs_to :comment
+  has_many :comments
   has_many :proposals
   has_many :notifications
   validates :slug, presence: true

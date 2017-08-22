@@ -2,17 +2,15 @@ class ChooglesController < ApplicationController
   def show
   end
 
-
-
   def new
     @choogle = Choogle.new
   end
 
   def create
-    raise
     @user = current_user
-    @choogle = @user.choogle.new(choogle_params)
+    @choogle = @user.choogles.new(choogle_params)
     @choogle.slug = Faker::Number.number(10)
+         raise
     if @choogle.save
       redirect_to choogle_proposals_path(@choogle)
     else
