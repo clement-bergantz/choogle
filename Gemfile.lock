@@ -87,7 +87,11 @@ GEM
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
+    google_places (0.34.2)
+      httparty (>= 0.13.1, < 0.14.1)
     hashie (3.5.6)
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     i18n (0.8.6)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -238,6 +242,7 @@ DEPENDENCIES
   font-awesome-sass
   geocoder
   gmaps4rails
+  google_places
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
