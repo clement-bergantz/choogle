@@ -6,7 +6,7 @@
       <h1><%= @choogle.title %></h1>
       <p>Event date : <%= @choogle.happens_at %></p>
       <p>Due date : <%= @choogle.due_at %></p>
-      
+
       <!-- Timer -->
       <p>Time left : </p>
       <div id="timer" data-timer="<%= (@choogle.due_at) %>">
@@ -25,7 +25,9 @@
         </div>
         <div class='proposal-body'>
           <h3><%= proposal.place.name %></h3>
-          <p> #Tags to come ... </p>
+          <% unless proposal.proposal_tags.empty?%>
+            <span class="label label-success" style="background-color: <%= proposal.proposal_tags[0].tag.color %>"> <%= proposal.proposal_tags[0].tag.name %> </span>
+          <% end %>
         </div>
         <ul class="list-inline proposal-controls hidden-sm hidden-xs">
           <li><a href=""><i class="fa fa-heart"></i></a></li>
