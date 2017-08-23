@@ -36,19 +36,11 @@
     <% end %>
 
     <!-- Emply Proposal add a new one -->
-    <%= link_to "#" do %>
-      <div class="proposal ">
+      <div class="proposal" data-toggle="modal" data-target="#myModal">
         <div class='proposal-body'>
           <h3>SUGGEST A NEW PLACE TO GO</h3>
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-            Launch demo modal
-          </button>
         </div>
       </div>
-    <% end %>
-
-
-
   </div>
 
   <div class="map-container hidden-xs">
