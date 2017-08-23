@@ -13,6 +13,11 @@ class Choogle < ApplicationRecord
 
   validate :happens_at_cannot_be_in_the_past, :due_at_must_be_before_happens_at
 
+  # slug in the params
+  def to_param
+    slug
+  end
+
   def happens_at_cannot_be_in_the_past
     if happens_at.present? && happens_at < Date.today
       errors.add(:happens_at, "You cannot create a Choogle in the past!")

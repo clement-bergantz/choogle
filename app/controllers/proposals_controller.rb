@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
 
   def new
-    @choogle = Choogle.find(params[:choogle_id])
+    @choogle = Choogle.find_by_slug(params[:choogle_id])
     @proposal = Proposal.new
     @proposals = Proposal.all.last(3)
   end
@@ -26,9 +26,11 @@ class ProposalsController < ApplicationController
     @proposal.place = @place
     @proposal.user = current_user
     @proposal.choogle = Choogle.find(params[:choogle_id])
+    # @poposal.choogle = Choogle.find_by_slug(params[:choogle_id]) ?
     @proposal.save
 
     redirect_to choogle_path(params[:choogle_id])
+    # redirect_to choogle_path(params[:slug]) ?
   end
 
   private
