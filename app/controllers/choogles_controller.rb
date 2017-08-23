@@ -2,7 +2,6 @@ class ChooglesController < ApplicationController
 
 
   def show
-    @upvote = Upvote.new
     # we find the choogle by its slug
     @choogle = Choogle.find_by_slug(params[:slug])
 

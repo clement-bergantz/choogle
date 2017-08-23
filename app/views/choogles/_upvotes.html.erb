@@ -1,3 +1,5 @@
 <%= simple_form_for([ proposal, upvote ]) do |form| %>
   <%= form.button :submit %>
 <% end %>
+
+<%= link_to "Upvote", booking_path(@booking), method: :post =>

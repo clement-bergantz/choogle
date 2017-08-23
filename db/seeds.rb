@@ -87,10 +87,19 @@ end
 
 puts "Upvotes creation"
 
-1.upto(200) do |n|
+1.upto(150) do |n|
+
+  upvotes = [Proposal.all.sample.id, User.all.sample.id]
+  # To match the validation (uniqueness of user and proposal) before creating
+  # an upvotes we check if .where return something, if not the values are good
+  # if true new values are genereate and finally an upvote can be created.
+  while Upvote.where(proposal_id: upvotes[0], user_id: upvotes[1]).size != 0
+    upvotes = [Proposal.all.sample.id, User.all.sample.id]
+  end
+
     Upvote.create!(
-      proposal_id: Proposal.all.sample.id,
-      user_id: User.all.sample.id,
+      proposal_id: upvotes[0],
+      user_id: upvotes[1],
     )
 end
 
