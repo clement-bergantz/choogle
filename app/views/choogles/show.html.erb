@@ -20,10 +20,10 @@
       <div class="proposal">
       <!-- Link to upvote method with choogle and proposal in the route
            in this upvotes div for arrow and counter -->
-        <%= link_to upvote_path(@choogle, proposal), method: :post do %>
+        <%= link_to upvote_path(@choogle, proposal), remote: true, method: :post, class: "upvote" do %>
           <div class='proposal-upvote'>
             <div class="proposal-arrow"></div>
-            <div class='proposal-count'><%= proposal.upvotes %></div>
+            <div class='proposal-count' id="proposal-<%= proposal.id %>"><%= proposal.upvotes_count %></div>
           </div>
         <% end %>
         <div class='proposal-body'>
