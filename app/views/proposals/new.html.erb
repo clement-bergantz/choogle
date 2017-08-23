@@ -3,17 +3,6 @@
   <%= render 'form' %>
 </div>
 
-<div class="container text-center">
-  <h2>THIS DIV IS JUST FOR CHECKING PROPOSALS INSTANCES</h2>
-  <h2>DELETE ME WHEN PUSHING TO PROD PLEASE</h2>
-  <ul>
-    <% @proposals.each do |proposal| %>
-    <li> <%= "#{proposal.place.name}: located at #{proposal.place.address} || Tags: #{proposal.proposal_tags[0].nil? ? "no tag yet" : proposal.proposal_tags[0].tag.name}"%> </li>
-    <% end %>
-  </ul>
-  </div>
-
-
 <%= content_for(:after_js) do %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDUTmt0lPVV6UQEaPaFzlEV3yxfO43cxnI"></script>
 <% end %>
