@@ -55,6 +55,11 @@ end
 
 puts "Places creation"
 
+# Method to fill api_google_id of places table from google API
+# Authenticate with google api key
+# Query info from address and keep the first result
+# Take .place_id method from google to fill our DB
+
 def google_id(address)
   @client = GooglePlaces::Client.new(ENV['GOOGLE_API_SERVER_KEY'])
   place_info = @client.spots_by_query(address)[0]
