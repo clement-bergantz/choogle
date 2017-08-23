@@ -1,5 +1,6 @@
 class ProposalsController < ApplicationController
     skip_before_action :authenticate_user!, only: [:new, :create]
+    skip_before_filter :verify_authenticity_token, :only => [:new, :create]
 
   def new
     @choogle = Choogle.find(params[:choogle_id])
