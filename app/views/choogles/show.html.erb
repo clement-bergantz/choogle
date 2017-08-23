@@ -2,8 +2,8 @@
 <div class="main-container">
 
   <div class="choogle-container">
+    
     <div class="choogle-infos">
-
       <div class="choggle-infos-event">
         <h1><%= @choogle.title %></h1>
         <p>Event date : <%= @choogle.happens_at %></p>
@@ -18,29 +18,12 @@
       
       <div class="choogle-infos-invite">
         <div class="invite-link">
-
           <div class="input-group">
-
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
             <input id='link' type="text" class="form-control" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
-
             <span class="input-group-btn">
               <button class="btn btn-primary" type="button" onclick="copyToClipboard('#link')">Copy link</button>
             </span>
-
-            <script>
-              function copyToClipboard(element) {
-                var $temp = $("<input>");
-                $("body").append($temp);
-                $temp.val($(element).attr('placeholder')).select();
-                document.execCommand("copy");
-                $temp.remove();
-              }
-            </script>
-          
           </div>
-
         </div>
       </div>
 
@@ -82,3 +65,15 @@
   </div>
   <%= render "shared/map" %>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+  function copyToClipboard(element) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(element).attr('placeholder')).select();
+    document.execCommand("copy");
+    $temp.remove();
+  }
+</script>
