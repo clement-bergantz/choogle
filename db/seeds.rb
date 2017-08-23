@@ -39,7 +39,7 @@ puts "Choogles creation"
       title: Faker::Superhero.name,
       due_at: "Mon, #{rand(1..15)} Oct 2017 21:20:44 UTC +00:00",
       happens_at: "Mon, #{rand(16..31)} Oct 2017 21:20:44 UTC +00:00",
-      user_id: User.all.sample.id,
+      user: User.all.sample,
     )
 end
 
@@ -48,8 +48,8 @@ puts "Comments creation"
 1.upto(50) do |n|
     Comment.create!(
       content: Faker::Lorem.sentence,
-      user_id: User.all.sample.id,
-      choogle_id: Choogle.all.sample.id,
+      user: User.all.sample,
+      choogle: Choogle.all.sample,
     )
 end
 
@@ -79,9 +79,9 @@ puts "Proposals creation"
 
 1.upto(120) do |n|
     Proposal.create!(
-      choogle_id: Choogle.all.sample.id,
-      place_id: Place.all.sample.id,
-      user_id: User.all.sample.id,
+      choogle: Choogle.all.sample,
+      place: Place.all.sample,
+      user: User.all.sample,
     )
 end
 
@@ -89,17 +89,17 @@ puts "Upvotes creation"
 
 1.upto(150) do |n|
 
-  upvotes = [Proposal.all.sample.id, User.all.sample.id]
+  upvotes = [Proposal.all.sample, User.all.sample]
   # To match the validation (uniqueness of user and proposal) before creating
   # an upvotes we check if .where return something, if not the values are good
   # if true new values are genereate and finally an upvote can be created.
-  while Upvote.where(proposal_id: upvotes[0], user_id: upvotes[1]).size != 0
-    upvotes = [Proposal.all.sample.id, User.all.sample.id]
+  while Upvote.where(proposal: upvotes[0], user: upvotes[1]).size != 0
+    upvotes = [Proposal.all.sample, User.all.sample]
   end
 
     Upvote.create!(
-      proposal_id: upvotes[0],
-      user_id: upvotes[1],
+      proposal: upvotes[0],
+      user: upvotes[1],
     )
 end
 
@@ -107,8 +107,8 @@ puts "Notifications creation"
 
 1.upto(50) do |n|
     Notification.create!(
-      choogle_id: Choogle.all.sample.id,
-      user_id: User.all.sample.id,
+      choogle: Choogle.all.sample,
+      user: User.all.sample,
     )
 end
 
@@ -125,8 +125,8 @@ puts "Proposal_Tags creation"
 
 1.upto(60) do |n|
     ProposalTag.create!(
-      proposal_id: Proposal.all.sample.id,
-      tag_id: Tag.all.sample.id,
+      proposal: Proposal.all.sample,
+      tag: Tag.all.sample,
     )
 end
 
