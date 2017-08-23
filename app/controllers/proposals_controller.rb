@@ -6,12 +6,12 @@ class ProposalsController < ApplicationController
     # we search the choogle by its slug
     @choogle = Choogle.find_by_slug(params[:choogle_id])
     @proposal = Proposal.new
+
     @proposal.proposal_tags.build
 
     # This line is just for testing in the view
     @proposals = Proposal.all.last(3)
     @user = current_or_guest_user
-
   end
 
   def create

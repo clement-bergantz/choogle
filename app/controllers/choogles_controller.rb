@@ -11,6 +11,8 @@ class ChooglesController < ApplicationController
     @hash = Gmaps4rails.build_markers(places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
+
+    @proposal = Proposal.new
       # // uncomment to add a specific marker
       # marker.picture({
       #   "url" => view_context.image_path("marker.png"),
