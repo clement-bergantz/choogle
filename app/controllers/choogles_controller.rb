@@ -11,11 +11,13 @@ class ChooglesController < ApplicationController
     @hash = Gmaps4rails.build_markers(places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
-      marker.picture({
-        "url" => view_context.image_path('rocket_pointer.png'),
-        "width" => 64,
-        "height" => 64
-      })
+      # // uncomment to add a specific marker
+      # marker.picture({
+      #   "url" => view_context.image_path("marker.png"),
+      #   "width" => 64,
+      #   "height" =>64
+      # })
+
       # marker.infowindow render_to_string(partial: "/places/map_box", locals: { place: place })
     end
     # @place = Place.find(params[:id])
