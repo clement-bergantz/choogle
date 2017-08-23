@@ -43,3 +43,10 @@
 .date-form form {
   padding: 30px;
 }
+
+#newChoogleModal .modal-body {
+  background-color: orange;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
