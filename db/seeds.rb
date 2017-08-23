@@ -114,7 +114,7 @@ end
 
 puts "Tags creation"
 
-1.upto(30) do |n|
+1.upto(100) do |n|
     Tag.create!(
       name: Faker::Lorem.word + Faker::Number.number(2),
       color: Faker::Color.hex_color,

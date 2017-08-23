@@ -7,8 +7,9 @@ class UpvotesController < ApplicationController
     if @upvote.save
       redirect_to choogle_path(@choogle)
     else
-      # ici l'erreur si le user a déjà voté ?
-      render "choogles/new"
+      # Flash message to alert user if he already vote
+      flash[:upvote] = 'You already votes for this proposal !'
+      redirect_to choogle_path(@choogle)
     end
   end
 
