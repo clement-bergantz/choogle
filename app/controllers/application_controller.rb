@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       if session[:guest_user_id] && session[:guest_user_id] != current_user.id
         logging_in
         # reload guest_user to prevent caching problems before destruction
-        guest_user(with_retry = false).try(:reload).try(:destroy)
+        # guest_user(with_retry = false).try(:reload).try(:destroy)
         session[:guest_user_id] = nil
       end
       current_user
