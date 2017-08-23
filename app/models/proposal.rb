@@ -10,7 +10,7 @@ class Proposal < ApplicationRecord
 
 # Method to count upvotes for a Proposal Instance
 
-  def upvotes
-    Upvote.where(proposal: self).size
+  def upvotes_count
+    upvotes.size
   end
 end

@@ -3,16 +3,18 @@ Rails.application.routes.draw do
   	controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
 
-
   resources :choogles, only: [:new, :create], shallow: true do
-  	resources :proposals, only: [:new, :create] do
+  	resources :proposals, only: [:new, :create], shallow: true do
       resources :proposal_tags, only: [:new, :create]
     end
-  	resources :notifications, only: [:new, :create]
+    resources :notifications, only: [:new, :create]
   end
 
   # we create a custom get route based on the slug
   get "/:slug" => "choogles#show", as: :choogle
 
+  # this routes use the slug for security reasons,
+  # because if not anyone could vote for any proposals with the id of it.
+  post "/:slug/proposals/:id/upvotes" => "upvotes#create", as: :upvote
 end
 

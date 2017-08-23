@@ -14,16 +14,19 @@
       </div>
 
       <!-- Liens with slug -->
-
     </div>
 
     <!-- All Proposals -->
     <% @choogle.proposals.each do |proposal| %>
       <div class="proposal">
-        <div class='proposal-upvote'>
-          <div class="proposal-arrow"></div>
-          <div class='proposal-count'><%= proposal.upvotes %></div>
-        </div>
+      <!-- Link to upvote method with choogle and proposal in the route
+           in this upvotes div for arrow and counter -->
+        <%= link_to upvote_path(@choogle, proposal), remote: true, method: :post, class: "upvote" do %>
+          <div class='proposal-upvote'>
+            <div class="proposal-arrow"></div>
+            <div class='proposal-count' id="proposal-<%= proposal.id %>"><%= proposal.upvotes_count %></div>
+          </div>
+        <% end %>
         <div class='proposal-body'>
           <h3><%= proposal.place.name %></h3>
           <!-- Implement 'display of all tags' after implementing the option to append many tags-->
