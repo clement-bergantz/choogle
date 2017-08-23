@@ -20,10 +20,8 @@
   </div>
 </div>
 
-
-
 <!-- New Proposal Modal -->
-<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal hide fade" id="newProposalModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -36,11 +34,9 @@
   </div>
 </div>
 
-
-
-
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
+  <!-- Display new choogle form when page is loaded -->
       $(window).on('load',function(){
         $('#newChoogleModal').modal('show');
     });
