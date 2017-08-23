@@ -20,10 +20,25 @@
         <div class="invite-link">
 
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
+
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+            <input id='link' type="text" class="form-control" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
+
             <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">Copy link</button>
+              <button class="btn btn-primary" type="button" onclick="copyToClipboard('#link')">Copy link</button>
             </span>
+
+            <script>
+              function copyToClipboard(element) {
+                var $temp = $("<input>");
+                $("body").append($temp);
+                $temp.val($(element).attr('placeholder')).select();
+                document.execCommand("copy");
+                $temp.remove();
+              }
+            </script>
+          
           </div>
 
         </div>
