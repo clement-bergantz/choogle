@@ -1,6 +1,7 @@
 class ProposalsController < ApplicationController
 
   def new
+    # we search the choogle by its slug
     @choogle = Choogle.find_by_slug(params[:choogle_id])
     @proposal = Proposal.new
     @proposal.proposal_tags.build
@@ -29,8 +30,8 @@ class ProposalsController < ApplicationController
     end
     @proposal.place = @place
     @proposal.user = current_user
-    @proposal.choogle = Choogle.find(params[:choogle_id])
-    # @poposal.choogle = Choogle.find_by_slug(params[:choogle_id]) ?
+    # we search the choogle by its slug
+    @proposal.choogle = Choogle.find_by_slug(params[:choogle_id])
     @proposal.save
     # [TAGS]
     # Check if tag already exists
