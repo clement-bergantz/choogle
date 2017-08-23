@@ -29,7 +29,7 @@ class ProposalsController < ApplicationController
       @place = Place.find_by(api_google_id: place_info.place_id)
     end
     @proposal.place = @place
-    @proposal.user = current_user
+    @proposal.user = current_or_guest_user
     @proposal.choogle = Choogle.find(params[:choogle_id])
     @proposal.save
     # [TAGS]
