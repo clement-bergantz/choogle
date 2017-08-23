@@ -8,6 +8,7 @@
   <div class="choogle-container">
     
     <div class="choogle-infos">
+
       <div class="choggle-infos-event">
         <h1><%= @choogle.title %></h1>
         <p>Event date : <%= @choogle.happens_at %></p>
@@ -34,15 +35,25 @@
 
     </div>
 
+    <!-- All Proposals -->
     <% @choogle.proposals.each do |proposal| %>
       <div class="proposal">
-        <div class='proposal-upvote'>
-          <div class="proposal-arrow"></div>
-          <div class='proposal-count'><%= proposal.upvotes %></div>
-        </div>
+      <!-- Link to upvote method with choogle and proposal in the route
+           in this upvotes div for arrow and counter -->
+        <%= link_to upvote_path(@choogle, proposal), remote: true, method: :post, class: "upvote" do %>
+          <div class='proposal-upvote'>
+            <div class="proposal-arrow"></div>
+            <div class='proposal-count' id="proposal-<%= proposal.id %>"><%= proposal.upvotes_count %></div>
+          </div>
+        <% end %>
         <div class='proposal-body'>
           <h3><%= proposal.place.name %></h3>
-          <p> #Tags to come ... </p>
+          <!-- Implement 'display of all tags' after implementing the option to append many tags-->
+          <% if proposal.proposal_tags.any? %>
+            <% proposal.proposal_tags.each do |proposaltag| %>
+            <h5 class="tags" style="background-color: <%= proposaltag.tag.color %>"><%= proposaltag.tag.name %></h5>
+            <% end %>
+          <% end %>
         </div>
         <ul class="list-inline proposal-controls hidden-sm hidden-xs">
           <li><a href=""><i class="fa fa-heart"></i></a></li>
@@ -53,9 +64,9 @@
     <% end %>
 
     <!-- Emply Proposal add a new one -->
-    <%= link_to new_choogle_proposal_path(@choogle) do %>
-      <div class="proposal ">
-        <div class='proposal-body'>
+    <%= link_to new_choogle_proposal_path(@choogle), id: "link-add" do %>
+      <div class="proposal-empty">
+        <div class='proposal-empty-body'>
           <h3>SUGGEST A NEW PLACE TO GO</h3>
         </div>
       </div>
