@@ -5,9 +5,9 @@ class ChooglesController < ApplicationController
     # we find the choogle by its slug
     @choogle = Choogle.find_by_slug(params[:slug])
 
-    @places = @choogle.places
+    places = @choogle.places
 
-    @hash = Gmaps4rails.build_markers(@places) do |place, marker|
+    @hash = Gmaps4rails.build_markers(places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
       marker.picture({

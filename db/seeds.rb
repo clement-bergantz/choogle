@@ -6,22 +6,13 @@ Notification.destroy_all
 Upvote.destroy_all
 Proposal.destroy_all
 Place.destroy_all
-Choogle.destroy_all
 Comment.destroy_all
+Choogle.destroy_all
 User.destroy_all
 
 
 puts "Let's generate a lot of useless things..."
 puts "Ok well... Choogle's team users creation"
-
-# 1.upto(20) do |n|
-#     User.create!(
-#       # first_name: Faker::Name.first_name,
-#       # last_name: Faker::Name.last_name,
-#       email: Faker::Internet.email,
-#       password: '123456',
-#     )
-# end
 
 User.create!(
   email: 'lea@gmail.com',
@@ -42,9 +33,9 @@ User.create!(
 
 puts "Choogles creation"
 
-1.upto(35) do |n|
+1.upto(30) do |n|
     Choogle.create!(
-      slug: Faker::Number.number(10),
+      slug: SecureRandom.urlsafe_base64(5),
       title: Faker::Superhero.name,
       due_at: "Mon, #{rand(1..15)} Oct 2017 21:20:44 UTC +00:00",
       happens_at: "Mon, #{rand(16..31)} Oct 2017 21:20:44 UTC +00:00",
@@ -64,16 +55,24 @@ end
 
 puts "Places creation"
 
-1.upto(60) do |n|
+def google_id(address)
+  @client = GooglePlaces::Client.new(ENV['GOOGLE_API_SERVER_KEY'])
+  place_info = @client.spots_by_query(address)[0]
+  place_info.nil? ? "not find" : place_info.place_id
+end
+
+1.upto(20) do |n|
+  country = Faker::Address.country
     Place.create!(
-      address: Faker::Address.country,
+      address: country,
       name: Faker::Company.name,
+      api_google_id: google_id(country),
     )
 end
 
 puts "Proposals creation"
 
-1.upto(140) do |n|
+1.upto(120) do |n|
     Proposal.create!(
       choogle_id: Choogle.all.sample.id,
       place_id: Place.all.sample.id,

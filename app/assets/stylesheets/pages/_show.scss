@@ -7,6 +7,11 @@
 }
 
 #map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-container {
   flex-shrink: 0;
   width: 30%;
   height: 100vh;
@@ -15,3 +20,11 @@
   margin: 20px;
 }
 
+@media (max-width: 768px) {
+  .choogle-container {
+    width: 100%;
+  }
+  .proposal {
+    margin-right: 20px;
+  }
+}

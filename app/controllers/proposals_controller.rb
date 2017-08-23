@@ -3,7 +3,11 @@ class ProposalsController < ApplicationController
   def new
     @choogle = Choogle.find_by_slug(params[:choogle_id])
     @proposal = Proposal.new
+    @proposal.proposal_tags.build
+
+    # This line is just for testing in the view
     @proposals = Proposal.all.last(3)
+
   end
 
   def create
@@ -28,6 +32,17 @@ class ProposalsController < ApplicationController
     @proposal.choogle = Choogle.find(params[:choogle_id])
     # @poposal.choogle = Choogle.find_by_slug(params[:choogle_id]) ?
     @proposal.save
+    # [TAGS]
+    # Check if tag already exists
+    if Tag.find_by(name: params[:proposal][:proposal_tags]["tags"]).nil?
+      # If it doesn't, we create this tag with random color
+      @tag = Tag.new(name: params[:proposal][:proposal_tags]["tags"], color: Faker::Color.hex_color)
+      @tag.save
+    else
+      @tag = Tag.find_by(name: params[:proposal][:proposal_tags]["tags"])
+    end
+    @proposal_tags = ProposalTag.new(tag: @tag, proposal: @proposal)
+    @proposal_tags.save
 
     redirect_to choogle_path(params[:choogle_id])
     # redirect_to choogle_path(params[:slug]) ?
@@ -37,5 +52,13 @@ class ProposalsController < ApplicationController
 
   def proposal_params
     params.require(:proposal).permit(:place)
+  end
+
+  def proposal_tags_params
+    params.require(:proposal_tags).permit(:tags)
+  end
+
+  def tag_params
+    params.require(:tag).permit(:name)
   end
 end
