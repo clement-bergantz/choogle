@@ -24,6 +24,7 @@ class ChooglesController < ApplicationController
 
   def new
     @choogle = Choogle.new
+    @proposal = Proposal.new
   end
 
   def create

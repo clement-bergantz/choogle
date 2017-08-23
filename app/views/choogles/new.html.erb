@@ -1,14 +1,50 @@
-<div class="wrapper">
-  <div class="container">
-    <div class="setup1-windows">
-      <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-          <div class="wrapper-form">
-          <h1>Create your <u>Choogle !</u></h1>
-            <%= render "choogles/form"  %>
+<!-- New Choogle Modal -->
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+    <div class="wrapper">
+      <div class="container">
+        <div class="setup1-windows">
+          <div class="modal fade" id="newChoogleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-body">
+            <h1>Create your <u>Choogle!</u></h1>
+                <%= render "choogles/form" %>
+            </div>
+            </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+<!-- New Proposal Modal -->
+<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <%= render "shared/first_proposal_form" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+      $(window).on('load',function(){
+        $('#newChoogleModal').modal('show');
+    });
+  <% end %>
+<% end %>
+<!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDUTmt0lPVV6UQEaPaFzlEV3yxfO43cxnI"></script>
