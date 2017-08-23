@@ -26,7 +26,7 @@
         <div class='proposal-body'>
           <h3><%= proposal.place.name %></h3>
           <% unless proposal.proposal_tags.empty?%>
-            <span class="label label-success"> <%= proposal.proposal_tags[0].tag.name %> </span>
+            <span class="label label-success" style="background-color: <%= proposal.proposal_tags[0].tag.color %>"> <%= proposal.proposal_tags[0].tag.name %> </span>
           <% end %>
         </div>
         <ul class="list-inline proposal-controls hidden-sm hidden-xs">
