@@ -6,7 +6,7 @@
       <h1><%= @choogle.title %></h1>
       <p>Event date : <%= @choogle.happens_at %></p>
       <p>Due date : <%= @choogle.due_at %></p>
-      
+
       <!-- Timer -->
       <p>Time left : </p>
       <div id="timer" data-timer="<%= (@choogle.due_at) %>">
@@ -36,9 +36,9 @@
     <% end %>
 
     <!-- Emply Proposal add a new one -->
-    <%= link_to new_choogle_proposal_path(@choogle) do %>
-      <div class="proposal ">
-        <div class='proposal-body'>
+    <%= link_to new_choogle_proposal_path(@choogle), id: "link-add" do %>
+      <div class="proposal-empty">
+        <div class='proposal-empty-body'>
           <h3>SUGGEST A NEW PLACE TO GO</h3>
         </div>
       </div>
