@@ -1,4 +1,5 @@
 class ChooglesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :new, :create]
 
   def show
     @choogle = Choogle.find(params[:id])
