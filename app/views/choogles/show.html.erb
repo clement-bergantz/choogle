@@ -17,6 +17,7 @@
 
     </div>
 
+    <!-- All Proposals -->
     <% @choogle.proposals.each do |proposal| %>
       <div class="proposal">
         <div class='proposal-upvote'>
@@ -25,7 +26,12 @@
         </div>
         <div class='proposal-body'>
           <h3><%= proposal.place.name %></h3>
-          <p> #Tags to come ... </p>
+          <!-- Implement 'display of all tags' after implementing the option to append many tags-->
+          <% if proposal.proposal_tags.any? %>
+            <% proposal.proposal_tags.each do |proposaltag| %>
+            <h5 class="tags" style="background-color: <%= proposaltag.tag.color %>"><%= proposaltag.tag.name %></h5>
+            <% end %>
+          <% end %>
         </div>
         <ul class="list-inline proposal-controls hidden-sm hidden-xs">
           <li><a href=""><i class="fa fa-heart"></i></a></li>
@@ -43,8 +49,6 @@
         </div>
       </div>
     <% end %>
-
-
 
   </div>
 
