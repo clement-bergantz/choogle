@@ -3,11 +3,6 @@ class ProposalsController < ApplicationController
   def new
     @choogle = Choogle.find(params[:choogle_id])
     @proposal = Proposal.new
-    @proposal.proposal_tags.build
-
-    # This line is just for testing in the view
-    @proposals = Proposal.all.last(3)
-
   end
 
   def create

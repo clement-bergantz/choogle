@@ -13,6 +13,8 @@ class ChooglesController < ApplicationController
         "width" => 64,
         "height" => 64
       })
+
+    @proposal = Proposal.new
       # marker.infowindow render_to_string(partial: "/places/map_box", locals: { place: place })
     end
     # @place = Place.find(params[:id])
@@ -27,7 +29,7 @@ class ChooglesController < ApplicationController
   def create
     @user = current_user
     @choogle = @user.choogles.new(choogle_params)
-    
+
     # we generate a random slug
     slug = SecureRandom.urlsafe_base64(5)
     # we check if the slug is not already persisted in the DB
@@ -35,7 +37,7 @@ class ChooglesController < ApplicationController
       # when a similar slug is find (true), a new slug is generated
       slug = SecureRandom.urlsafe_base64(5)
     end
-    
+
     # our choogle slug is now our previously generated slug
     @choogle.slug = slug
 
