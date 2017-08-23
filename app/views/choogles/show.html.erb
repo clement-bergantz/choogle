@@ -1,3 +1,6 @@
+<div class="alert alert-info alert-dismissible hide" id="clipboard-notice">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
 
 <div class="main-container">
 
@@ -18,10 +21,11 @@
       
       <div class="choogle-infos-invite">
         <div class="invite-link">
+          <p>Invit your friends with this link</p>
           <div class="input-group">
             <input id='link' type="text" class="form-control" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
             <span class="input-group-btn">
-              <button class="btn btn-primary" type="button" onclick="copyToClipboard('#link')">Copy link</button>
+              <button class="btn btn-primary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
             </span>
           </div>
         </div>
@@ -56,8 +60,6 @@
       </div>
     <% end %>
 
-
-
   </div>
 
   <div class="map-container hidden-xs">
@@ -75,5 +77,9 @@
     $temp.val($(element).attr('placeholder')).select();
     document.execCommand("copy");
     $temp.remove();
+  }
+  function clipboardNotice() {
+    // remove class hide
+    $('#clipboard-notice').removeClass('hide');
   }
 </script>
