@@ -1,20 +1,25 @@
 class ChooglesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :new, :create]
+
 
   def show
-    @choogle = Choogle.find(params[:id])
+    # we find the choogle by its slug
+    @choogle = Choogle.find_by_slug(params[:slug])
 
     places = @choogle.places
 
     @hash = Gmaps4rails.build_markers(places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
-      marker.picture({
-        "url" => view_context.image_path('rocket_pointer.png'),
-        "width" => 64,
-        "height" => 64
-      })
 
     @proposal = Proposal.new
+      # // uncomment to add a specific marker
+      # marker.picture({
+      #   "url" => view_context.image_path("marker.png"),
+      #   "width" => 64,
+      #   "height" =>64
+      # })
+
       # marker.infowindow render_to_string(partial: "/places/map_box", locals: { place: place })
     end
     # @place = Place.find(params[:id])
@@ -27,7 +32,7 @@ class ChooglesController < ApplicationController
   end
 
   def create
-    @user = current_user
+    @user = current_or_guest_user
     @choogle = @user.choogles.new(choogle_params)
 
     # we generate a random slug
