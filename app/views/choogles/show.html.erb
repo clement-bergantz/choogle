@@ -14,9 +14,7 @@
         <p>Event date : <%= @choogle.happens_at %></p>
       </div>
 
-<<<<<<< HEAD
       <!-- Link with slug -->
-=======
       <div class="choogle-infos-timer">
         <p>The most upvoted place is elected in : </p>
         <div id="timer" data-timer="<%= (@choogle.due_at) %>">
@@ -35,7 +33,6 @@
           </div>
         </div>
       </div>
->>>>>>> master
 
     </div>
 
@@ -45,7 +42,7 @@
         <div class="proposal-wrapper">
          <!-- Link to upvote method with choogle and proposal in the route
            in this upvotes div for arrow and counter -->
-        <%= link_to upvote_path(@choogle, proposal), remote: true, method: :post, class: "upvote" do %>          
+        <%= link_to upvote_path(@choogle, proposal), remote: true, method: :post, class: "upvote" do %>
           <div class='proposal-upvote'>
             <div class="proposal-arrow"></div>
             <div class='proposal-count' id="proposal-<%= proposal.id %>"><%= proposal.upvotes_count %></div>

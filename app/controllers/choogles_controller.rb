@@ -11,10 +11,6 @@ class ChooglesController < ApplicationController
     @hash = Gmaps4rails.build_markers(places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
-
-<<<<<<< HEAD
-=======
-    @proposal = Proposal.new
       # // uncomment to add a specific marker
       # marker.picture({
       #   "url" => view_context.image_path("marker.png"),
@@ -22,10 +18,10 @@ class ChooglesController < ApplicationController
       #   "height" =>64
       # })
 
->>>>>>> master
       # marker.infowindow render_to_string(partial: "/places/map_box", locals: { place: place })
     end
     @proposal = Proposal.new
+    @user = current_or_guest_user
     # @place = Place.find(params[:id])
     # @place_coordinates = { lat: @place.latitude, lng: @place.longitude }
 
@@ -38,27 +34,16 @@ class ChooglesController < ApplicationController
   end
 
   def create
-<<<<<<< HEAD
-    @user = current_user
+    @user = current_or_guest_user
     # Check if we are creating a Choogle
     unless params["choogle"].nil?
       # If we are, let's create it!
       @choogle = @user.choogles.new(choogle_params)
       # we generate a random slug
-=======
-    @user = current_or_guest_user
-    @choogle = @user.choogles.new(choogle_params)
-
-    # we generate a random slug
-    slug = SecureRandom.urlsafe_base64(5)
-    # we check if the slug is not already persisted in the DB
-    while Choogle.find_by(slug: slug)
-      # when a similar slug is find (true), a new slug is generated
->>>>>>> master
       slug = SecureRandom.urlsafe_base64(5)
       # we check if the slug is not already persisted in the DB
       while Choogle.find_by(slug: slug)
-        # when a similar slug is find (true), a new slug is generated
+      # when a similar slug is find (true), a new slug is generated
         slug = SecureRandom.urlsafe_base64(5)
       end
       # our choogle slug is now our previously generated slug
@@ -70,6 +55,7 @@ class ChooglesController < ApplicationController
       # Means we are creating the first proposal !
       # We want to retrieve it by looking at our user last proposal.
       @proposal = Proposal.new
+      # [PLACE]
       # Looking in the DB if we already have this place
       @client = GooglePlaces::Client.new(ENV['GOOGLE_API_SERVER_KEY'])
       # We get the Google Places Object matching user entry (e.g.: "La Vie Moderne, Bordeaux")
@@ -85,9 +71,21 @@ class ChooglesController < ApplicationController
       else
         @place = Place.find_by(api_google_id: place_info.place_id)
       end
+      # [TAGS]
+      # Check if tag already exists
+      if Tag.find_by(name: params[:proposal][:proposal_tags]["tags"]).nil?
+        # If it doesn't, we create this tag with random color
+        @tag = Tag.new(name: params[:proposal][:proposal_tags]["tags"], color: Faker::Color.hex_color)
+        @tag.save
+      else
+        @tag = Tag.find_by(name: params[:proposal][:proposal_tags]["tags"])
+      end
+      @proposal_tags = ProposalTag.new(tag: @tag, proposal: @proposal)
+      @proposal_tags.save
       @proposal.place = @place
       @proposal.choogle = @user.choogles.last
       @proposal.user = @user
+      @proposal.proposal_tags << @proposal_tags
       @proposal.save
       redirect_to choogle_path(@proposal.choogle)
     end
