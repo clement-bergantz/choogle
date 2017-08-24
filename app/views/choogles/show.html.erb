@@ -14,6 +14,7 @@
         <p>Event date : <%= @choogle.happens_at %></p>
       </div>
 
+      <!-- Link with slug -->
       <div class="choogle-infos-timer">
         <p>The most upvoted place is elected in : </p>
         <div id="timer" data-timer="<%= (@choogle.due_at) %>">
@@ -41,7 +42,7 @@
         <div class="proposal-wrapper">
          <!-- Link to upvote method with choogle and proposal in the route
            in this upvotes div for arrow and counter -->
-        <%= link_to upvote_path(@choogle, proposal), remote: true, method: :post, class: "upvote" do %>          
+        <%= link_to upvote_path(@choogle, proposal), remote: true, method: :post, class: "upvote" do %>
           <div class='proposal-upvote'>
             <div class="proposal-arrow"></div>
             <div class='proposal-count' id="proposal-<%= proposal.id %>"><%= proposal.upvotes_count %></div>
@@ -80,22 +81,11 @@
 </div>
 
 <!-- New Proposal Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <%= render "shared/proposal_form" %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render "proposals/modal" %>
 
 <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
 <%= content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDUTmt0lPVV6UQEaPaFzlEV3yxfO43cxnI"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
 <% end %>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
