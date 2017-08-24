@@ -1,2 +1,27 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<!-- Banner -->
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/509779/pexels-photo-509779.jpeg');">
+  <div class="banner-content">
+
+    <h1>🎯 Choogle a place to go 🎯</h1>
+    <p>Decision-making tool to choose the best place to go</p>
+
+    <!-- form -->
+    <div class="firstform">
+    <%= simple_form_for @choogle, :html => { :method => :post, :class => "form-inline" } do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :title, name: "choogle", label: false, placeholder: 'Name your event', :input_html => { :size => 40, :maxlength => 40 } %>
+      <%= f.submit "Let's Choogle", name: nil, class: "btn btn-primary" %>
+    <% end %>
+    </div>
+
+  </div>
+</div>
+
+<%= image_tag "Doodle.png", {class: "doodle"}%>
+
+<div class="wrapper">
+  <div class="features">
+
+  </div>
+</div>

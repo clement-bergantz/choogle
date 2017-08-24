@@ -1,1 +1,14 @@
-// Specific CSS for your home-page
+.doodle {
+    position: absolute;
+    display: flex;
+    width: 600px;
+    height: auto;
+    bottom: 74px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 15px 15px 26px 4px rgba(0, 0, 0, 0.2);
+}
+
+.features {
+  height: 500px;
+}
