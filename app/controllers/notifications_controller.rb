@@ -1,9 +1,9 @@
 class NotificationsController < ApplicationController
 	skip_before_action :authenticate_user!, only: [:new, :create]
 
-	def create
+    def create
 	
-		@choogle = Choogle.find_by_slug(params[:slug])
+    @choogle = Choogle.find_by_slug(params[:slug])
 
     @user = current_or_guest_user
 
@@ -25,7 +25,8 @@ class NotificationsController < ApplicationController
     	# redirect en attendant de faire mieux en JS ? sortir de la modale ?
     	redirect_to choogle_path(params[:slug])
     else
-    	render :new
+	# error message
+	raise
     end
     
 	end
