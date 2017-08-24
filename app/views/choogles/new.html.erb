@@ -21,14 +21,22 @@
 </div>
 
 <!-- New Proposal Modal -->
-<div class="modal hide fade" id="newProposalModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <%= render "shared/first_proposal_form" %>
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+    <div class="wrapper">
+      <div class="container">
+        <div class="setup1-windows">
+          <div class="modal fade" id="newProposalModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-body">
+            <h1>Choose a place!</h1>
+                <%= render "shared/first_proposal_form" %>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -39,8 +47,15 @@
   <!-- Display new choogle form when page is loaded -->
       $(window).on('load',function(){
         $('#newChoogleModal').modal('show');
-    });
+      });
+      $(".date-form").on("submit", function(event) {
+        $('#newChoogleModal').hide();
+        $('#newProposalModel').modal('show');
+<!--         return false; // prevent it from being submitted (errors, etc.) -->
+      });
   <% end %>
-<% end %>
-<!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
+  <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDUTmt0lPVV6UQEaPaFzlEV3yxfO43cxnI"></script>
+<% end %>
+
+

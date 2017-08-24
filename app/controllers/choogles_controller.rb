@@ -41,11 +41,9 @@ class ChooglesController < ApplicationController
 
     # our choogle slug is now our previously generated slug
     @choogle.slug = slug
-
+    @proposal = Proposal.new
     if @choogle.save
-      redirect_to new_choogle_proposal_path(@choogle)
-    else
-      render "choogles/new"
+      @proposal.choogle = @choogle
     end
   end
 
@@ -53,6 +51,9 @@ private
 
   def choogle_params
       params.require(:choogle).permit(:title, :due_at, :happens_at)
+  end
+
+  def proposal_params
   end
 
 end

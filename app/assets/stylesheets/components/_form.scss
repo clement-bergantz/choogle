@@ -44,9 +44,16 @@
   padding: 30px;
 }
 
-#newChoogleModal .modal-body {
-  background-color: orange;
+.modal-body {
+  height: 400px;
+  background-color: $orange;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+// This bit of css is used to force the autocomplete window to be "in front of"
+// the modal
+.pac-container {
+    z-index: 1051 !important;
 }
