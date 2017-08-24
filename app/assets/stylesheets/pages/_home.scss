@@ -25,13 +25,8 @@ h6 {
 // Wrapper to explain the functionning of Choogle
 .wrapper-rules {
   background: $red;
-  // background: -webkit-linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
-  // background: linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
-  background: -webkit-linear-gradient(red, yellow); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(red, yellow); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(red, yellow); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(red, yellow); /* Standard syntax (must be last) */
-}
+  background: -webkit-linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
+  background: linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
   padding: 10px;
   color: white;
 }
