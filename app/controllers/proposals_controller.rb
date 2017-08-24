@@ -66,7 +66,13 @@ class ProposalsController < ApplicationController
   def set_create_tags
     unless proposal_params[:tag_ids].nil?
       tag_ids = proposal_params[:tag_ids].reject { |tag_id| tag_id.blank? }
-      tag
+      # raise
+
+      # Tag.create!(
+      #   name: name,
+      #   color: Faker::Color.hex_color,
+      # )
+
 
 
 
