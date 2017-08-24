@@ -1,11 +1,13 @@
 .proposal {
+  transition: all 0.15s ease;
+  padding: 20px 0 0 20px;
+}
+
+.proposal-wrapper {
   display: flex;
   align-items: center;
   padding: 20px;
   border-radius: 3px;
-  transition: all 0.15s ease;
-  margin: 20px;
-  margin-right: 0px;
   background-color: white;
 }
 
@@ -78,7 +80,7 @@
 }
 
 /* Hover effects */
-.proposal:hover {
+.proposal-wrapper:hover {
   background: #FFCAC9;
   cursor: pointer;
 }

@@ -19,25 +19,27 @@
 
     <!-- All Proposals -->
     <% @choogle.proposals.each do |proposal| %>
-      <div class="proposal">
-        <div class='proposal-upvote'>
-          <div class="proposal-arrow"></div>
-          <div class='proposal-count'><%= proposal.upvotes %></div>
-        </div>
-        <div class='proposal-body'>
-          <h3><%= proposal.place.name %></h3>
-          <!-- Implement 'display of all tags' after implementing the option to append many tags-->
-          <% if proposal.proposal_tags.any? %>
-            <% proposal.proposal_tags.each do |proposaltag| %>
-            <h5 class="tags" style="background-color: <%= proposaltag.tag.color %>"><%= proposaltag.tag.name %></h5>
+      <div class="proposal" id="proposal-<%= proposal.id %>">
+        <div class="proposal-wrapper">
+          <div class='proposal-upvote'>
+            <div class="proposal-arrow"></div>
+            <div class='proposal-count'><%= proposal.upvotes %></div>
+          </div>
+          <div class='proposal-body'>
+            <h3><%= proposal.place.name %></h3>
+            <!-- Implement 'display of all tags' after implementing the option to append many tags-->
+            <% if proposal.proposal_tags.any? %>
+              <% proposal.proposal_tags.each do |proposaltag| %>
+              <h5 class="tags" style="background-color: <%= proposaltag.tag.color %>"><%= proposaltag.tag.name %></h5>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
+          <ul class="list-inline proposal-controls hidden-sm hidden-xs">
+            <li><a href=""><i class="fa fa-heart"></i></a></li>
+            <li><a href=""><i class="fa fa-share"></i></a></li>
+            <li><a href=""><i class="fa fa-star"></i></a></li>
+          </ul>
         </div>
-        <ul class="list-inline proposal-controls hidden-sm hidden-xs">
-          <li><a href=""><i class="fa fa-heart"></i></a></li>
-          <li><a href=""><i class="fa fa-share"></i></a></li>
-          <li><a href=""><i class="fa fa-star"></i></a></li>
-        </ul>
       </div>
     <% end %>
 
