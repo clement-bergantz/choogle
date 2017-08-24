@@ -9,8 +9,9 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'simple_form_autocomplete';
-@import "components/_flatpickr.css";
-@import "flatpickr/components/_flatpickr.css";
+@import "flatpickr";
+// Date Picker theme import from gem
+@import "flatpickr/themes/confetti";
 
 // Your CSS partials
 @import "layouts/index";

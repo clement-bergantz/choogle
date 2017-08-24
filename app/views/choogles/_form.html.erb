@@ -1,11 +1,13 @@
+<!-- Need CSS improvment -->
+
 <div class="date-form">
   <%= simple_form_for(@choogle) do |f| %>
     <div class="form-title-element">
-      <%= f.input :title, error: "Your Choogle need a title" , label: "Title of your Choogle", placeholder: "Title of your Choogle" %>
+      <%= f.input :title, error: "Your event need a title" , label: "Title of your event", placeholder: "Title of your Choogle" %>
     </div>
     <div class="date-flex">
       <div>
-        <%= f.input :happens_at, as: :text, label: "Choogle's date", placeholder: "Choogle's date", input_html: { class: 'flatpickr-input form-date-element' } %>
+        <%= f.input :happens_at, as: :text, label: "Event's date", placeholder: "Event's date", input_html: { class: 'flatpickr-input form-date-element' } %>
       </div>
       <div>
         <%= f.input :due_at, as: :text, label: "Closing votes date", placeholder: "Closing votes date", input_html: { class: 'flatpickr-input form-date-element' } %>
@@ -19,6 +21,8 @@
   <% end %>
 </div>
 
+<!-- JS script for Date Picker, the Hash is for options, look at the doc -->
+
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function(){
@@ -27,6 +31,7 @@
           enableTime: true,
           time_24hr: false,
           minuteIncrement: 15,
+          minDate: "today",
         }
       );
     });

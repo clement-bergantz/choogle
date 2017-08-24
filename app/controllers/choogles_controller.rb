@@ -1,19 +1,28 @@
 class ChooglesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :new, :create]
+
 
   def show
-    @choogle = Choogle.find(params[:id])
+    # we find the choogle by its slug
+    @choogle = Choogle.find_by_slug(params[:slug])
 
     places = @choogle.places
 
     @hash = Gmaps4rails.build_markers(places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
-      marker.picture({
-        "url" => view_context.image_path('rocket_pointer.png'),
-        "width" => 64,
-        "height" => 64
-      })
 
+<<<<<<< HEAD
+=======
+    @proposal = Proposal.new
+      # // uncomment to add a specific marker
+      # marker.picture({
+      #   "url" => view_context.image_path("marker.png"),
+      #   "width" => 64,
+      #   "height" =>64
+      # })
+
+>>>>>>> master
       # marker.infowindow render_to_string(partial: "/places/map_box", locals: { place: place })
     end
     @proposal = Proposal.new
@@ -29,12 +38,23 @@ class ChooglesController < ApplicationController
   end
 
   def create
+<<<<<<< HEAD
     @user = current_user
     # Check if we are creating a Choogle
     unless params["choogle"].nil?
       # If we are, let's create it!
       @choogle = @user.choogles.new(choogle_params)
       # we generate a random slug
+=======
+    @user = current_or_guest_user
+    @choogle = @user.choogles.new(choogle_params)
+
+    # we generate a random slug
+    slug = SecureRandom.urlsafe_base64(5)
+    # we check if the slug is not already persisted in the DB
+    while Choogle.find_by(slug: slug)
+      # when a similar slug is find (true), a new slug is generated
+>>>>>>> master
       slug = SecureRandom.urlsafe_base64(5)
       # we check if the slug is not already persisted in the DB
       while Choogle.find_by(slug: slug)
