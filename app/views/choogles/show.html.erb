@@ -74,10 +74,10 @@
     </div>
     <!-- Comments -->
     <div id="chatroom">
-      <ul>
+      <%= render 'comments/form' %>
+      <ul class="media-list">
       <%= render @comments %>
       </ul>
-      <%= render 'comments/form' %>
      </div>
   </div>
 

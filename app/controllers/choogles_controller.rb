@@ -23,7 +23,7 @@ class ChooglesController < ApplicationController
     @proposal = Proposal.new
     @user = current_or_guest_user
     @comment = Comment.new
-    @comments = Comment.where(choogle: @choogle).order('created_at DESC')
+    @comments = Comment.where(choogle: @choogle).order('created_at DESC').first(5)
     # @place = Place.find(params[:id])
     # @place_coordinates = { lat: @place.latitude, lng: @place.longitude }
 

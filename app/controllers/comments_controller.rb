@@ -4,15 +4,25 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.user = current_or_guest_user
+    @user = current_or_guest_user
+    @comment.user = @user
     choogle = Choogle.find_by(slug: params[:slug])
     @comment.choogle = choogle
-    if @comment.save
-      flash[:success] = "Sent!"
-    else
-      flash[:error] = "Something wrong..."
+    respond_to do |format|
+      if @user
+        # @comment = @user.comments.build(comment_params)
+        if @comment.save
+          flash.now[:success] = 'Your comment was successfully posted!'
+        else
+          flash.now[:error] = 'Your comment cannot be saved.'
+        end
+        format.html {redirect_to choogle_path(@choogle)}
+        format.js
+      else
+        format.html {redirect_to choogle_path(@choogle)}
+        format.js {render nothing: true}
+      end
     end
-    redirect_to choogle_path(choogle)
   end
 
   private

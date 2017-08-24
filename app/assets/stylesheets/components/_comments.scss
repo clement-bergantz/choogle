@@ -12,6 +12,10 @@
       height: 35px;
       width: 35px;
       border-radius: 50%;
+  };
+  #comments {
+    max-height: 500px;
+    overflow: auto;
   }
 }
 .proposal-empty h3 {
