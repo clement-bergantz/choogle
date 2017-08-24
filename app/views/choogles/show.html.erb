@@ -85,7 +85,7 @@
 
 <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
 <%= content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDUTmt0lPVV6UQEaPaFzlEV3yxfO43cxnI"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
 <% end %>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

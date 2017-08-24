@@ -44,7 +44,7 @@
 
 <% content_for(:after_js) do %>
 <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDUTmt0lPVV6UQEaPaFzlEV3yxfO43cxnI"></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
   <%= javascript_tag do %>
   <!-- Display new choogle form when page is loaded -->
       $(window).on('load',function(){
