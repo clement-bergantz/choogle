@@ -23,6 +23,7 @@ class ChooglesController < ApplicationController
   end
 
   def new
+    @user = current_user
     @choogle = Choogle.new
     @proposal = Proposal.new
   end
@@ -57,15 +58,20 @@ class ChooglesController < ApplicationController
       @proposal = current_user.proposals.last
       # Looking in the DB if we already have this place
       # We are supposed to look according to google_id.
-      # Autocomplete is not working here(?), so we're looking at the name instead
       # Currently fixing this autocomplete [SIMON]
-      if Place.find_by(name: params["choogle"]["proposal"]["place"]).nil?
+      @client = GooglePlaces::Client.new(ENV['GOOGLE_API_SERVER_KEY'])
+      # We get the Google Places Object matching user entry (e.g.: "La Vie Moderne, Bordeaux")
+      place_info = @client.spots_by_query(proposal_params["place"])[0]
+      # We are looking in the DB if the Object exists
+      if Place.find_by(api_google_id: place_info.place_id).nil?
         # If it doesn't: let's create one!
-        @place = Place.new(name: params["choogle"]["proposal"]["place"])
+        @place = Place.new(address: place_info.formatted_address)
+        @place.name = place_info.name
         # We are getting the API id, which will be useful in the future the query Google about our own Places Objects.
         # Ex: if I want to fetch a Place rating on a "place" instance of Place
+        @place.api_google_id = place_info.place_id
       else
-        @place = Place.find_by(name: params["choogle"]["proposal"]["place"])
+        @place = Place.find_by(api_google_id: place_info.place_id)
       end
       # We are patching the first proposal with the real place
       @proposal.place = @place

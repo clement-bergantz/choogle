@@ -43,6 +43,8 @@
 </div>
 
 <% content_for(:after_js) do %>
+<!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDUTmt0lPVV6UQEaPaFzlEV3yxfO43cxnI"></script>
   <%= javascript_tag do %>
   <!-- Display new choogle form when page is loaded -->
       $(window).on('load',function(){
@@ -51,11 +53,9 @@
       $(".date-form").on("submit", function(event) {
         $('#newChoogleModal').hide();
         $('#newProposalModel').modal('show');
-<!--         return false; // prevent it from being submitted (errors, etc.) -->
+<!--         return false; // prevent it from being submitted (errors, etc.) But we want the form to submit, so let's comment this-->
       });
   <% end %>
-  <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDUTmt0lPVV6UQEaPaFzlEV3yxfO43cxnI"></script>
 <% end %>
 
 
