@@ -8,7 +8,8 @@
     <% end %>
   <% end %>
 
-  <%= f.input :content, label: "Your comment" %>
+  <%= f.input :content, label: "Your comment", required: true, maxlength: 2000 %>
+  <small class="label label-warning">Cannot be blank or contain more than 2000 symbols.</small>
 
 
   <%= f.button :submit, class: 'btn btn-primary' %>

@@ -8,6 +8,11 @@
   margin-right: 0px;
   background-color: white;
   justify-content: center;
+  .avatar {
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+  }
 }
 .proposal-empty h3 {
   color: lightgrey;

@@ -7,7 +7,11 @@ class CommentsController < ApplicationController
     @comment.user = current_or_guest_user
     choogle = Choogle.find_by(slug: params[:slug])
     @comment.choogle = choogle
-    @comment.save
+    if @comment.save
+      flash[:success] = "Sent!"
+    else
+      flash[:error] = "Something wrong..."
+    end
     redirect_to choogle_path(choogle)
   end
 
