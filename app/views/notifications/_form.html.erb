@@ -1,0 +1,18 @@
+<!-- If it's a signed-in session, thanks for the upvote -->
+<% if user_signed_in? %>
+  <%= "Thanks for your upvote" %>
+
+<!-- If it's a guest session, ask to connect with facebook or with emai -->
+<% else %>
+  <h2>Stay informed of the result</h2>
+  <%= simple_form_for([@choogle, @notification]) do |f| %>
+  <%= f.error_notification %>
+
+  <%= '----- OR -----' %>
+    <%= f.simple_fields_for :user do |h| %>
+      <%= h.input :email, label: "Enter your email" %>
+    <% end %>
+    <%= f.button :submit, class: 'btn btn-primary', value: "CONTINUE" %>
+  <% end %>
+
+<% end %>

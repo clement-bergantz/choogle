@@ -12,7 +12,6 @@ class ChooglesController < ApplicationController
       marker.lat place.latitude
       marker.lng place.longitude
 
-    @proposal = Proposal.new
       # // uncomment to add a specific marker
       # marker.picture({
       #   "url" => view_context.image_path("marker.png"),
@@ -22,8 +21,11 @@ class ChooglesController < ApplicationController
 
       # marker.infowindow render_to_string(partial: "/places/map_box", locals: { place: place })
     end
+    @proposal = Proposal.new
     # @place = Place.find(params[:id])
     # @place_coordinates = { lat: @place.latitude, lng: @place.longitude }
+
+    @notification = Notification.new
 
   end
 
