@@ -14,9 +14,9 @@ class ChooglesController < ApplicationController
         "height" => 64
       })
 
-    @proposal = Proposal.new
       # marker.infowindow render_to_string(partial: "/places/map_box", locals: { place: place })
     end
+    @proposal = Proposal.new
     # @place = Place.find(params[:id])
     # @place_coordinates = { lat: @place.latitude, lng: @place.longitude }
 
@@ -31,7 +31,7 @@ class ChooglesController < ApplicationController
   def create
     @user = current_user
     # Check if we are creating a Choogle
-    unless params["choogle"]["title"].nil?
+    unless params["choogle"].nil?
       # If we are, let's create it!
       @choogle = @user.choogles.new(choogle_params)
       # we generate a random slug
@@ -44,24 +44,16 @@ class ChooglesController < ApplicationController
       # our choogle slug is now our previously generated slug
       @choogle.slug = slug
       # We already create the first proposal related to this new Choogle
-      @proposal = Proposal.new
       @choogle.save
-      @proposal.choogle = @choogle
-      @proposal.user = @user
-      # In order to save this new proposal, we give it a fake place
-      @proposal.place = Place.last
-      @proposal.save
     else
       # Nothing in the params indicating we're creating a Choogle.
       # Means we are creating the first proposal !
       # We want to retrieve it by looking at our user last proposal.
-      @proposal = current_user.proposals.last
+      @proposal = Proposal.new
       # Looking in the DB if we already have this place
-      # We are supposed to look according to google_id.
-      # Currently fixing this autocomplete [SIMON]
       @client = GooglePlaces::Client.new(ENV['GOOGLE_API_SERVER_KEY'])
       # We get the Google Places Object matching user entry (e.g.: "La Vie Moderne, Bordeaux")
-      place_info = @client.spots_by_query(proposal_params["place"])[0]
+      place_info = @client.spots_by_query(params["proposal"]["place"])[0]
       # We are looking in the DB if the Object exists
       if Place.find_by(api_google_id: place_info.place_id).nil?
         # If it doesn't: let's create one!
@@ -73,8 +65,9 @@ class ChooglesController < ApplicationController
       else
         @place = Place.find_by(api_google_id: place_info.place_id)
       end
-      # We are patching the first proposal with the real place
       @proposal.place = @place
+      @proposal.choogle = @user.choogles.last
+      @proposal.user = @user
       @proposal.save
       redirect_to choogle_path(@proposal.choogle)
     end

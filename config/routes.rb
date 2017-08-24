@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     end
   	resources :notifications, only: [:new, :create]
   end
+
+  post 'proposals', to: 'choogles#create', as: :proposals
 end
