@@ -2,7 +2,7 @@
    <%= image_tag(comment.user.facebook_picture_url, alt: comment.user.first_name, class: "avatar") %>
   <div class="media-body">
     <h4 class="media-heading"><%= comment.user.first_name %>
-      <small class="text-muted">[at <%= comment.created_at.strftime('%-d %B %Y, %H:%M:%S') %>]</small></h4>
+      <small class="text-muted">at <%= comment.created_at.strftime('%-d %B %Y, %H:%M:%S') %></small></h4>
     <p><%= comment.content %></p>
   </div>
 </li>
