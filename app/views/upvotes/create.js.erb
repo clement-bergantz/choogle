@@ -1,5 +1,5 @@
 <% if @upvote.errors.any? %>
-  console.log("erreur");
+  console.log('<%= @upvote.errors.full_messages %>');
 <% else %>
   $("#proposal-<%= @proposal.id %>").text('<%= @proposal.upvotes.size %>');
 <% end %>

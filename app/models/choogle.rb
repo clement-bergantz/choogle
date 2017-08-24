@@ -7,7 +7,6 @@ class Choogle < ApplicationRecord
 
   validates :slug, presence: true
   validates :title, presence: true
-
   validates :happens_at, presence: true
   validates :due_at, presence: true
 
