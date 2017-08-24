@@ -1,19 +1,23 @@
 class ProposalsController < ApplicationController
+    skip_before_action :authenticate_user!, only: [:new, :create]
+    skip_before_filter :verify_authenticity_token, :only => [:new, :create]
 
   def new
     # we search the choogle by its slug
     @choogle = Choogle.find_by_slug(params[:choogle_id])
     @proposal = Proposal.new
+
     @proposal.proposal_tags.build
 
     # This line is just for testing in the view
     @proposals = Proposal.all.last(3)
-
+    @user = current_or_guest_user
   end
 
   def create
     @proposal = Proposal.new
     # We create a new client for the Google Places API
+    # [PLACE]
     @client = GooglePlaces::Client.new(ENV['GOOGLE_API_SERVER_KEY'])
     # We get the Google Places Object matching user entry (e.g.: "La Vie Moderne, Bordeaux")
     place_info = @client.spots_by_query(proposal_params["place"])[0]
@@ -29,8 +33,15 @@ class ProposalsController < ApplicationController
       @place = Place.find_by(api_google_id: place_info.place_id)
     end
     @proposal.place = @place
-    @proposal.user = current_user
-    # we search the choogle by its slug
+    # [USER]
+    @user = current_or_guest_user
+    # Check if user is guest
+    unless user_signed_in?
+      @user.first_name = params["proposal"]["user"]["first_name"]
+      @user.save
+    end
+    @proposal.user = @user
+    # We search the Choogle by its slug
     @proposal.choogle = Choogle.find_by_slug(params[:choogle_id])
     @proposal.save
     # [TAGS]
@@ -61,5 +72,9 @@ class ProposalsController < ApplicationController
 
   def tag_params
     params.require(:tag).permit(:name)
+  end
+
+  def user_params
+    params.require(:user).permit(:first_name)
   end
 end

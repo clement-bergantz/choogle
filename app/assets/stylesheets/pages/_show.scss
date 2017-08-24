@@ -28,3 +28,32 @@
     margin-right: 20px;
   }
 }
+
+// This bit of css is used to force the autocomplete window to be "in front of"
+// the modal
+.pac-container {
+    z-index: 1051 !important;
+}
+.choogle-infos {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  margin: 20px;
+  margin-right: 0px;
+  background-color: white;
+}
+.choggle-infos-event {
+  text-align: center;
+}
+.choogle-infos-timer {
+  text-align: center;
+  margin: 20px;
+}
+.choogle-infos-invite {
+  text-align: center;
+  width: 500px;
+  margin: 20px;
+}

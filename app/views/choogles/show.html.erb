@@ -1,19 +1,37 @@
+<div class="alert alert-info alert-dismissible hide" id="clipboard-notice">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  Copied to clipboard
+</div>
 
 <div class="main-container">
 
   <div class="choogle-container">
+    
     <div class="choogle-infos">
-      <h1><%= @choogle.title %></h1>
-      <p>Event date : <%= @choogle.happens_at %></p>
-      <p>Due date : <%= @choogle.due_at %></p>
 
-      <!-- Timer -->
-      <p>Time left : </p>
-      <div id="timer" data-timer="<%= (@choogle.due_at) %>">
-        <%= render "choogles/timer"  %>
+      <div class="choggle-infos-event">
+        <h1><%= @choogle.title %></h1>
+        <p>Event date : <%= @choogle.happens_at %></p>
       </div>
 
-      <!-- Liens with slug -->
+      <div class="choogle-infos-timer">
+        <p>The most upvoted place is elected in : </p>
+        <div id="timer" data-timer="<%= (@choogle.due_at) %>">
+          <%= render "choogles/timer"  %>
+        </div>
+      </div>
+      
+      <div class="choogle-infos-invite">
+        <div class="invite-link">
+          <p>Invit your friends with this link</p>
+          <div class="input-group">
+            <input id='link' type="text" class="form-control" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
+            </span>
+          </div>
+        </div>
+      </div>
 
     </div>
 
@@ -21,10 +39,14 @@
     <% @choogle.proposals.each do |proposal| %>
       <div class="proposal" id="proposal-<%= proposal.id %>">
         <div class="proposal-wrapper">
+         <!-- Link to upvote method with choogle and proposal in the route
+           in this upvotes div for arrow and counter -->
+        <%= link_to upvote_path(@choogle, proposal), remote: true, method: :post, class: "upvote" do %>          
           <div class='proposal-upvote'>
             <div class="proposal-arrow"></div>
-            <div class='proposal-count'><%= proposal.upvotes %></div>
+            <div class='proposal-count' id="proposal-<%= proposal.id %>"><%= proposal.upvotes_count %></div>
           </div>
+        <% end %>
           <div class='proposal-body'>
             <h3><%= proposal.place.name %></h3>
             <!-- Implement 'display of all tags' after implementing the option to append many tags-->
@@ -44,14 +66,11 @@
     <% end %>
 
     <!-- Emply Proposal add a new one -->
-    <%= link_to new_choogle_proposal_path(@choogle), id: "link-add" do %>
-      <div class="proposal-empty">
-        <div class='proposal-empty-body'>
-          <h3>SUGGEST A NEW PLACE TO GO</h3>
-        </div>
+    <div class="proposal-empty" data-toggle="modal" data-target="#myModal">
+      <div class='proposal-empty-body'>
+        <h3>SUGGEST A NEW PLACE TO GO</h3>
       </div>
-    <% end %>
-
+    </div>
   </div>
 
   <div class="map-container hidden-xs">
@@ -59,3 +78,39 @@
   </div>
   <%= render "shared/map" %>
 </div>
+
+<!-- New Proposal Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <%= render "shared/proposal_form" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDUTmt0lPVV6UQEaPaFzlEV3yxfO43cxnI"></script>
+<% end %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+  function copyToClipboard(element) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(element).attr('placeholder')).select();
+    document.execCommand("copy");
+    $temp.remove();
+  }
+  function clipboardNotice() {
+    // remove class hide
+    $('#clipboard-notice').removeClass('hide');
+  }
+</script>
+
