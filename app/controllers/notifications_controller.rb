@@ -22,12 +22,11 @@ class NotificationsController < ApplicationController
     @notification.choogle = @choogle
 
     if @notification.save
+    	# redirect en attendant de faire mieux en JS ? sortir de la modale ?
     	redirect_to choogle_path(params[:slug])
     else
     	render :new
     end
-
-    #redirect en attendant de faire mieux en JS ? sortir de la modale ?
     
 	end
 

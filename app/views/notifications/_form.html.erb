@@ -5,10 +5,14 @@
 <!-- If it's a guest session, ask to connect with facebook or with emai -->
 <% else %>
   <h2>Stay informed of the result</h2>
-  <%= simple_form_for([@choogle, @notification]) do |f| %>
-  <%= f.error_notification %>
+
+  <button class="btn btn-block">Continue with Facebook</button>
 
   <%= '----- OR -----' %>
+
+  <%= simple_form_for([@choogle, @notification]) do |f| %>
+    <%= f.error_notification %>
+
     <%= f.simple_fields_for :user do |h| %>
       <%= h.input :email, label: "Enter your email" %>
     <% end %>
