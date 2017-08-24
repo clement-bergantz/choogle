@@ -2,13 +2,16 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, 
+         :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
   has_many :notifications
   has_many :choogles
   has_many :upvotes
   has_many :proposals
   has_many :comments
+  # With this and has_many tags on proposal we can call user.tags
+  # to get all the tags used by a user on his proposals.
+  has_many :tags, through: :proposals
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -30,5 +33,5 @@ class User < ApplicationRecord
 
     return user
   end
-  
+
 end

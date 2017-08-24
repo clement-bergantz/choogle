@@ -5,7 +5,8 @@ class ChooglesController < ApplicationController
   def show
     # we find the choogle by its slug
     @choogle = Choogle.find_by_slug(params[:slug])
-
+    @user = current_or_guest_user
+    @proposal = Proposal.new
     places = @choogle.places
 
     @hash = Gmaps4rails.build_markers(places) do |place, marker|
