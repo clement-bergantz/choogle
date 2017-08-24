@@ -7,8 +7,6 @@ class ProposalsController < ApplicationController
     @choogle = Choogle.find_by_slug(params[:choogle_id])
     @proposal = Proposal.new
 
-    @proposal.proposal_tags.build
-
     # This line is just for testing in the view
     @proposals = Proposal.all.last(3)
     @user = current_or_guest_user
@@ -43,44 +41,39 @@ class ProposalsController < ApplicationController
     @proposal.user = @user
     # We search the Choogle by its slug
     @proposal.choogle = Choogle.find_by_slug(params[:choogle_id])
+
+    set_create_tags
     @proposal.save
-    # [TAGS]
-    # Check if user gave a tag with proposal
-    unless params["proposal"]["proposal_tags"]["tags"] = ""
-    # Check if tag already exists
-      if Tag.find_by(name: params[:proposal][:proposal_tags]["tags"]).nil?
-        # If it doesn't, we create this tag with random color
-        @tag = Tag.new(name: params[:proposal][:proposal_tags]["tags"], color: Faker::Color.hex_color)
-        @tag.save
-      else
-        @tag = Tag.find_by(name: params[:proposal][:proposal_tags]["tags"])
-      end
-    end
-    binding.pry
-    unless @tag.nil?
-      @proposal_tags = ProposalTag.new(tag: @tag, proposal: @proposal)
-      @proposal_tags.save
-    end
 
     redirect_to choogle_path(params[:choogle_id])
-    # redirect_to choogle_path(params[:slug]) ?
+  end
+
+  # Select2 return names of tags in params
+  def set_create_tags
+    unless proposal_params[:tag_ids].nil?
+      # Select2 return a first blank tag, we reject it
+      tags = proposal_params[:tag_ids].reject { |tag_id| tag_id.blank? }
+
+      # We have a list of tags, for each we create an instance with a color and find
+      # if it exists or not, if yes it will not be created, if yes it is created
+      # after all tags, new and finded are pushed in @proposal.tags which is saved in create method
+      tags.each do |tag_name|
+
+        # Official doc : Find the first user named "Scarlett" or create a new one with
+        # a particular last name.
+        #User.create_with(last_name: 'Johansson').find_or_create_by(first_name: 'Scarlett')
+
+        tag = Tag.create_with(color: Faker::Color.hex_color).find_or_create_by(name: tag_name)
+        @proposal.tags << tag
+      end
+    end
   end
 
   private
 
   def proposal_params
-    params.require(:proposal).permit(:place)
+    # Strongs params need to be specify if array
+    params.require(:proposal).permit(:place, tag_ids: [])
   end
 
-  def proposal_tags_params
-    params.require(:proposal_tags).permit(:tags)
-  end
-
-  def tag_params
-    params.require(:tag).permit(:name)
-  end
-
-  def user_params
-    params.require(:user).permit(:first_name)
-  end
 end
