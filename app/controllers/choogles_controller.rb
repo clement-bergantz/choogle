@@ -29,7 +29,9 @@ class ChooglesController < ApplicationController
 
   def create
     @user = current_user
+    # Check if we are creating a Choogle
     unless params["choogle"]["title"].nil?
+      # If we are, let's create it!
       @choogle = @user.choogles.new(choogle_params)
       # we generate a random slug
       slug = SecureRandom.urlsafe_base64(5)
@@ -40,14 +42,23 @@ class ChooglesController < ApplicationController
       end
       # our choogle slug is now our previously generated slug
       @choogle.slug = slug
+      # We already create the first proposal related to this new Choogle
       @proposal = Proposal.new
       @choogle.save
       @proposal.choogle = @choogle
       @proposal.user = @user
+      # In order to save this new proposal, we give it a fake place
       @proposal.place = Place.last
       @proposal.save
     else
+      # Nothing in the params indicating we're creating a Choogle.
+      # Means we are creating the first proposal !
+      # We want to retrieve it by looking at our user last proposal.
       @proposal = current_user.proposals.last
+      # Looking in the DB if we already have this place
+      # We are supposed to look according to google_id.
+      # Autocomplete is not working here(?), so we're looking at the name instead
+      # Currently fixing this autocomplete [SIMON]
       if Place.find_by(name: params["choogle"]["proposal"]["place"]).nil?
         # If it doesn't: let's create one!
         @place = Place.new(name: params["choogle"]["proposal"]["place"])
@@ -56,6 +67,7 @@ class ChooglesController < ApplicationController
       else
         @place = Place.find_by(name: params["choogle"]["proposal"]["place"])
       end
+      # We are patching the first proposal with the real place
       @proposal.place = @place
       @proposal.save
       redirect_to choogle_path(@proposal.choogle)
