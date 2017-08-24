@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   	resources :proposals, only: [:new, :create], shallow: true do
       resources :proposal_tags, only: [:new, :create]
     end
-    resources :notifications, only: [:new, :create]
   end
   # We create a custom route to post proposals on choogles#show
   post 'proposals', to: 'choogles#create', as: :proposals
@@ -16,5 +15,7 @@ Rails.application.routes.draw do
   # this routes use the slug for security reasons,
   # because if not anyone could vote for any proposals with the id of it.
   post "/:slug/proposals/:id/upvotes" => "upvotes#create", as: :upvote
+
+  post "/:slug/notifications" => "notifications#create", as: :choogle_notifications
 end
 

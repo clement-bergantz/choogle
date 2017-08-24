@@ -25,6 +25,8 @@ class ChooglesController < ApplicationController
     # @place = Place.find(params[:id])
     # @place_coordinates = { lat: @place.latitude, lng: @place.longitude }
 
+    @notification = Notification.new
+
   end
 
   def new
