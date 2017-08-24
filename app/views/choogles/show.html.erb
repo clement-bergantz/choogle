@@ -72,13 +72,16 @@
         <h3>SUGGEST A NEW PLACE TO GO</h3>
       </div>
     </div>
+
     <!-- Comments -->
-    <div id="chatroom">
+    <div class="proposal-wrapper" id="chatroom">
       <%= render 'comments/form' %>
+    </div>
+    <div class="proposal-wrapper" id="comments">
       <ul class="media-list">
       <%= render @comments %>
       </ul>
-     </div>
+    </div>
   </div>
 
 
