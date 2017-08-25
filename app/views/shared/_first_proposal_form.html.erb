@@ -1,4 +1,4 @@
-<%= simple_form_for([@proposal]) do |f| %>
+<%= simple_form_for([@choogle, @proposal]) do |f| %>
   <%= f.error_notification %>
 
   <!-- If it's a guest session, ask for his name -->
@@ -11,8 +11,10 @@
 
   <%= f.input :place, label: "Select a place" %>
 
-  <%= f.simple_fields_for :proposal_tags do |g| %>
-    <%= g.input :tags, label: "Add tags to this place" %>
+  <%= f.association :tags, collection: Tag.all.map(&:name), label: "Select/Add tags to this place (max 20 char)" %>
+
+  <%= f.simple_fields_for :choogle do |i| %>
+    <%=  i.input :id, as: :hidden, :input_html => { :value => "#{@user.choogles.last.id}" } %>
   <% end %>
 
   <%= f.button :submit, class: 'btn btn-primary' %>
