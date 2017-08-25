@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @choogle = Choogle.new
+    @proposal = Proposal.new
   end
 
 end

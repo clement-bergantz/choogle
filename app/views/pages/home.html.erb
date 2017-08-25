@@ -7,19 +7,13 @@
     <p>Decision-making tool to choose the best place to go</p>
 
     <!-- form -->
-    <div class="firstform">
-    <%= simple_form_for @choogle, :html => { :method => :post, :class => "form-inline" } do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :title, name: "choogle", label: false, placeholder: 'Name your event', :input_html => { :size => 40, :maxlength => 40 } %>
-      <%= f.submit "Let's Choogle", name: nil, class: "btn btn-primary" %>
-    <% end %>
-    </div>
+
+    <%= render "choogles/form" %>
 
   </div>
 </div>
 
-<!-- Image of a Choogle + subtitle -->
-<%= image_tag "Doodle.png", {class: "doodle"}%>
+
 
 <div class="wrapper-doodle">
     <h4>Creates happiness by chosing the suggestion that suits everybody 😊</h4>
@@ -69,3 +63,5 @@
   </div>
 </div>
 
+<!-- Redirect to modal on home page -->
+<%= render "choogles/modalproposal" %>
