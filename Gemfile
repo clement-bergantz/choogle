@@ -23,6 +23,7 @@ gem 'faker'
 gem 'geocoder'
 gem 'google_places'
 gem 'simple_form_autocomplete'
+gem 'jquery-turbolinks'
 gem "select2-rails"
 
 

@@ -24,7 +24,7 @@
 
       <div class="choogle-infos-invite">
         <div class="invite-link">
-          <p>Invit your friends with this link</p>
+          <p>Invite your friends with this link</p>
           <div class="input-group">
             <input id='link' type="text" class="form-control" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
             <span class="input-group-btn">
@@ -72,7 +72,7 @@
         <h3>SUGGEST A NEW PLACE TO GO</h3>
       </div>
     </div>
-
+    
     <!-- 'I'm done button' redirecting to notification#new -->
     <div class="proposal-empty" data-toggle="modal" data-target="#notification-modal">
       <div class='proposal-empty-body'>
@@ -80,7 +80,17 @@
       </div>
     </div>
 
+    <!-- Comments -->
+    <div class="proposal-wrapper" id="chatroom">
+      <%= render 'comments/form' %>
+    </div>
+    <div class="proposal-wrapper" id="comments">
+      <ul class="media-list">
+      <%= render @comments %>
+      </ul>
+    </div>
   </div>
+
 
   <div class="map-container hidden-xs">
     <div id="map"></div>
@@ -126,3 +136,11 @@
   }
 </script>
 
+<script>
+  $(".content").keypress(function(event) {
+    if (event.which == 13) {
+        event.preventDefault();
+        $("#chatroom").submit();
+    }
+  });
+</script>

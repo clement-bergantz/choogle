@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   # because if not anyone could vote for any proposals with the id of it.
   post "/:slug/proposals/:id/upvotes" => "upvotes#create", as: :upvote
 
+  post "/:slug/comments" => "comments#create", as: :choogle_comments
+
   post "/:slug/notifications" => "notifications#create", as: :choogle_notifications
 end
 

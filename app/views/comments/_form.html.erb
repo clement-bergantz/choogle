@@ -1,0 +1,14 @@
+<%= simple_form_for([@choogle, @comment], remote: true) do |f| %>
+  <%= f.error_notification %>
+
+  <!-- If it's a guest session, ask for his name -->
+  <% unless user_signed_in? %>
+    <%= f.simple_fields_for :user do |h| %>
+      <%= h.input :first_name, label: "Your name", input_html: {id: 'sign_up_code', value: @user.first_name } %>
+    <% end %>
+  <% end %>
+
+  <%= f.input :content, label: "Your comment", required: true, maxlength: 2000, input_html: { class: 'content' } %>
+
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
