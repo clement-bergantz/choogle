@@ -7,11 +7,10 @@ class UserMailer < ApplicationMailer
   #
   def welcome(user)
     @user = user # Instance variable => available in view
-    @choogle = @user.choogles.last
+    @choogle = @user.notifications.last.choogle
     subject = @choogle.title
 
     @greeting = "Hi"
-
     mail(to: @user.email, subject: subject)
   end
 end
