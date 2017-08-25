@@ -50,7 +50,7 @@
         <%= link_to upvote_path(@choogle, proposal), remote: true, method: :post, class: "upvote" do %>
           <div class='proposal-upvote'>
             <div class="proposal-arrow"></div>
-            <div class='proposal-count' id="proposal-<%= proposal.id %>"><%= proposal.upvotes_count %></div>
+            <div class='proposal-count' id="upvote-<%= proposal.id %>"><%= proposal.upvotes_count %></div>
           </div>
         <% end %>
           <div class='proposal-body'>
@@ -77,7 +77,7 @@
         <h3>SUGGEST A NEW PLACE TO GO</h3>
       </div>
     </div>
-    
+
     <!-- 'I'm done button' redirecting to notification#new -->
     <div class="proposal-empty" data-toggle="modal" data-target="#notification-modal">
       <div class='proposal-empty-body'>

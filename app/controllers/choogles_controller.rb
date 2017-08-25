@@ -30,10 +30,8 @@ class ChooglesController < ApplicationController
   end
 
   def new
-    @user = current_user
-    # injecter  le params
-    # recupérer le params :title
-    @choogle = Choogle.new(title: params["choogle"]["title"])
+    @user = current_or_guest_user
+    @choogle = Choogle.new
     @proposal = Proposal.new
   end
 
