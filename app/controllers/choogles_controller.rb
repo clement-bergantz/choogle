@@ -50,47 +50,7 @@ class ChooglesController < ApplicationController
     # We already create the first proposal related to this new Choogle
     @choogle.save
   end
-    # else
-    #   # Nothing in the params indicating we're creating a Choogle.
-    #   # Means we are creating the first proposal !
-    #   # We want to retrieve it by looking at our user last proposal.
-    #   @proposal = Proposal.new
-    #   # [PLACE]
-    #   # Looking in the DB if we already have this place
-    #   @client = GooglePlaces::Client.new(ENV['GOOGLE_API_SERVER_KEY'])
-    #   # We get the Google Places Object matching user entry (e.g.: "La Vie Moderne, Bordeaux")
-    #   place_info = @client.spots_by_query(params["proposal"]["place"])[0]
-    #   # We are looking in the DB if the Object exists
-    #   if Place.find_by(api_google_id: place_info.place_id).nil?
-    #     # If it doesn't: let's create one!
-    #     @place = Place.new(address: place_info.formatted_address)
-    #     @place.name = place_info.name
-    #     # We are getting the API id, which will be useful in the future the query Google about our own Places Objects.
-    #     # Ex: if I want to fetch a Place rating on a "place" instance of Place
-    #     @place.api_google_id = place_info.place_id
-    #   else
-    #     @place = Place.find_by(api_google_id: place_info.place_id)
-    #   end
-    #   # [TAGS]
-    #   # Check if tag already exists
-    #   if Tag.find_by(name: params[:proposal][:proposal_tags]["tags"]).nil?
-    #     # If it doesn't, we create this tag with random color
-    #     @tag = Tag.new(name: params[:proposal][:proposal_tags]["tags"], color: Faker::Color.hex_color)
-    #     @tag.save
-    #   else
-    #     @tag = Tag.find_by(name: params[:proposal][:proposal_tags]["tags"])
-    #   end
-    #   @proposal_tags = ProposalTag.new(tag: @tag, proposal: @proposal)
-    #   @proposal_tags.save
-    #   @proposal.place = @place
-    #   @proposal.choogle = @user.choogles.last
-    #   @proposal.user = @user
-    #   @proposal.proposal_tags << @proposal_tags
-    #   @proposal.save
-    #  redirect_to choogle_path(@proposal.choogle)
-    # end
-
-
+  
 private
 
   def choogle_params
