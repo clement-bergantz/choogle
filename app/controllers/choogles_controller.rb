@@ -5,7 +5,8 @@ class ChooglesController < ApplicationController
   def show
     # we find the choogle by its slug
     @choogle = Choogle.find_by_slug(params[:slug])
-
+    @user = current_or_guest_user
+    @proposal = Proposal.new
     places = @choogle.places
 
     @hash = Gmaps4rails.build_markers(places) do |place, marker|
@@ -26,6 +27,8 @@ class ChooglesController < ApplicationController
     @comments = Comment.where(choogle: @choogle).order('created_at DESC').first(5)
     # @place = Place.find(params[:id])
     # @place_coordinates = { lat: @place.latitude, lng: @place.longitude }
+
+    @notification = Notification.new
 
   end
 

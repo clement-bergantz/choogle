@@ -1,1 +1,83 @@
-// Specific CSS for your home-page
+.doodle {
+    position: absolute;
+    display: flex;
+    width: 600px;
+    height: auto;
+    bottom: 74px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 15px 15px 26px 4px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper-doodle {
+  height: 300px;
+  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  background-color: white;
+}
+
+h6 {
+  margin: 0;
+  font-size: 40px;
+}
+// Wrapper to explain the functionning of Choogle
+.wrapper-rules {
+  background: $red;
+  background: -webkit-linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
+  background: linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
+  padding: 10px;
+  color: white;
+}
+.rules {
+  display: flex;
+  text-align: center;
+  padding: 10px;
+  justify-content: space-around;
+}
+.wrapper-rules h2 {
+  margin: 0px;
+  margin-top: 15px;
+}
+.rules h3 {
+  margin: 15px 0;
+}
+.rules p {
+  margin-bottom: 0;
+}
+.rule {
+  padding: 7px;
+  width: 30%;
+}
+
+// Wrapper to display the main features
+.wrapper-features {
+  background-color: white;
+  padding: 10px;
+  color: $red;
+}
+.features {
+  display: flex;
+  text-align: center;
+  padding: 10px;
+  justify-content: space-around;
+}
+.wrapper-features h2 {
+  margin: 15px 0px;
+}
+.features h3 {
+  margin: 15px 0;
+}
+// .rules p {
+//   margin-bottom: 0;
+// }
+.feature {
+  padding: 15px;
+  width: 30%;
+  border-radius: 10px;
+  padding-top: 15px;
+  background: #833ab4;
+}
+
+
