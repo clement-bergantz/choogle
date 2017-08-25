@@ -1,25 +1,3 @@
-<!-- New Choogle Modal -->
-<div class="row">
-  <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-    <div class="wrapper">
-      <div class="container">
-        <div class="setup1-windows">
-          <div class="modal fade" id="newChoogleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-body">
-            <h1>Create your <u>Choogle!</u></h1>
-                <%= render "choogles/form" %>
-            </div>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- First Proposal Modal -->
 <div class="row">
   <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
@@ -47,15 +25,9 @@
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
   <%= javascript_tag do %>
   <!-- Display new choogle form when page is loaded -->
-      $(window).on('load',function(){
-        $('#newChoogleModal').modal('show');
-      });
       $(".date-form").on("submit", function(event) {
-        $('#newChoogleModal').hide();
         $('#newProposalModel').modal('show');
 <!--         return false; // prevent it from being submitted (errors, etc.) But we want the form to submit, so let's comment this-->
       });
   <% end %>
 <% end %>
-
-

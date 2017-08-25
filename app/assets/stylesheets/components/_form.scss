@@ -33,7 +33,7 @@
 
 .form-date-element {
   height: 40px !important;
-  width: 180px !important;
+  width: 264px !important;
 }
 
 .form-title-element {
@@ -56,4 +56,13 @@
 // the modal
 .pac-container {
     z-index: 1051 !important;
+}
+
+
+// Form home page
+.date-format {
+    display: flex;
+    margin: 15px;
+    justify-content: space-between;
+    width: 532px;
 }

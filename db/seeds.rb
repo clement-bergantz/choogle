@@ -16,19 +16,27 @@ puts "Ok well... Choogle's team users creation"
 
 User.create!(
   email: 'lea@gmail.com',
+  first_name: 'Lea',
   password: '123456',
+  facebook_picture_url: "http://www.iconninja.com/files/632/403/650/princess-leia-icon.svg",
 )
 User.create!(
   email: 'romain@gmail.com',
+  first_name: 'Romain',
   password: '123456',
+  facebook_picture_url: "http://icon-icons.com/icons2/1070/PNG/512/luke-skywalker_icon-icons.com_76939.png",
 )
 User.create!(
   email: 'simon@gmail.com',
+  first_name: 'Simon',
   password: '123456',
+  facebook_picture_url: "http://icon-icons.com/icons2/1070/PNG/512/ewok_icon-icons.com_76943.png",
 )
 User.create!(
   email: 'clement@gmail.com',
+  first_name: 'Clement',
   password: '123456',
+  facebook_picture_url: "http://icon-icons.com/icons2/1070/PNG/512/yoda_icon-icons.com_76947.png",
 )
 
 puts "Choogles creation"
@@ -66,7 +74,7 @@ def google_id(address)
   place_info.nil? ? "not find" : place_info.place_id
 end
 
-1.upto(20) do |n|
+1.upto(15) do |n|
   country = Faker::Address.country
     Place.create!(
       address: country,
