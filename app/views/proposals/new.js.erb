@@ -1,0 +1,8 @@
+// render form in modal
+$('#newProposalModal #proposal-form').html('<%= j render "proposals/form", choogle: @choogle, proposal: @proposal %>');
+
+// add address autocomplete super powers to the field after it is added in the dom
+setAddressAutocomplete('#proposal_place');
+
+// open modal
+$('#newProposalModal').modal('show');

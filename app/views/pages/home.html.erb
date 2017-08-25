@@ -9,10 +9,9 @@
     <!-- form -->
 
     <%= render "choogles/form" %>
-
+    <%= render "proposals/modal" %>
   </div>
 </div>
-
 
 
 <div class="wrapper-doodle">
@@ -66,29 +65,18 @@
 
 
 <% content_for(:after_js) do %>
-<!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
+  <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
 
-  <!-- Loading Select2 -->
-  <%= javascript_tag do %>
+  <script>
     $(document).ready(function(){
-      $("#proposal_tag_ids").select2(
-        {
-          tags: true,
-          theme: "bootstrap",
-          maximumInputLength: 20,
-        }
-      );
-  <!-- JS script for Date Picker, the Hash is for options, look at the doc -->
-      $(".flatpickr-input").flatpickr(
-        {
-          enableTime: true,
-          time_24hr: false,
-          minuteIncrement: 15,
-          minDate: "today",
-        }
-      );
+      // JS script for Date Picker, the Hash is for options, look at the doc
+      $(".flatpickr-input").flatpickr({
+        enableTime: true,
+        time_24hr: false,
+        minuteIncrement: 15,
+        minDate: "today"
+      });
     });
-
-  <% end %>
+  </script>
 <% end %>

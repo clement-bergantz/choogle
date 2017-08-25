@@ -74,11 +74,14 @@
     <% end %>
 
     <!-- Empty Proposal add a new one -->
-    <div class="proposal-empty" data-toggle="modal" data-target="#myModal">
+    <div class="proposal-empty">
       <div class='proposal-empty-body'>
-        <h3>SUGGEST A NEW PLACE TO GO</h3>
+        <h3>
+          <%= link_to "SUGGEST A NEW PLACE TO GO", new_choogle_proposal_path(@choogle), remote: true %>
+        </h3>
       </div>
     </div>
+    <%= render "proposals/modal" %>
 
     <!-- 'I'm done button' redirecting to notification#new -->
     <div class="proposal-empty" data-toggle="modal" data-target="#notification-modal">
@@ -104,9 +107,6 @@
   </div>
   <%= render "shared/map" %>
 </div>
-
-<!-- New Proposal Modal -->
-<%= render "proposals/modal" %>
 
 <!-- New Notification Modal -->
 <div class="modal fade" id="notification-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

@@ -3,13 +3,12 @@ class ProposalsController < ApplicationController
     skip_before_filter :verify_authenticity_token, :only => [:new, :create]
 
   def new
-    # we search the choogle by its slug
     @choogle = Choogle.find_by_slug(params[:choogle_id])
     @proposal = Proposal.new
 
-    # This line is just for testing in the view
-    @proposals = Proposal.all.last(3)
-    @user = current_or_guest_user
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
