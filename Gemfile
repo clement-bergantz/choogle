@@ -26,7 +26,6 @@ gem 'simple_form_autocomplete'
 gem 'jquery-turbolinks'
 gem "select2-rails"
 
-
 # Gemfile
 gem "coffee-rails"
 gem "gmaps4rails"
@@ -35,6 +34,8 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
   gem 'rails-assets-flatpickr'
 end
+
+gem "letter_opener", group: :development
 
 group :development, :test do
   gem 'pry-byebug'
