@@ -17,23 +17,6 @@
 <br>
 <br>
 <div class="date-form-btn" data-toggle="modal" data-target="#newProposalModal" id="submit-choogle">
-    <%= f.button :submit, class: 'btn btn-primary' %>
+    <%= f.button :submit, class: 'btn btn-primary', remote: true  %>
   <% end %>
 </div>
-
-<!-- JS script for Date Picker, the Hash is for options, look at the doc -->
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function(){
-      $(".flatpickr-input").flatpickr(
-        {
-          enableTime: true,
-          time_24hr: false,
-          minuteIncrement: 15,
-          minDate: "today",
-        }
-      );
-    });
-  <% end %>
-<% end %>

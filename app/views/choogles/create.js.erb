@@ -1,0 +1,3 @@
+<% string = ApplicationController.renderer.render(partial: 'modalproposal', locals: {choogle: @choogle, user: @user, proposal: @proposal}) %>
+$('body').append("<%= j render(html: string) %>");
+$('#newProposalModal').modal();

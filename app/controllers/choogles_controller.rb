@@ -50,8 +50,13 @@ class ChooglesController < ApplicationController
     @choogle.slug = slug
     # We already create the first proposal related to this new Choogle
     @choogle.save
+
+    respond_to do |format|
+      format.js
+      # @user_signed_in = user_signed_in?
+    end
   end
-  
+
 private
 
   def choogle_params

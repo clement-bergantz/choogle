@@ -1,62 +1,27 @@
 <!-- First Proposal Modal -->
-<div class="row">
-  <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-    <div class="wrapper">
-      <div class="container">
-        <div class="setup1-windows">
-          <div class="modal fade" id="newProposalModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-body">
-            <h1>Choose a place!</h1>
-                <%= render "shared/first_proposal_form" %>
-            </div>
-            </div>
-            </div>
-          </div>
-        </div>
+<div class="modal fade" id="newProposalModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>Choose a place!</h1>
+          <%= simple_form_for([choogle, proposal]) do |f| %>
+            <%= f.error_notification %>
+
+            <!-- If it's a guest session, ask for his name -->
+
+            <% unless user_signed_in %>
+              <%= f.simple_fields_for :user do |h| %>
+                <%= h.input :first_name, label: "Your name", input_html: {id: 'sign_up_code', value: user.first_name } %>
+              <% end %>
+            <% end %>
+
+            <%= f.input :place, label: "Select a place" %>
+
+            <%= f.association :tags, collection: Tag.all.map(&:name), label: "Select/Add tags to this place (max 20 char)" %>
+
+            <%= f.button :submit, class: 'btn btn-primary'%>
+          <% end %>
       </div>
     </div>
   </div>
 </div>
-
-<% content_for(:after_js) do %>
-<!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
-  <%= javascript_tag do %>
-  <!-- Display new choogle form when page is loaded -->
-      $(".date-form").on("submit", function(event) {
-        $('#newProposalModel').modal('show');
-<!--         return false; // prevent it from being submitted (errors, etc.) But we want the form to submit, so let's comment this-->
-      });
-  <% end %>
-  <!-- Loading Select2 -->
-  <%= javascript_tag do %>
-    $(document).ready(function(){
-      $("#proposal_tag_ids").select2(
-        {
-          tags: true,
-          theme: "bootstrap",
-          maximumInputLength: 20,
-        }
-      );
-    });
-
-  <% end %>
-<% end %>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-<script>
-  function copyToClipboard(element) {
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val($(element).attr('placeholder')).select();
-    document.execCommand("copy");
-    $temp.remove();
-  }
-  function clipboardNotice() {
-    // remove class hide
-    $('#clipboard-notice').removeClass('hide');
-  }
-</script>
