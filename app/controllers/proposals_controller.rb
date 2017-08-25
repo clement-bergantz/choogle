@@ -56,7 +56,6 @@ class ProposalsController < ApplicationController
         @tag = Tag.find_by(name: params[:proposal][:proposal_tags]["tags"])
       end
     end
-    binding.pry
     unless @tag.nil?
       @proposal_tags = ProposalTag.new(tag: @tag, proposal: @proposal)
       @proposal_tags.save
