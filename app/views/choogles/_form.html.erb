@@ -1,7 +1,7 @@
 <!-- Need CSS improvment -->
+<%= simple_form_for(@choogle, remote: true) do |f| %>
+  <div class="date-form">
 
-<div class="date-form">
-  <%= simple_form_for(@choogle) do |f| %>
     <div class="form-title-element">
       <%= f.input :title, error: "Your event need a title" , label: "Title of your event", placeholder: "Title of your Choogle" %>
     </div>
@@ -13,27 +13,10 @@
         <%= f.input :due_at, as: :text, label: "Closing votes date", placeholder: "Closing votes date", input_html: { class: 'flatpickr-input form-date-element' } %>
       </div>
     </div>
-</div>
-<br>
-<br>
-<div class="date-form-btn" data-toggle="modal" data-target="#newProposalModal" id="submit-choogle">
-    <%= f.button :submit, class: 'btn btn-primary' %>
-  <% end %>
-</div>
-
-<!-- JS script for Date Picker, the Hash is for options, look at the doc -->
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function(){
-      $(".flatpickr-input").flatpickr(
-        {
-          enableTime: true,
-          time_24hr: false,
-          minuteIncrement: 15,
-          minDate: "today",
-        }
-      );
-    });
-  <% end %>
+  </div>
+  <br>
+  <br>
+  <div class="date-form-btn">
+    <%= f.button :submit, class: 'btn btn-primary'  %>
+  </div>
 <% end %>

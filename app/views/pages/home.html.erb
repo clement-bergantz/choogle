@@ -9,10 +9,9 @@
     <!-- form -->
 
     <%= render "choogles/form" %>
-
+    <%= render "proposals/modal" %>
   </div>
 </div>
-
 
 
 <div class="wrapper-doodle">
@@ -63,5 +62,21 @@
   </div>
 </div>
 
-<!-- Redirect to modal on home page -->
-<%= render "choogles/modalproposal" %>
+
+
+<% content_for(:after_js) do %>
+  <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
+
+  <script>
+    $(document).ready(function(){
+      // JS script for Date Picker, the Hash is for options, look at the doc
+      $(".flatpickr-input").flatpickr({
+        enableTime: true,
+        time_24hr: false,
+        minuteIncrement: 15,
+        minDate: "today"
+      });
+    });
+  </script>
+<% end %>

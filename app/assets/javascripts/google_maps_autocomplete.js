@@ -1,5 +1,5 @@
-$(document).ready(function() {
-  var proposal_place = $('#proposal_place').get(0);
+function setAddressAutocomplete(selector) {
+  var proposal_place = $(selector).get(0);
 
   if (proposal_place) {
     var autocomplete = new google.maps.places.Autocomplete(proposal_place, { types: ['geocode', 'establishment']}, {placeIdOnly: true});
@@ -10,7 +10,7 @@ $(document).ready(function() {
       }
     });
   }
-});
+}
 
 function onPlaceChanged() {
   var place = this.getPlace();

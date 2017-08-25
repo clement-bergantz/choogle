@@ -37,21 +37,16 @@ class ChooglesController < ApplicationController
   end
 
   def create
-    @user = current_or_guest_user
-    @choogle = @user.choogles.new(choogle_params)
-    # we generate a random slug
-    slug = SecureRandom.urlsafe_base64(5)
-    # we check if the slug is not already persisted in the DB
-    while Choogle.find_by(slug: slug)
-    # when a similar slug is find (true), a new slug is generated
-      slug = SecureRandom.urlsafe_base64(5)
-    end
-    # our choogle slug is now our previously generated slug
-    @choogle.slug = slug
-    # We already create the first proposal related to this new Choogle
+    @choogle = current_or_guest_user.choogles.new(choogle_params)
     @choogle.save
+
+    @proposal = @choogle.proposals.new
+
+    respond_to do |format|
+      format.js { render "proposals/new" }
+    end
   end
-  
+
 private
 
   def choogle_params

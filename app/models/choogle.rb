@@ -12,6 +12,16 @@ class Choogle < ApplicationRecord
 
   validate :happens_at_cannot_be_in_the_past, :due_at_cannot_be_in_the_past, :due_at_must_be_before_happens_at
 
+  before_validation :generate_slug, on: :create
+
+  def generate_slug
+    slug = SecureRandom.urlsafe_base64(5)
+    while Choogle.find_by(slug: slug)
+      slug = SecureRandom.urlsafe_base64(5)
+    end
+    self.slug = slug
+  end
+
   # slug in the params
   def to_param
     slug
