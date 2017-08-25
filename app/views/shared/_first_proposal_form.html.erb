@@ -13,9 +13,5 @@
 
   <%= f.association :tags, collection: Tag.all.map(&:name), label: "Select/Add tags to this place (max 20 char)" %>
 
-  <%= f.simple_fields_for :choogle do |i| %>
-    <%=  i.input :id, as: :hidden, :input_html => { :value => "#{@user.choogles.last.id}" } %>
-  <% end %>
-
   <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>
