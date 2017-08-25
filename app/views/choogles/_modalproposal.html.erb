@@ -30,4 +30,33 @@
 <!--         return false; // prevent it from being submitted (errors, etc.) But we want the form to submit, so let's comment this-->
       });
   <% end %>
+  <!-- Loading Select2 -->
+  <%= javascript_tag do %>
+    $(document).ready(function(){
+      $("#proposal_tag_ids").select2(
+        {
+          tags: true,
+          theme: "bootstrap",
+          maximumInputLength: 20,
+        }
+      );
+    });
+
+  <% end %>
 <% end %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+  function copyToClipboard(element) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(element).attr('placeholder')).select();
+    document.execCommand("copy");
+    $temp.remove();
+  }
+  function clipboardNotice() {
+    // remove class hide
+    $('#clipboard-notice').removeClass('hide');
+  }
+</script>

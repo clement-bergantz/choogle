@@ -33,6 +33,7 @@ class ChooglesController < ApplicationController
     @user = current_or_guest_user
     @choogle = Choogle.new
     @proposal = Proposal.new
+    @proposal.choogle = @choogle
   end
 
   def create

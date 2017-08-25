@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   # We create a custom route to post proposals on choogles#show
   post 'proposals', to: 'choogles#create', as: :proposals
+  post 'proposals', to: 'proposals#create', as: :choogle_first_proposals
   # we create a custom get route based on the slug
   get "/:slug" => "choogles#show", as: :choogle
   # this routes use the slug for security reasons,
