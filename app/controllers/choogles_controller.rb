@@ -89,6 +89,11 @@ class ChooglesController < ApplicationController
       @proposal_tags.save
       @proposal.place = @place
       @proposal.choogle = @user.choogles.last
+      # Check if user is guest
+      unless user_signed_in?
+        @user.first_name = params["proposal"]["user"]["first_name"]
+        @user.save
+      end
       @proposal.user = @user
       @proposal.proposal_tags << @proposal_tags
       @proposal.save
