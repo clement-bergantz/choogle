@@ -44,22 +44,6 @@ class ProposalsController < ApplicationController
 
     set_create_tags
     @proposal.save
-    # [TAGS]
-    # Check if user gave a tag with proposal
-    unless params["proposal"]["proposal_tags"]["tags"] = ""
-    # Check if tag already exists
-      if Tag.find_by(name: params[:proposal][:proposal_tags]["tags"]).nil?
-        # If it doesn't, we create this tag with random color
-        @tag = Tag.new(name: params[:proposal][:proposal_tags]["tags"], color: Faker::Color.hex_color)
-        @tag.save
-      else
-        @tag = Tag.find_by(name: params[:proposal][:proposal_tags]["tags"])
-      end
-    end
-    unless @tag.nil?
-      @proposal_tags = ProposalTag.new(tag: @tag, proposal: @proposal)
-      @proposal_tags.save
-    end
 
     redirect_to choogle_path(params[:choogle_id])
   end
