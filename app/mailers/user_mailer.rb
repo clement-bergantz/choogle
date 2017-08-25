@@ -8,6 +8,7 @@ class UserMailer < ApplicationMailer
   def welcome(user)
     @user = user # Instance variable => available in view
     @choogle = @user.notifications.last.choogle
+    raise
     subject = @choogle.title
 
     @greeting = "Hi"
