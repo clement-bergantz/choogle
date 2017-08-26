@@ -1,0 +1,14 @@
+<% Tag.all.each do |tag| %>
+  [title="<%= tag.name %>"] {
+    background-color: <%= tag.color  %> !important;
+    color: white !important;
+  }
+  [id$="<%= tag.name %>"] {
+      background-color: <%= tag.color  %> !important;
+      color: white !important;
+  }
+<% end %>
+
+[class$="--highlighted"] {
+  color: black !important;
+}
