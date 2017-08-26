@@ -3,7 +3,7 @@ class ProposalsController < ApplicationController
     skip_before_filter :verify_authenticity_token, :only => [:new, :create]
 
   def new
-    @choogle = Choogle.find_by_slug(params[:choogle_id])
+    @choogle = Choogle.find_by_slug(params[:slug])
     @proposal = Proposal.new
 
     respond_to do |format|
@@ -39,12 +39,14 @@ class ProposalsController < ApplicationController
     end
     @proposal.user = @user
     # We search the Choogle by its slug
-    @proposal.choogle = Choogle.find_by_slug(params[:choogle_id])
+    @proposal.choogle = Choogle.find_by_slug(params[:slug])
 
     set_create_tags
     @proposal.save
+    # Upvote auto
+    @user.upvotes.build(proposal: @proposal)
 
-    redirect_to choogle_path(params[:choogle_id])
+    redirect_to choogle_path(params[:slug])
   end
 
   # Select2 return names of tags in params
