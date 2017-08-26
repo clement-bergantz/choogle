@@ -44,7 +44,7 @@ class ProposalsController < ApplicationController
     set_create_tags
     @proposal.save
     # Upvote auto
-    @user.upvotes.build(proposal: @proposal)
+    @user.upvotes.new(proposal: @proposal).save
 
     redirect_to choogle_path(params[:slug])
   end
