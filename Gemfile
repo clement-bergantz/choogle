@@ -35,7 +35,10 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-flatpickr'
 end
 
+# Mailer
 gem "letter_opener", group: :development
+gem 'sendgrid-ruby'
+gem 'postmark-rails'
 
 group :development, :test do
   gem 'pry-byebug'
