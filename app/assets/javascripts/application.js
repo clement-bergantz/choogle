@@ -7,4 +7,6 @@
 //= require gmaps/google
 //= require simple_form_autocomplete
 //= require select2
+//= require faye
+//= require comments
 //= require_tree .
