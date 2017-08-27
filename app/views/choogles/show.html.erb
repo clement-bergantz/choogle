@@ -125,6 +125,15 @@
 <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
 <%= content_for(:after_js) do %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
+  <script>
+    $('#comment_content').on('keyup', function(event) {
+      if (event.which == 13 && ! event.shiftKey) {
+          event.preventDefault();
+          $("#new_comment").submit();
+          $("comment_content").remove();
+      }
+    });
+  </script>
 <% end %>
 
 <script>
@@ -139,13 +148,4 @@
     // remove class hide
     $('#clipboard-notice').removeClass('hide');
   }
-</script>
-
-<script>
-  $(".content").keypress(function(event) {
-    if (event.which == 13) {
-        event.preventDefault();
-        $("#chatroom").submit();
-    }
-  });
 </script>
