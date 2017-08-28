@@ -1,0 +1,18 @@
+<h1>Hi <%= @user.first_name %>,</h1>
+
+<p>
+  Thanks for your upvote! We will notify you on <%= @choogle.due_at %> with the selected place for your event.
+</p>
+
+<div class="choogle-infos-invite">
+  <div class="invite-link">
+    <p>Share this link with other participants so they can upvote their favorite places</p>
+    <div class="input-group">
+
+      <input id='link' type="text" class="form-control" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button">Share</button>
+      </span>
+    </div>
+  </div>
+</div>

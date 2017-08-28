@@ -1,2 +1,0 @@
-class ProposalTagsController < ApplicationController
-end
