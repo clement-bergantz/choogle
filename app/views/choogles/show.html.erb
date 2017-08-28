@@ -152,14 +152,17 @@
 
   <script>
     App.cable.subscriptions.create(
+      // Subscribe to the channel on UpvoteChannel on channels folder, need choogle_slug param to do it
       {
         channel: 'UpvoteChannel',
-        record_id: '<%= @choogle.slug %>'
+        choogle_slug: '<%= @choogle.slug %>'
       },
       {
+        // just log the connected channel
         connected: function(data) {
           console.log("<%= "[connected #{@choogle.slug}]" %>");
         },
+        // Update the div with the received informations from broadcast method on model
         received: function(data) {
           console.log(data);
           $('#upvote-' + data['proposal_id']).text(data['upvotes']);
