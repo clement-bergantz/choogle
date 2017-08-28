@@ -50,7 +50,7 @@ class ProposalsController < ApplicationController
         @user.upvotes.new(proposal: @proposal).save
         format.js {render :js => "window.location.href='#{choogle_path}'"}
       else
-        format.js {render "proposals/create"}
+        format.js {render "proposals/errors"}
         format.js {render "proposals/new"}
       end
     end

@@ -82,6 +82,13 @@ h6 {
   background: white;
 }
 
+#choogle-errors p {
+  color: rgba(238, 238, 238, 1);
+  font-size: 15px;
+  font-weight: bold;
+  margin: 2px;
+}
+
 #proposal-errors {
   color: $red;
 }
