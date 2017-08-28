@@ -1,6 +1,3 @@
-<% if @comment.new_record? %>
-  alert('Your comment cannot be saved.');
-<% else %>
-  $('#comments').find('.media-list').prepend('<%= j render @comment %>');
-  $('#comment_content').val('');
-<% end %>
+publisher = client.publish('/comments', {
+  message: '<%= j render @comment %>'
+});

@@ -25,6 +25,9 @@ gem 'google_places'
 gem 'simple_form_autocomplete'
 gem 'jquery-turbolinks'
 gem "select2-rails"
+gem 'faye-rails', '~> 2.0'
+gem 'thin'
+
 
 
 # Gemfile
