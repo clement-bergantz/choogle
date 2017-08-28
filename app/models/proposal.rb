@@ -9,8 +9,7 @@ class Proposal < ApplicationRecord
   geocoded_by :place
   after_validation :geocode, if: :place_id_changed?
 
-# Method to count upvotes for a Proposal Instance
-
+  # Method to count upvotes for a Proposal Instance
   def upvotes_count
     upvotes.size
   end

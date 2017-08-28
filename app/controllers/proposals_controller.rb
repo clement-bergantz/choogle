@@ -44,6 +44,7 @@ class ProposalsController < ApplicationController
     @proposal.choogle = Choogle.find_by_slug(params[:slug])
 
     set_create_tags
+
     respond_to do |format|
       if @proposal.save
         # Upvote auto

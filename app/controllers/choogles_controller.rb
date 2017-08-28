@@ -38,11 +38,9 @@ class ChooglesController < ApplicationController
 
   def create
     @choogle = current_or_guest_user.choogles.new(choogle_params)
-
-    @proposal = @choogle.proposals.new
-
     respond_to do |format|
       if @choogle.save
+        @proposal = @choogle.proposals.new
         format.js { render "proposals/new" }
       else
         format.js { render "choogles/errors" }
