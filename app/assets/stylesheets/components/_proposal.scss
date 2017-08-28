@@ -72,7 +72,7 @@
   color: #E6E6E6;
 }
 .proposal-controls a:hover {
-  color: #FF504D !important
+  color: #FF504D !important;
 }
 .proposal-controls-hidden a {
   color: transparent;
@@ -131,4 +131,8 @@
 }
 #link-add {
   text-decoration: none;
+}
+
+.select2-container {
+  width: 100% !important;
 }
