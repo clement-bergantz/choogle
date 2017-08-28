@@ -9,11 +9,11 @@ class NotificationsController < ApplicationController
 
     # we are looking in the db if we find a user with this email
     if User.find_by_email(user_params[:user][:email]).nil?
-    	@user.email = user_params[:user][:email]
-    	# mettre un if sur le save ?
+    	# if the email is not found we set it with the email in the input 
+        @user.email = user_params[:user][:email]
     	@user.save
     else
-    	# error message
+    	# error message (? if the email is found that's not a problem ?? why an error message ?)
     	raise
     end
    
@@ -25,8 +25,8 @@ class NotificationsController < ApplicationController
     	# redirect en attendant de faire mieux en JS ? sortir de la modale ?
     	redirect_to choogle_path(params[:slug])
     else
-	# error message
-	raise
+    	# error message
+    	raise
     end
     
 	end

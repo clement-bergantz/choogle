@@ -29,7 +29,6 @@ gem 'faye-rails', '~> 2.0'
 gem 'thin'
 
 
-
 # Gemfile
 gem "coffee-rails"
 gem "gmaps4rails"
@@ -38,6 +37,11 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
   gem 'rails-assets-flatpickr'
 end
+
+# Mailer
+gem "letter_opener", group: :development
+gem 'sendgrid-ruby'
+gem 'postmark-rails'
 
 group :development, :test do
   gem 'pry-byebug'
