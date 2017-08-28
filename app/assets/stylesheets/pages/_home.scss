@@ -1,4 +1,3 @@
-
 .doodle {
     position: absolute;
     display: flex;
@@ -83,4 +82,6 @@ h6 {
   background: white;
 }
 
-
+#proposal-errors {
+  color: $red;
+}
