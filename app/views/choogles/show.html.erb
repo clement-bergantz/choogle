@@ -126,27 +126,46 @@
 <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
 <%= content_for(:after_js) do %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
-<% end %>
 
-<script>
-  function copyToClipboard(element) {
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val($(element).attr('placeholder')).select();
-    document.execCommand("copy");
-    $temp.remove();
-  }
-  function clipboardNotice() {
-    // remove class hide
-    $('#clipboard-notice').removeClass('hide');
-  }
-</script>
-
-<script>
-  $(".content").keypress(function(event) {
-    if (event.which == 13) {
-        event.preventDefault();
-        $("#chatroom").submit();
+  <script>
+    function copyToClipboard(element) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).attr('placeholder')).select();
+      document.execCommand("copy");
+      $temp.remove();
     }
-  });
-</script>
+    function clipboardNotice() {
+      // remove class hide
+      $('#clipboard-notice').removeClass('hide');
+    }
+  </script>
+
+  <script>
+    $(".content").keypress(function(event) {
+      if (event.which == 13) {
+          event.preventDefault();
+          $("#chatroom").submit();
+      }
+    });
+  </script>
+
+  <script>
+    App.cable.subscriptions.create(
+      {
+        channel: 'UpvoteChannel',
+        record_id: '<%= @choogle.slug %>'
+      },
+      {
+        connected: function(data) {
+          console.log("<%= "[connected #{@choogle.slug}]" %>");
+        },
+        received: function(data) {
+          console.log(data);
+          $('#upvote-' + data['proposal_id']).text(data['upvotes']);
+        }
+      }
+    );
+  </script>
+
+<% end %>

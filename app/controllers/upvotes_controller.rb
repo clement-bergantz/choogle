@@ -26,4 +26,5 @@ class UpvotesController < ApplicationController
       end
     end
   end
+
 end

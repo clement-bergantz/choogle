@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   	controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
 
+  mount ActionCable.server, at: '/cable'
+
   resources :choogles, only: [:create]
+
 
   get "/:slug" => "choogles#show", as: :choogle
   post "/:slug/comments" => "comments#create", as: :choogle_comments
