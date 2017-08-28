@@ -46,13 +46,14 @@ class ProposalsController < ApplicationController
     set_create_tags
     respond_to do |format|
       if @proposal.save
-        format.html {redirect_to choogle_path(params[:slug])}
+        # Upvote auto
+        @user.upvotes.new(proposal: @proposal).save
+        format.js {render :js => "window.location.href='#{choogle_path}'"}
       else
-        format.js { render "proposals/create" }
+        format.js {render "proposals/create"}
+        format.js {render "proposals/new"}
       end
     end
-    # Upvote auto
-    @user.upvotes.new(proposal: @proposal).save
   end
 
   # Select2 return names of tags in params

@@ -22,10 +22,10 @@ class CommentsController < ApplicationController
         else
           flash.now[:error] = 'Your comment cannot be saved.'
         end
-        format.html {redirect_to choogle_path(@choogle)}
+        format.html {redirect_to choogle_path(params[:slug])}
         format.js
       else
-        format.html {redirect_to choogle_path(@choogle)}
+        format.html {redirect_to choogle_path(params[:slug])}
         format.js {render nothing: true}
       end
     end
