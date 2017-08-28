@@ -1,0 +1,16 @@
+.btn-choogle {
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  border: 1px solid;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.btn-choogle:hover {
+  background-color: white;
+  color: $darkorange;
+  border: none;
+  font-size: 19px;
+  box-shadow: 18px 11px 38px -15px grey;
+}

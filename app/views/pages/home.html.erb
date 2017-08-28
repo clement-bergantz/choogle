@@ -10,9 +10,9 @@
     <%= render "choogles/form" %>
     <%= render "proposals/modal" %>
   </div>
+  <%= image_tag "Doodle.png", {class: "doodle"}%>
 </div>
 
-<%= image_tag "Doodle.png", {class: "doodle"}%>
 
 <div class="wrapper-doodle">
     <!-- <h4 style="color: grey">Creates happiness by chosing the suggestion that suits everybody 😊</h4> -->
@@ -20,7 +20,7 @@
 
 <!-- wrapper to display the main features -->
 <div class="wrapper-features">
-  <h2 class="text-center">What do we promess </h2>
+  <h2 class="text-center">How it works</h2>
   <div class="features">
     <div class="feature">
         <h6>☝️</h6>
@@ -42,7 +42,7 @@
 
 <!-- wrapper to explain the functionning of Choogle -->
 <div class="wrapper-rules">
-  <h2 class="text-center">Why Choogle :</h2>
+  <h2 class="text-center">Why Choogle ?</h2>
   <div class="rules">
     <p>Thanks to Yelp, Tripadvisor, Google or Foursquare, finding the perfect place to go has never been easier.
     <br>
@@ -50,25 +50,8 @@
     <br>
     Choogle is a simple voting tool to choose with your friends the next place to go.
     </p>
-
-<!--     <div class="rule">
-        <h6>☝️</h6>
-        <h3>Suggest options</h3>
-        <p>Select a first place to go, a date and a timer. Participants will have the option to add other suggestions.</p>
-    </div>
-    <div class="rule">
-      <h6>👫</h6>
-      <h3>Invite participants to vote</h3>
-      <p>They can now upvote their favorite places. They don’t even need an account.</p>
-    </div>
-    <div class="rule">
-      <h6>🎯</h6>
-      <h3>Select the best option</h3>
-      <p>Once the timer is over pick the final option and received all its informations.</p>
-    </div>
-  </div> -->
+  </div>
 </div>
-
 <% content_for(:after_js) do %>
   <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
