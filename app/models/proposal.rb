@@ -8,5 +8,4 @@ class Proposal < ApplicationRecord
 
   geocoded_by :place
   after_validation :geocode, if: :place_id_changed?
-
 end

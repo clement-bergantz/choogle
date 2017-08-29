@@ -1,0 +1,4 @@
+$("#choogle-errors").empty()
+<% @choogle.errors.full_messages.each do |error| %>
+  $("#choogle-errors").append('<p>' + '<%= error %>!' + '</p>')
+<% end %>
