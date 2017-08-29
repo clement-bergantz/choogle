@@ -1,7 +1,5 @@
-<!-- Need CSS improvment -->
 <%= simple_form_for(@choogle, remote: true) do |f| %>
   <div class="date-form">
-
     <div class="row">
       <div class="col-xs-12 col-md-8">
         <%= f.input :title, error: "Your event needs a name" , label: "Event's name", placeholder: "Give a name to your Choogle"%>
@@ -18,5 +16,6 @@
         <%= f.button :submit, value: "Let's Choogle", class: "btn-choogle btn-margin" %>
       </div>
     </div>
+    <div id="choogle-errors"></div>
   </div>
 <% end %>

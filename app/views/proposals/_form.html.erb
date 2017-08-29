@@ -1,5 +1,5 @@
-<%= simple_form_for([choogle, proposal]) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for([choogle, proposal], remote: true) do |f| %>
+  <div id="proposal-errors"></div>
 
   <!-- If it's a guest session, ask for his name -->
   <% unless user_signed_in? %>
