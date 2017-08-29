@@ -15,21 +15,23 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.new
     # We create a new client for the Google Places API
     # [PLACE]
-    @client = GooglePlaces::Client.new(ENV['GOOGLE_API_SERVER_KEY'])
-    # We get the Google Places Object matching user entry (e.g.: "La Vie Moderne, Bordeaux")
-    place_info = @client.spots_by_query(proposal_params["place"])[0]
-    # We are looking in the DB if the Object exists
-    if Place.find_by(api_google_id: place_info.place_id).nil?
-      # If it doesn't: let's create one!
-      @place = Place.new(address: place_info.formatted_address)
-      @place.name = place_info.name
-      # We are getting the API id, which will be useful in the future the query Google about our own Places Objects.
-      # Ex: if I want to fetch a Place rating on a "place" instance of Place
-      @place.api_google_id = place_info.place_id
-    else
-      @place = Place.find_by(api_google_id: place_info.place_id)
+    unless proposal_params["place"].blank?
+      @client = GooglePlaces::Client.new(ENV['GOOGLE_API_SERVER_KEY'])
+      # We get the Google Places Object matching user entry (e.g.: "La Vie Moderne, Bordeaux")
+      place_info = @client.spots_by_query(proposal_params["place"])[0]
+      # We are looking in the DB if the Object exists
+      if Place.find_by(api_google_id: place_info.place_id).nil?
+        # If it doesn't: let's create one!
+        @place = Place.new(address: place_info.formatted_address)
+        @place.name = place_info.name
+        # We are getting the API id, which will be useful in the future the query Google about our own Places Objects.
+        # Ex: if I want to fetch a Place rating on a "place" instance of Place
+        @place.api_google_id = place_info.place_id
+      else
+        @place = Place.find_by(api_google_id: place_info.place_id)
+      end
+      @proposal.place = @place
     end
-    @proposal.place = @place
     # [USER]
     @user = current_or_guest_user
     # Check if user is guest
@@ -42,11 +44,17 @@ class ProposalsController < ApplicationController
     @proposal.choogle = Choogle.find_by_slug(params[:slug])
 
     set_create_tags
-    @proposal.save
-    # Upvote auto
-    @user.upvotes.new(proposal: @proposal).save
 
-    redirect_to choogle_path(params[:slug])
+    respond_to do |format|
+      if @proposal.save
+        # Upvote auto
+        @user.upvotes.new(proposal: @proposal).save
+        format.js {render :js => "window.location.href='#{choogle_path}'"}
+      else
+        format.js {render "proposals/errors"}
+        format.js {render "proposals/new"}
+      end
+    end
   end
 
   # Select2 return names of tags in params
