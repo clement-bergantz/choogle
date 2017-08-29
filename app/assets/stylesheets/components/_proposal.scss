@@ -17,13 +17,15 @@
 }
 .proposal-body h3 {
   font-weight: bold;
-  font-size: 23px;
+  font-size: 18px;
+  margin-left: 10px;
   margin-top: 0;
 }
 .proposal-body p {
   font-weight: lighter;
-  color: #999999;
+  color: $beton;
   margin-bottom: 0;
+  margin-left: 10px;
 }
 
 /* Proposal image */
@@ -41,7 +43,7 @@
   font-weight: bold;
   font-size: 13px;
   line-height: 20px;
-  color: black;
+  color: $darkbeton;
   text-decoration: none;
 }
 .proposal-count {
@@ -54,7 +56,7 @@
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-top: 6px solid transparent;
-  border-bottom: 9px solid black;
+  border-bottom: 9px solid $darkbeton;;
   border-radius: 2px;
   margin: auto;
 }

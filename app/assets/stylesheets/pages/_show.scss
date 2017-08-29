@@ -31,7 +31,6 @@
   padding: 20px;
   border-radius: 4px;
   transition: all 0.15s ease;
-  margin: 20px;
   background-color: white;
   p {
     margin-bottom: 10px;
@@ -48,6 +47,9 @@
   margin: 20px;
   width: 50%;
 }
+.choogle-infos-link a:hover {
+  color: $purple;
+}
 
 .main-proposals {
   display: flex;
@@ -58,11 +60,13 @@
 }
 .map-container {
   flex-shrink: 0;
-  width: 35%;
+  width: 40%;
   height: 100vh;
   position: sticky !important;
   top: 0 !important;
   margin: 20px;
+  border: 8px solid white;
+  border-radius: 4px;
 }
 #map {
   width: 100%;
@@ -86,4 +90,5 @@
 .pac-container {
     z-index: 1051 !important;
 }
+
 
