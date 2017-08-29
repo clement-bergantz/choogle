@@ -12,8 +12,18 @@
           handler.getMap().setZoom(15);
         }
       });
+<!--       Gmaps.selectMarker = function(id) {
+        $.each(Gmaps.store.markers, function() {
+          if (this.serviceObject.id == id) {
+            this.panTo();
+            this.serviceObject.setAnimation(google.maps.Animation.BOUNCE);
+          }
+          else this.serviceObject.setAnimation(null);
+        });
+      }; -->
       <% @choogle.proposals.each do |proposal| %>
-        $( "#proposal-<%= proposal.id %>" ).click(function() {
+<!--         var marker = Gmaps.selectMarker(proposal.id);
+ -->        $( "#proposal-<%= proposal.id %>" ).click(function() {
           alert( "You selected proposal <%= proposal.id %>." );
         });
       <% end %>
