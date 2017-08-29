@@ -1,3 +1,4 @@
+// button over gradient background
 .btn-choogle {
   background-color: transparent;
   color: white;
@@ -6,11 +7,21 @@
   border-radius: 6px;
   width: 100%;
 }
-
 .btn-choogle:hover {
   background-color: white;
   color: $darkorange;
   border: none;
   font-size: 19px;
   box-shadow: 18px 11px 38px -15px grey;
+}
+
+// button over white background
+.btn-choogle-secondary {
+  background-color: $purple;
+  color: white;
+  border-radius: 4px;
+  p {
+    font-size: 13px;
+    font-weight: 700;
+  }
 }

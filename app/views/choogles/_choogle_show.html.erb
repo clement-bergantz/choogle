@@ -21,7 +21,7 @@
 
     <div class="choogle-infos">
         <div class="choogle-infos-timer">
-          <p>The most upvoted place is elected in : </p>
+          <p>Time left to vote</p>
           <div id="timer" data-timer="<%= (@choogle.due_at) %>">
             <%= render "choogles/timer"  %>
           </div>
@@ -32,7 +32,7 @@
             <div class="input-group">
               <input id='link' type="text" class="form-control" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
               <span class="input-group-btn">
-                <button class="btn btn-primary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
+                <button class="btn btn-choogle-secondary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
               </span>
             </div>
           </div>

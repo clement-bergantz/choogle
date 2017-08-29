@@ -1,14 +1,17 @@
 .wrapper {
   background: $purple;
-  // background: -webkit-linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
-  background: linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
+  background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
+  // TODO : add transparency/opacity on linear gradient
+  background: linear-gradient(to right, transparent, #fcb045, #fd1d1d, #833ab4);
 }
-
+.container {
+  max-width: 1000px;
+}
 .event {
-  height: 200px;
+  height: 300px;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
   h1 {
     color: white;
   }
@@ -25,21 +28,25 @@
 .choogle-infos {
   display: flex;
   align-items: center;
-  flex-direction: column;
   padding: 20px;
-  border-radius: 3px;
+  border-radius: 4px;
   transition: all 0.15s ease;
   margin: 20px;
   background-color: white;
+  p {
+    margin-bottom: 10px;
+  }
 }
 .choogle-infos-timer {
   text-align: center;
   margin: 20px;
+  width: 50%;
 }
 .choogle-infos-link {
   text-align: center;
   width: 500px;
   margin: 20px;
+  width: 50%;
 }
 
 .main-proposals {
