@@ -34,6 +34,15 @@ class User < ApplicationRecord
     return user
   end
 
+  # This is used to get all tags of the instance of user
+  def tags
+    usertags = []
+    self.proposals.each do |proposal|
+      usertags << proposal.tags.map(&:name)
+    end
+    usertags.flatten
+  end
+
   AVATARS = [
   "http://icon-icons.com/icons2/1070/PNG/512/ewok_icon-icons.com_76943.png",
   "http://icon-icons.com/icons2/1070/PNG/512/admiral-ackbar_icon-icons.com_76935.png",

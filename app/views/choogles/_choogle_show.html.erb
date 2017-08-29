@@ -1,0 +1,171 @@
+<!-- This is for the title -->
+<% content_for(:choogle_tag) do %>
+  <%= @choogle.title %> | Choogle
+<% end %>
+
+<div class="alert alert-info alert-dismissible hide" id="clipboard-notice">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  Copied to clipboard
+</div>
+
+<div class="main-container">
+  <div class="choogle-container">
+    <div class="choogle-infos">
+      <div class="choggle-infos-event">
+        <h1><%= @choogle.title %></h1>
+        <p>Event date : <%= @choogle.happens_at %></p>
+        <p>This choogle has been created by <%= @choogle.user.first_name %></p>
+      </div>
+
+      <!-- Link with slug -->
+      <div class="choogle-infos-timer">
+        <p>The most upvoted place is elected in : </p>
+        <div id="timer" data-timer="<%= (@choogle.due_at) %>">
+          <%= render "choogles/timer"  %>
+        </div>
+      </div>
+
+      <div class="choogle-infos-invite">
+        <div class="invite-link">
+          <p>Invite your friends with this link</p>
+          <div class="input-group">
+            <input id='link' type="text" class="form-control" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- All Proposals -->
+
+    <% sort_prop_by_upvotes(@choogle.proposals).each do |proposal| %>
+      <div class="proposal" id="proposal-<%= proposal.id %>">
+        <div class="proposal-wrapper">
+         <!-- Link to upvote method with choogle and proposal in the route
+           in this upvotes div for arrow and counter -->
+        <%= link_to upvote_path(@choogle, proposal), remote: true, method: :post, class: "upvote" do %>
+          <div class='proposal-upvote'>
+            <div class="proposal-arrow"></div>
+            <div class='proposal-count' id="upvote-<%= proposal.id %>"><%= proposal.upvotes.size %></div>
+          </div>
+        <% end %>
+          <div class='proposal-body'>
+          <!-- Change this to match our future awesome graphics and because style in view is bad, really bad but quickier for tonight -->
+            <h3 style="display:inline;"><%= proposal.place.name %></h3><p style="display:inline;"> proposed by <strong><%= proposal.user.first_name %></strong></p>
+            <!-- Implement 'display of all tags' after implementing the option to append many tags-->
+            <% if proposal.proposal_tags.any? %>
+              <% proposal.proposal_tags.each do |proposaltag| %>
+              <h5 class="tags" style="background-color: <%= proposaltag.tag.color %>"><%= proposaltag.tag.name %></h5>
+              <% end %>
+            <% end %>
+          </div>
+          <ul class="list-inline proposal-controls hidden-sm hidden-xs">
+            <li><a href=""><i class="fa fa-heart"></i></a></li>
+            <li><a href=""><i class="fa fa-share"></i></a></li>
+            <li><a href=""><i class="fa fa-star"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
+    <!-- Empty Proposal add a new one -->
+    <div class="proposal-empty">
+      <div class='proposal-empty-body'>
+        <h3>
+          <%= link_to "SUGGEST A NEW PLACE TO GO", new_choogle_proposal_path(@choogle), remote: true %>
+        </h3>
+      </div>
+    </div>
+    <%= render "proposals/modal" %>
+
+    <!-- 'I'm done button' redirecting to notification#new -->
+    <div class="proposal-empty" data-toggle="modal" data-target="#notification-modal">
+      <div class='proposal-empty-body'>
+        <h3>DONE</h3>
+      </div>
+    </div>
+
+    <!-- Comments -->
+    <div class="proposal-wrapper" id="chatroom">
+      <%= render 'comments/form' %>
+    </div>
+    <div class="proposal-wrapper" id="comments">
+      <ul class="media-list">
+      <%= render @comments %>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="map-container hidden-xs">
+    <div id="map"></div>
+  </div>
+  <%= render "shared/map" %>
+</div>
+
+<!-- New Notification Modal -->
+<div class="modal fade" id="notification-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <%= render "notifications/form" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
+
+  <script>
+    function copyToClipboard(element) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).attr('placeholder')).select();
+      document.execCommand("copy");
+      $temp.remove();
+    }
+    function clipboardNotice() {
+      // remove class hide
+      $('#clipboard-notice').removeClass('hide');
+    }
+  </script>
+
+  <script>
+  $('#comment_content').on('keyup', function(event) {
+    if (event.which == 13 && ! event.shiftKey) {
+        event.preventDefault();
+        $("#new_comment").submit();
+        $(this).val("");
+        }
+    });
+  </script>
+
+  <script>
+    App.cable.subscriptions.create(
+      // Subscribe to the channel on UpvoteChannel on channels folder, need choogle_slug param to do it
+      {
+        channel: 'UpvoteChannel',
+        choogle_slug: '<%= @choogle.slug %>'
+      },
+      {
+        // just log the connected channel
+        connected: function(data) {
+          console.log("<%= "[connected #{@choogle.slug}]" %>");
+        },
+        // Update the div with the received informations from broadcast method on model
+        received: function(data) {
+          console.log(data);
+          $('#upvote-' + data['proposal_id']).text(data['upvotes']);
+        }
+      }
+    );
+  </script>
+
+<% end %>

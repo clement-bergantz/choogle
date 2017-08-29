@@ -1,13 +1,6 @@
 module ApplicationHelper
 
-  def usertags
-    usertags = []
-    current_or_guest_user.proposals.each do |proposal|
-      usertags << proposal.tags.map(&:name)
-    end
-    usertags.flatten
-  end
-
+  # This helper is used to sort proposals by upvotes (most in first place)
   def sort_prop_by_upvotes(proposals)
     sorted = proposals.sort_by do |proposal|
       proposal.upvotes.size
