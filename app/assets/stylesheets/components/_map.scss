@@ -1,0 +1,18 @@
+#proposal-infobox {
+  display:block;
+  overflow:auto;
+  width: 150px;
+
+  .place-name {
+    font-size: 20px;
+    font-weight: bold;
+  };
+
+  #star-rating-good {
+  color: $yellow;
+  };
+
+  #star-rating-bad {
+  color: $beton;
+  }
+}

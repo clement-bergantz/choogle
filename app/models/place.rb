@@ -8,4 +8,8 @@ class Place < ApplicationRecord
     @client = GooglePlaces::Client.new(ENV['GOOGLE_API_SERVER_KEY'])
     @client.spot(self.api_google_id)
   end
+
+  def placify_rating
+    self.placify.rating.round unless self.placify.rating.nil?
+  end
 end

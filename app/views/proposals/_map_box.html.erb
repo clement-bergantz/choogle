@@ -1,7 +1,20 @@
-<div class="banner" id="image-proposal-map" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 0%), url('#');">
-   <div class="container text-center">
-     <h3><%= proposal.place.name %></h3>
-     <p><%= "Open now" unless proposal.place.placify.opening_hours["open_now"].empty? %></p>
-     <p> <%= proposal.place.placify.rating unless proposal.place.placify.rating.nil? %> </p>
+<div class="container text-center" id="proposal-infobox">
+  <div class="place-name">
+    <%= proposal.place.name %>
+  </div>
+  <div class="place-type">
+     <% unless proposal.place.placify.types.empty? %>
+      <%= proposal.place.placify.types[0].gsub('_', ' ').capitalize %>
+     <% end %>
+  </div>
+  <div class="place-rating">
+    <% unless proposal.place.placify_rating.nil? %>
+      <% proposal.place.placify_rating.times do  %>
+        <i class ="fa fa-star" id="star-rating-good" aria-hidden="true"></i>
+      <% end %>
+      <% (5 - proposal.place.placify_rating).times do  %>
+        <i class ="fa fa-star" id="star-rating-bad" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
    </div>
- </div>
+</div>
