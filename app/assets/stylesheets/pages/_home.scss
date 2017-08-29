@@ -1,76 +1,50 @@
-
 .doodle {
     position: absolute;
     display: flex;
     width: 600px;
     height: auto;
-    bottom: 17px;
+    bottom: -190px;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 15px 15px 26px 4px rgba(0, 0, 0, 0.2);
 }
 
 .wrapper-doodle {
-  height: 300px;
+  height: 265px;
   align-items: flex-end;
   display: flex;
   justify-content: center;
   background-color: white;
 }
 
-h6 {
-  margin: 0;
-  font-size: 40px;
-}
-// Wrapper to explain the functionning of Choogle
-.wrapper-rules {
-  background: $red;
-  background: -webkit-linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
-  background: linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
-  padding: 10px;
-  color: white;
-  padding: 20px;
-}
-.rules {
-  display: flex;
-  text-align: center;
-  padding: 10px;
-  justify-content: space-around;
-}
-.wrapper-rules h2 {
-  margin: 0px;
-  margin-top: 15px;
-}
-.rules h3 {
-  margin: 15px 0;
-  font-family: 'Lato', sans-serif;
-  font-size: 20px;
-}
-.rules p {
-  margin-bottom: 0;
-}
-.rule {
-  padding: 7px;
-  width: 30%;
-}
-
-// Wrapper to display the main features
+// Wrapper to display "How it works"
 .wrapper-features {
   background-color: white;
   padding: 10px;
-  color: $orange;
 }
 .features {
   display: flex;
   text-align: center;
   padding: 10px;
+  margin-bottom: 20px;
   justify-content: space-around;
 }
 .wrapper-features h2 {
   margin: 15px 0px;
+  color: #47495B;
 }
 .features h3 {
   margin: 15px 0;
+  color: #47495B;
+}
+
+.features h6 {
+  margin: 0px;
+  font-size: 40px;
+}
+
+.features p {
+  color: #6A7C94;
 }
 // .rules p {
 //   margin-bottom: 0;
@@ -83,4 +57,21 @@ h6 {
   background: white;
 }
 
-
+// Wrapper to explain "why Choogle"
+.wrapper-rules {
+  background: $red;
+  background: -webkit-linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
+  background: linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
+  padding: 10px;
+  color: white;
+  padding: 20px;
+}
+.wrapper-rules h2 {
+  margin: 15px 0;
+}
+.rules {
+  display: flex;
+  text-align: center;
+  padding: 10px;
+  justify-content: space-around;
+}
