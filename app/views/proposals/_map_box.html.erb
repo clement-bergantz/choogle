@@ -9,6 +9,7 @@
   </div>
   <div class="place-rating">
     <% unless proposal.place.placify_rating.nil? %>
+    <% sleep(1) %>
       <% proposal.place.placify_rating.times do  %>
         <i class ="fa fa-star" id="star-rating-good" aria-hidden="true"></i>
       <% end %>
