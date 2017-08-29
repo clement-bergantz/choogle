@@ -106,12 +106,12 @@
 /* Empty proposal */
 .proposal-empty {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   padding: 20px;
   border-radius: 3px;
   transition: all 0.15s ease;
   margin: 20px;
-  margin-right: 0px;
   background-color: white;
   justify-content: center;
 }

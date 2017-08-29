@@ -8,18 +8,15 @@
   Copied to clipboard
 </div>
 
-<h1>coucou</h1>
-<h2>coucou</h2>
-<h3>coucou</h3>
-<p>ca va ?</p>
-
 <div class="wrapper">
   <div class="container">
 
     <div class="event">
-      <h1><%= @choogle.title %></h1>
-      <p>Event date : <%= @choogle.happens_at %></p>
-      <p>This choogle has been created by <%= @choogle.user.first_name %></p>
+      <div class="event-infos">
+        <h1><%= @choogle.title %></h1>
+        <p>on <%= @choogle.happens_at %></p>
+        <p>proposed by <%= @choogle.user.first_name %></p>
+      </div>
     </div>
 
     <div class="choogle-infos">
@@ -29,7 +26,7 @@
             <%= render "choogles/timer"  %>
           </div>
         </div>
-        <div class="choogle-infos-invite">
+        <div class="choogle-infos-link">
           <div class="invite-link">
             <p>Invite your friends with this link</p>
             <div class="input-group">
@@ -42,7 +39,7 @@
         </div>     
     </div>
 
-    <div class="main-container">
+    <div class="main-proposals">
 
       <div class="proposals">
 
@@ -68,11 +65,6 @@
                   <% end %>
                 <% end %>
               </div>
-              <ul class="list-inline proposal-controls hidden-sm hidden-xs">
-                <li><a href=""><i class="fa fa-heart"></i></a></li>
-                <li><a href=""><i class="fa fa-share"></i></a></li>
-                <li><a href=""><i class="fa fa-star"></i></a></li>
-              </ul>
             </div>
           </div>
         <% end %>
@@ -95,15 +87,14 @@
     </div>
 
     <!-- Comments -->
-    <div class="proposal-wrapper" id="comments">
-      <ul class="media-list">
-      <%= render @comments %>
-      </ul>
-    </div>
     <div class="proposal-wrapper" id="chatroom">
+      <div class="proposal-wrapper" id="comments">
+        <ul class="media-list">
+        <%= render @comments %>
+        </ul>
+      </div>
       <%= render 'comments/form' %>
     </div>
-
 
     <!-- 'Done' redirecting to notification#new -->
     <div class="proposal-empty" data-toggle="modal" data-target="#notification-modal">

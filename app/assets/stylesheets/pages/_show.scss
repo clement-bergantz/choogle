@@ -1,42 +1,16 @@
-.main-container {
-  display: flex;
-}
-
-.choogle-container {
-  width: 70%;
-}
-
-#map {
-  width: 100%;
-  height: 100%;
-}
-
-.map-container {
-  flex-shrink: 0;
-  width: 30%;
-  height: 100vh;
-  position: sticky !important;
-  top: 0 !important;
-  margin: 20px;
-}
-
-@media (max-width: 768px) {
-  .choogle-container {
-    width: 100%;
-  }
-  .proposal {
-    margin-right: 20px;
-  }
-}
-
-// This bit of css is used to force the autocomplete window to be "in front of"
-// the modal
-.pac-container {
-    z-index: 1051 !important;
-}
-
 .event {
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  h1 {
+    color: white;
+  }
+}
+.event-infos {
   text-align: center;
+  padding: 20px;
+  margin: 20px;
 }
 
 .choogle-infos {
@@ -47,17 +21,53 @@
   border-radius: 3px;
   transition: all 0.15s ease;
   margin: 20px;
-  margin-right: 0px;
   background-color: white;
 }
-
 .choogle-infos-timer {
   text-align: center;
   margin: 20px;
 }
-
-.choogle-infos-invite {
+.choogle-infos-link {
   text-align: center;
   width: 500px;
   margin: 20px;
 }
+
+.main-proposals {
+  display: flex;
+  justify-content: flex-end;
+}
+.proposals {
+  flex-grow: 1;
+}
+.map-container {
+  flex-shrink: 0;
+  width: 35%;
+  height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
+  margin: 20px;
+}
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+// .choogle-container {
+//   width: 70%;
+// }
+// @media (max-width: 768px) {
+//   .choogle-container {
+//     width: 100%;
+//   }
+//   .proposal {
+//     margin-right: 20px;
+//   }
+// }
+
+// This bit of css is used to force the autocomplete window to be "in front of"
+// the modal
+.pac-container {
+    z-index: 1051 !important;
+}
+

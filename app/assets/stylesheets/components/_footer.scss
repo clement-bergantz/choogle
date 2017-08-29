@@ -7,15 +7,16 @@
   color: rgba(0,0,0,0.3);
   // background-color: rgba(255, 255, 255, 0);
   background: $red;
-  background: -webkit-linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
-  background: linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
+  // background: -webkit-linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
+  // background: linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
+  background-color: white;
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: white;
+  color: $beton;
   text-decoration: none;
   font-size: 20px;
   padding: 0px 10px;
@@ -23,9 +24,6 @@
 .footer-links a:hover {
   color: $purple;
 }
-
-
 .footer .fa-heart {
   color: $red;
 }
-
