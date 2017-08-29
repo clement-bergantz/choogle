@@ -12,6 +12,11 @@
           handler.getMap().setZoom(15);
         }
       });
+      <% @choogle.proposals.each do |proposal| %>
+        $( "#proposal-<%= proposal.id %>" ).click(function() {
+          alert( "You selected proposal <%= proposal.id %>." );
+        });
+      <% end %>
     });
   <% end %>
 <% end %>
