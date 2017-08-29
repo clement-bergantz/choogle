@@ -137,12 +137,12 @@
     $('#clipboard-notice').removeClass('hide');
   }
 </script>
-
 <script>
-  $(".content").keypress(function(event) {
-    if (event.which == 13) {
+  $('#comment_content').on('keyup', function(event) {
+    if (event.which == 13 && ! event.shiftKey) {
         event.preventDefault();
-        $("#chatroom").submit();
+        $("#new_comment").submit();
+        $(this).val("");
     }
   });
 </script>
