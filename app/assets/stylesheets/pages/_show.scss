@@ -1,9 +1,18 @@
+.wrapper {
+  background: $purple;
+  // background: -webkit-linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
+  background: linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
+}
+
 .event {
   height: 200px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   h1 {
+    color: white;
+  }
+  p {
     color: white;
   }
 }
