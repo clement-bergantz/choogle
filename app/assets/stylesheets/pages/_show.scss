@@ -34,6 +34,11 @@
 .pac-container {
     z-index: 1051 !important;
 }
+
+.event {
+  text-align: center;
+}
+
 .choogle-infos {
   display: flex;
   align-items: center;
@@ -45,13 +50,12 @@
   margin-right: 0px;
   background-color: white;
 }
-.choggle-infos-event {
-  text-align: center;
-}
+
 .choogle-infos-timer {
   text-align: center;
   margin: 20px;
 }
+
 .choogle-infos-invite {
   text-align: center;
   width: 500px;
