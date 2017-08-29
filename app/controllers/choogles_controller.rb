@@ -27,6 +27,12 @@ class ChooglesController < ApplicationController
     # @place_coordinates = { lat: @place.latitude, lng: @place.longitude }
 
     @notification = Notification.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def new

@@ -25,10 +25,16 @@
       document.getElementById("timer").innerHTML = days + " days " + hours + " hours "
       + minutes + " minutes and " + seconds + " seconds ";
 
-      // If the count down is finished, write some text 
+      // If the count down is finished, write some text
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
+        // document.getElementById("demo").innerHTML = "EXPIRED";
+      // Ajax request to render either the choogle show or the result page
+        $.ajax({
+          type: "GET",
+          url: "<%= choogle_path(@choogle.slug) %>",
+          dataType: 'script'
+        });
       }
     }, 1000);
   </script>

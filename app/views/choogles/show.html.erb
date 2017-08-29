@@ -1,1 +1,7 @@
-<%= render 'choogle_show' %>
+<div id="render-choogle">
+  <% if @choogle.due_at > Time.zone.now %>
+      <%= render 'choogle_show' %>
+    <% else %>
+      <%= render 'choogle_result' %>
+  <% end %>
+</div>
