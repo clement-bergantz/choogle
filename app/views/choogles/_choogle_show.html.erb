@@ -122,27 +122,50 @@
 <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
 <%= content_for(:after_js) do %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
-<% end %>
 
-<script>
-  function copyToClipboard(element) {
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val($(element).attr('placeholder')).select();
-    document.execCommand("copy");
-    $temp.remove();
-  }
-  function clipboardNotice() {
-    // remove class hide
-    $('#clipboard-notice').removeClass('hide');
-  }
-</script>
-<script>
+  <script>
+    function copyToClipboard(element) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).attr('placeholder')).select();
+      document.execCommand("copy");
+      $temp.remove();
+    }
+    function clipboardNotice() {
+      // remove class hide
+      $('#clipboard-notice').removeClass('hide');
+    }
+  </script>
+
+  <script>
   $('#comment_content').on('keyup', function(event) {
     if (event.which == 13 && ! event.shiftKey) {
         event.preventDefault();
         $("#new_comment").submit();
         $(this).val("");
-    }
-  });
-</script>
+        }
+    });
+  </script>
+
+  <script>
+    App.cable.subscriptions.create(
+      // Subscribe to the channel on UpvoteChannel on channels folder, need choogle_slug param to do it
+      {
+        channel: 'UpvoteChannel',
+        choogle_slug: '<%= @choogle.slug %>'
+      },
+      {
+        // just log the connected channel
+        connected: function(data) {
+          console.log("<%= "[connected #{@choogle.slug}]" %>");
+        },
+        // Update the div with the received informations from broadcast method on model
+        received: function(data) {
+          console.log(data);
+          $('#upvote-' + data['proposal_id']).text(data['upvotes']);
+        }
+      }
+    );
+  </script>
+
+<% end %>
