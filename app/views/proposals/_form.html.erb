@@ -2,15 +2,14 @@
   <%= f.error_notification %>
 
   <!-- If it's a guest session, ask for his name -->
-
   <% unless user_signed_in? %>
     <%= f.simple_fields_for :user do |h| %>
-      <%= h.input :first_name, label: "Your name", input_html: {id: 'sign_up_code', value: current_or_guest_user.first_name } %>
+      <%= h.input :first_name, label: "Let your friends know who you are", input_html: {id: 'sign_up_code', value: current_or_guest_user.first_name } %>
     <% end %>
   <% end %>
-  <%= f.input :place, label: "Select a place" %>
-  <%= f.association :tags, collection: usertags, label: "Select/Add tags to this place (max 20 char)" %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
+  <%= f.input :place, label: "Add a place" %>
+  <%= f.association :tags, collection: Tag.all.map(&:name), label: "Add tags to this place (max 20 char)" %>
+  <%= f.button :submit, class: 'btn-choogle btn-proposal-margin' %>
 <% end %>
 
 <script>
