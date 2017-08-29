@@ -21,7 +21,6 @@
           $.each(Gmaps.store.markers, function() {
             if (this.serviceObject.id == id) {
               google.maps.event.trigger(this.serviceObject, 'click')
-              this.panTo();
               this.serviceObject.setAnimation(google.maps.Animation.BOUNCE);
             }
             else this.serviceObject.setAnimation(null);
