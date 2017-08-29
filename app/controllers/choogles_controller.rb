@@ -17,7 +17,7 @@ class ChooglesController < ApplicationController
       #   "width" => 64,
       #   "height" =>64
       # })
-      # marker.infowindow render_to_string(partial: "/places/map_box", locals: { place: place })
+      marker.infowindow render_to_string(partial: "/proposals/map_box", locals: { proposal: @proposal })
     end
     @proposal = Proposal.new
     @user = current_or_guest_user
