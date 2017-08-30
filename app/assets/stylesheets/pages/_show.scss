@@ -70,6 +70,8 @@
 }
 .proposals {
   flex-grow: 1;
+  height: 100vh;
+  overflow: scroll;
 }
 .map-container {
   flex-shrink: 0;
