@@ -6,24 +6,27 @@
 .proposal-wrapper {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 18px;
   border-radius: 3px;
   background-color: white;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Body design */
 .proposal-body {
   flex: 1 1 auto;
+  margin-bottom: 6px;
 }
 .proposal-body h3 {
   font-weight: bold;
-  font-size: 23px;
+  font-size: 18px;
+  margin-left: 10px;
   margin-top: 0;
 }
 .proposal-body p {
   font-weight: lighter;
-  color: #999999;
-  margin-bottom: 0;
+  color: $beton;
+  margin-left: 8px;
 }
 
 /* Proposal image */
@@ -35,13 +38,14 @@
 
 /* Upvote design */
 .proposal-upvote {
+  padding-left: 15px;
   padding-right: 20px;
   text-align: center;
   transition: all 0.15s ease;
   font-weight: bold;
   font-size: 13px;
   line-height: 20px;
-  color: black;
+  color: $darkbeton;
   text-decoration: none;
 }
 .proposal-count {
@@ -54,7 +58,7 @@
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-top: 6px solid transparent;
-  border-bottom: 9px solid black;
+  border-bottom: 9px solid $darkbeton;;
   border-radius: 2px;
   margin: auto;
 }
@@ -106,14 +110,15 @@
 /* Empty proposal */
 .proposal-empty {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   padding: 20px;
   border-radius: 3px;
   transition: all 0.15s ease;
   margin: 20px;
-  margin-right: 0px;
   background-color: white;
   justify-content: center;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 .proposal-empty h3 {
   color: lightgrey;
@@ -143,4 +148,27 @@
 
 .select2-search {
   width: 100% !important;
+}
+
+.proposal-btn {
+  background-color: transparent;
+  height: 40px;
+  width: 140px;
+  font-weight: bold;
+  border: 2px solid white;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 8px;
+  text-align: center;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  a {
+    color: white;
+  }
+}
+.proposal-btn:hover {
+  background-color: white;
+  border: none;
+  a {
+    color: $purple;
+  }
 }
