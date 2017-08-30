@@ -1,23 +1,30 @@
 <div class="wrapper-result">
   <div class="container">
     <div class="row general-infos">
-           <h1><%= @choogle.title %></h1>
-           <p>happening the <%= @choogle.happens_at %></p>
-           <p>created by <%= @choogle.user.first_name %></p>
-
+      <div class="choogle-result">
+       <h1><%= @choogle.title %></h1>
+       <p>happening the <%= @choogle.happens_at %></p>
+       <p>created by <%= @choogle.user.first_name %></p>
+      </div>
       <!-- Choogle résult info get from google maps -->
       <div class="col-sm-7">
         <div class="result-content">
           <div class="result-info">
-          <p>mare des pinguins</p>
-            <!-- palce name -->
-            <!-- address -->
-            <!-- tel -->
-            <!-- address -->
+            <h2><%= sort_prop_by_upvotes(@choogle.proposals).first.place.name %></h2>
+            <p>suggested by <%= sort_prop_by_upvotes(@choogle.proposals).first.user.first_name %></p>
+            <h4><%= sort_prop_by_upvotes(@choogle.proposals).first.place.address %></h4>
+            <h4>⭐️⭐️⭐️</h4>
           </div>
           <div class="result-tags">
             <!-- tags of the proposal -->
-            <%= sort_prop_by_upvotes(@choogle.proposals).first.place.name %>
+            <div class="tag">
+              <% if sort_prop_by_upvotes(@choogle.proposals).first.tags.any? %>
+                <% sort_prop_by_upvotes(@choogle.proposals).first.tags.each do |tag| %>
+                <h5 class="tags" style="background-color: <%= tag.color %>"><%= tag.name %></h5>
+                <% end %>
+              <% end %>
+            </div>
+            <!-- <p> tags tags tags tags tags tags tags tags tags tags tags tagstags tags tags tags tags tags</p> -->
           </div>
         </div>
       </div>
