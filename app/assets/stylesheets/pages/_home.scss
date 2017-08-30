@@ -8,7 +8,6 @@
     transform: translateX(-50%);
     box-shadow: 15px 15px 26px 4px rgba(0, 0, 0, 0.2);
 }
-
 .wrapper-doodle {
   height: 265px;
   align-items: flex-end;
@@ -16,7 +15,6 @@
   justify-content: center;
   background-color: white;
 }
-
 // Wrapper to display "How it works"
 .wrapper-features {
   background-color: white;
@@ -42,7 +40,6 @@
   margin: 0px;
   font-size: 40px;
 }
-
 .features p {
   color: #6A7C94;
 }
@@ -56,17 +53,16 @@
   padding-top: 15px;
   background: white;
 }
-
 #choogle-errors p {
   color: rgba(238, 238, 238, 1);
   font-size: 15px;
   font-weight: bold;
   margin: 2px;
 }
-
 #proposal-errors {
   color: $red;
 }
+
 // Wrapper to explain "why Choogle"
 .wrapper-rules {
   background: $red;

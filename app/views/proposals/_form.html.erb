@@ -8,8 +8,8 @@
     <% end %>
   <% end %>
   <%= f.input :place, label: "Add a place" %>
-  <%= f.association :tags, collection: current_or_guest_user.tags, label: "Select/Add tags to this place (max 20 char)" %>
-  <%= f.button :submit, class: 'btn btn-primary btn-proposal-margin' %>
+  <%= f.association :tags, class: 'tag-selector', collection: current_or_guest_user.tags, label: "Add tags to this place (max 20 char)" %>
+  <%= f.button :submit, value: "Ready to Choogle", class: 'btn btn-choogle btn-proposal-margin' %>
 <% end %>
 
 <script>

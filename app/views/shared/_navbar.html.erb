@@ -23,12 +23,14 @@
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
-            <%= link_to "#" do %>
-              <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+            <% if user_signed_in? %>
+              <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Edit profile") %>
+              <% end %>
             <% end %>
           </li>
           <li>
-            <%= link_to "#" do %>
+            <%= link_to root_path do %>
               <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
             <% end %>
           </li>
@@ -49,9 +51,25 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to edit_user_registration_path do %>
+              <i class="fa fa-user"></i> <%= t(".profile", default: "Edit profile") %>
+            <% end %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to root_path do %>
+            <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+          <% end %>
+        </li>
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
