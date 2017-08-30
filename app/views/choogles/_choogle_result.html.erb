@@ -1,1 +1,63 @@
-<h1>Result Page</h1>
+<div class="wrapper-result">
+  <div class="container">
+    <div class="row general-infos">
+      <div class="choogle-result">
+       <h1><%= @choogle.title %></h1>
+       <p>happening the <%= @choogle.happens_at %></p>
+       <p>created by <%= @choogle.user.first_name %></p>
+      </div>
+      <!-- Choogle résult info get from google maps -->
+      <div class="col-sm-7">
+        <div class="result-content">
+          <div class="result-info">
+            <h2><%= sort_prop_by_upvotes(@choogle.proposals).first.place.name %></h2>
+            <p>suggested by <%= sort_prop_by_upvotes(@choogle.proposals).first.user.first_name %></p>
+            <h4><%= sort_prop_by_upvotes(@choogle.proposals).first.place.address %></h4>
+            <h4>⭐️⭐️⭐️</h4>
+          </div>
+          <div class="result-tags">
+            <!-- tags of the proposal -->
+            <div class="tag">
+              <% if sort_prop_by_upvotes(@choogle.proposals).first.tags.any? %>
+                <% sort_prop_by_upvotes(@choogle.proposals).first.tags.each do |tag| %>
+                <h5 class="tags" style="background-color: <%= tag.color %>"><%= tag.name %></h5>
+                <% end %>
+              <% end %>
+            </div>
+            <!-- <p> tags tags tags tags tags tags tags tags tags tags tags tagstags tags tags tags tags tags</p> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Choogle map -->
+      <div class="col-sm-5">
+        <div class="result-map">
+          <div id="map"></div>
+        </div>
+        <%= render "shared/map" %>
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
+
+<%= content_for(:after_js) do %>
+  <script>
+    function copyToClipboard(element) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).attr('placeholder')).select();
+      document.execCommand("copy");
+      $temp.remove();
+    }
+    function clipboardNotice() {
+      // remove class hide
+      $('#clipboard-notice').removeClass('hide');
+    }
+  </script>
+  <% end %>

@@ -12,6 +12,7 @@
   p {
     color: white;
   }
+
 }
 .footer-links {
   display: flex;
@@ -23,6 +24,10 @@
   text-decoration: none;
   font-size: 20px;
   padding: 0px 10px;
+}
+
+.footer-links a:hover {
+  color: $orange;
 }
 .footer .fa-heart {
   color: white;
