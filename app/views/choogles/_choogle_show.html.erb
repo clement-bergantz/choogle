@@ -14,7 +14,7 @@
     <div class="event">
       <div class="event-infos">
         <h1><%= @choogle.title %></h1>
-        <p>on <%= @choogle.happens_at %></p>
+        <p>on <%= @choogle.happens_at.strftime("%A, %b %d at %l:%M %p") %></p>
         <p>proposed by <%= @choogle.user.first_name %></p>
       </div>
     </div>
