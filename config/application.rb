@@ -22,8 +22,6 @@ module CHOOGLE
       generate.assets false
       generate.helper false
     end
-    config.middleware.delete Rack::Lock
-    config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

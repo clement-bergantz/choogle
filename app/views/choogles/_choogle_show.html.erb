@@ -185,4 +185,24 @@
       }
     );
   </script>
+  <script>
+    App.cable.subscriptions.create(
+      {
+        channel: 'ChatRoomsChannel',
+        choogle_slug: '<%= @choogle.slug %>'
+      },
+      {
+        // just log the connected channel
+        connected: function(data) {
+          console.log("<%= "[connected #{@choogle.slug}]" %>");
+        },
+        // Update the div with the received informations from broadcast method on model
+        received: function(data) {
+          console.log(data);
+          $('#chatroom').find('.media-list').prepend(data['message_partial']);
+        }
+      }
+    );
+  </script>
+
 <% end %>
