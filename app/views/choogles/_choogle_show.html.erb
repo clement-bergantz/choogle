@@ -86,13 +86,13 @@
     </div>
 
     <!-- Comments -->
-    <div class="proposal-wrapper" id="chatroom">
-      <div class="proposal-wrapper" id="comments">
+    <div id="chatroom">
+      <div id="comments">
         <ul class="media-list">
         <%= render @comments %>
         </ul>
+        <%= render 'comments/form' %>
       </div>
-      <%= render 'comments/form' %>
     </div>
 
     <!-- 'Done' redirecting to notification#new -->
