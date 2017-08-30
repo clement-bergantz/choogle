@@ -52,11 +52,9 @@
     </p>
   </div>
 </div>
-
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
-
 <% content_for(:after_js) do %>
   <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
 
   <script>
     $(document).ready(function(){
