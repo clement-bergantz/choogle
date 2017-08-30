@@ -14,7 +14,9 @@
   background-color: white;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
-
+.proposal-content {
+  margin-left: 10px;
+}
 /* Body design */
 .proposal-body {
   flex: 1 1 auto;
@@ -23,7 +25,6 @@
 .proposal-body h3 {
   font-weight: bold;
   font-size: 18px;
-  margin-left: 10px;
   margin-top: 0;
 }
 .proposal-body p {
