@@ -53,7 +53,7 @@ class ApplicationController < ActionController::Base
     u = User.create(
       :first_name => "guest",
       :email => "guest_#{Time.now.to_i}#{rand(100)}@example.com",
-      :facebook_picture_url => User::AVATARS.sample
+      :facebook_picture_url => "/assets/default-avatar.jpg"
       )
     u.save!(:validate => false)
     session[:guest_user_id] = u.id
