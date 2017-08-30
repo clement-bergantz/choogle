@@ -2,20 +2,15 @@
   <div class="place-name">
     <%= proposal.place.name %>
   </div>
-  <div class="place-type">
-     <% unless proposal.place.placify.types.empty? %>
-      <%= proposal.place.placify.types[0].gsub('_', ' ').capitalize %>
-     <% end %>
-  </div>
   <div class="place-rating">
-    <% unless proposal.place.placify_rating.nil? %>
-    <% sleep(1) %>
-      <% proposal.place.placify_rating.times do  %>
+    <% unless proposal.place.rating.nil? %>
+      <% proposal.place.rating_round.times do  %>
         <i class ="fa fa-star" id="star-rating-good" aria-hidden="true"></i>
       <% end %>
-      <% (5 - proposal.place.placify_rating).times do  %>
+      <% (5 - proposal.place.rating_round).times do  %>
         <i class ="fa fa-star" id="star-rating-bad" aria-hidden="true"></i>
       <% end %>
+        ∙ <%= proposal.place.rating %>
     <% end %>
    </div>
 </div>
