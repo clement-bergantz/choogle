@@ -12,6 +12,7 @@ class User < ApplicationRecord
   # With this and has_many tags on proposal we can call user.tags
   # to get all the tags used by a user on his proposals.
   has_many :tags, through: :proposals
+  validates :first_name, presence: true
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)

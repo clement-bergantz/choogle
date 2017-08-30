@@ -7,4 +7,21 @@ module ApplicationHelper
     end
     sorted.reverse
   end
+
+  def guest_first_name
+    if current_or_guest_user.first_name.scan(/guest/) != []
+      ""
+    else
+      current_or_guest_user.first_name
+    end
+  end
+
+  def guest_email
+    if current_or_guest_user.email.scan(/guest/) != []
+      ""
+    else
+      current_or_guest_user.email
+    end
+  end
+
 end
