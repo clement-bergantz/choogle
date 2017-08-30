@@ -20,23 +20,21 @@
     </div>
 
     <div class="choogle-infos">
-        <div class="choogle-infos-timer">
-          <p>Time left to vote</p>
-          <div id="timer" data-timer="<%= (@choogle.due_at) %>">
-            <%= render "choogles/timer"  %>
+      <div class="choogle-infos-timer">
+        <p>Time left to vote</p>
+        <div id="timer" data-timer="<%= (@choogle.due_at) %>">
+          <%= render "choogles/timer"  %>
+        </div>
+      </div>
+      <div class="choogle-infos-link">
+        <div class="invite-link">
+          <p>Invite your friends with this link</p>
+          <div class="input-group">
+            <input id='link' type="text" class="input-choogle" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
+            <button class="btn btn-choogle-secondary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
           </div>
         </div>
-        <div class="choogle-infos-link">
-          <div class="invite-link">
-            <p>Invite your friends with this link</p>
-            <div class="input-group">
-              <input id='link' type="text" class="form-control" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
-              <span class="input-group-btn">
-                <button class="btn btn-choogle-secondary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
-              </span>
-            </div>
-          </div>
-        </div>     
+      </div>     
     </div>
 
     <div class="main-proposals">
@@ -55,29 +53,30 @@
                 <div class='proposal-count' id="upvote-<%= proposal.id %>"><%= proposal.upvotes.size %></div>
               </div>
             <% end %>
-              <div class='proposal-body'>
-              <!-- Change this to match our future awesome graphics and because style in view is bad, really bad but quickier for tonight -->
-                <h3 style="display:inline;"><%= proposal.place.name %></h3><p style="display:inline;"> proposed by <strong><%= proposal.user.first_name %></strong></p>
-                <!-- Implement 'display of all tags' after implementing the option to append many tags-->
-                <% if proposal.proposal_tags.any? %>
-                  <% proposal.proposal_tags.each do |proposaltag| %>
-                  <h5 class="tags" style="background-color: <%= proposaltag.tag.color %>"><%= proposaltag.tag.name %></h5>
+              <div class="proposal-content">
+                <div class='proposal-body'>
+                <!-- Change this to match our future awesome graphics and because style in view is bad, really bad but quickier for tonight -->
+                  <h3 style="display:inline;"><%= proposal.place.name %></h3><p style="display:inline;"> proposed by <%= proposal.user.first_name %></p>
+                  <!-- Implement 'display of all tags' after implementing the option to append many tags-->
+                </div>
+                <div class="tag">
+                  <% if proposal.proposal_tags.any? %>
+                    <% proposal.proposal_tags.each do |proposaltag| %>
+                    <h5 class="tags" style="background-color: <%= proposaltag.tag.color %>"><%= proposaltag.tag.name %></h5>
+                    <% end %>
                   <% end %>
-                <% end %>
+                </div>
               </div>
             </div>
           </div>
         <% end %>
 
         <!-- Empty Proposal add a new one -->
-        <div class="proposal-empty">
-          <div class='proposal-empty-body'>
-            <h3>
-              <%= link_to "SUGGEST A NEW PLACE TO GO", new_choogle_proposal_path(@choogle), remote: true %>
-            </h3>
-          </div>
+        <div class="btn proposal-btn">
+          <%= link_to "Add a new place", new_choogle_proposal_path(@choogle), remote: true %>
         </div>
         <%= render "proposals/modal" %>
+
       </div>
 
       <div class="map-container hidden-xs">

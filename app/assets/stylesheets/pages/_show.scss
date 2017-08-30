@@ -1,14 +1,15 @@
 .wrapper {
   background: $purple;
-  background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
+  background: -webkit-linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
   // TODO : add transparency/opacity on linear gradient
-  background: linear-gradient(to right, transparent, #fcb045, #fd1d1d, #833ab4);
+  // background: linear-gradient(to right, transparent, #833ab4, #fcb045, #fd1d1d);
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
 }
 .container {
   max-width: 1000px;
 }
 .event {
-  height: 300px;
+  height: 260px;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
@@ -32,6 +33,7 @@
   border-radius: 4px;
   transition: all 0.15s ease;
   background-color: white;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   p {
     margin-bottom: 10px;
   }
@@ -50,6 +52,17 @@
 .choogle-infos-link a:hover {
   color: $purple;
 }
+.input-group {
+  display: flex;
+  justify-content: center;
+}
+
+.input-choogle {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid $purple; 
+  margin-right: 3px;
+}
 
 .main-proposals {
   display: flex;
@@ -67,6 +80,7 @@
   margin: 20px;
   border: 8px solid white;
   border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 #map {
   width: 100%;

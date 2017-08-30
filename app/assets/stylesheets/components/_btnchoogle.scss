@@ -19,4 +19,11 @@
 .btn-choogle-secondary {
   background-color: $purple;
   color: white;
+  font-weight: normal;
+}
+.btn-choogle-secondary:hover {
+  background-color: white;
+  color: $purple;
+  font-weight: normal;
+  border-color: $purple;
 }
