@@ -72,9 +72,7 @@
         <% end %>
 
         <!-- Empty Proposal add a new one -->
-        <div class="btn proposal-btn">
-          <%= link_to "Add a new place", new_choogle_proposal_path(@choogle), remote: true %>
-        </div>
+        <%= link_to "Add a new place", new_choogle_proposal_path(@choogle), remote: true, class: "btn btn-proposal" %>
         <%= render "proposals/modal" %>
 
       </div>
