@@ -1,0 +1,21 @@
+<div class="container text-center" id="proposal-infobox">
+  <div class="place-name">
+    <p><%= proposal.place.name %></p>
+  </div>
+  <div class="place-address">
+    <% unless proposal.place.address.nil? %>
+      <p><%= proposal.place.address %></p>
+    <% end %>
+  </div>
+  <div class="place-rating">
+    <% unless proposal.place.rating.nil? %>
+      <% proposal.place.rating_round.times do  %>
+        <i class ="fa fa-star" id="star-rating-good" aria-hidden="true"></i>
+      <% end %>
+      <% (5 - proposal.place.rating_round).times do  %>
+        <i class ="fa fa-star" id="star-rating-bad" aria-hidden="true"></i>
+      <% end %>
+        ∙ <%= proposal.place.rating %>
+    <% end %>
+  </div>
+</div>
