@@ -1,1 +1,56 @@
-<h1>Result Page</h1>
+<div class="wrapper-result">
+  <div class="container">
+    <div class="row general-infos">
+           <h1><%= @choogle.title %></h1>
+           <p>happening the <%= @choogle.happens_at %></p>
+           <p>created by <%= @choogle.user.first_name %></p>
+
+      <!-- Choogle résult info get from google maps -->
+      <div class="col-sm-7">
+        <div class="result-content">
+          <div class="result-info">
+          <p>mare des pinguins</p>
+            <!-- palce name -->
+            <!-- address -->
+            <!-- tel -->
+            <!-- address -->
+          </div>
+          <div class="result-tags">
+            <!-- tags of the proposal -->
+            <%= sort_prop_by_upvotes(@choogle.proposals).first.place.name %>
+          </div>
+        </div>
+      </div>
+
+      <!-- Choogle map -->
+      <div class="col-sm-5">
+        <div class="result-map">
+          <div id="map"></div>
+        </div>
+        <%= render "shared/map" %>
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
+
+<%= content_for(:after_js) do %>
+  <script>
+    function copyToClipboard(element) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).attr('placeholder')).select();
+      document.execCommand("copy");
+      $temp.remove();
+    }
+    function clipboardNotice() {
+      // remove class hide
+      $('#clipboard-notice').removeClass('hide');
+    }
+  </script>
+  <% end %>

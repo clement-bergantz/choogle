@@ -1,7 +1,9 @@
 
 .modal-content {
   border-radius: 15px;
-  background: linear-gradient(to right, #833ab4, #fd1d1d);
+  background: #833ab4;
+  background: -webkit-linear-gradient(110deg, #833ab4, #fd1d1d);
+  background: linear-gradient(110deg, #833ab4, #fd1d1d);
   border: none;
   padding: 20px;
   color: white;

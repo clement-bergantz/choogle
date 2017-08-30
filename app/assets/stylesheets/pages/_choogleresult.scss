@@ -1,0 +1,34 @@
+.wrapper-result {
+  background: #833ab4; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  align-items: center;
+  text-align: center;
+}
+.general-info {
+  font-color: white;
+}
+
+.result-content {
+  background-color: pink;
+}
+
+.result-info {
+  background-color: lightgreen;
+}
+
+.result-tags {
+  background-color: darkgreen;
+}
+
+
+// map
+.result-map {
+  flex-shrink: 0;
+  width: 30vh;
+  height: 20vh;
+  position: sticky !important;
+  top: 0 !important;
+  margin: 20px;
+}
+

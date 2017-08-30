@@ -47,4 +47,8 @@ class Choogle < ApplicationRecord
       errors.add(:base, "Closing votes date should be set before Choogle date")
     end
   end
+
+  # def winning_proposal
+  #   proposals.
+  # end
 end
