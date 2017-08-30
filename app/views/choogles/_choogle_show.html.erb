@@ -93,17 +93,35 @@
       </div>
     </div>
 
-    <!-- 'Done' redirecting to notification#new -->
-    <div class="proposal-empty" data-toggle="modal" data-target="#notification-modal">
+    <!-- Old 'Done' button redirecting to notification#new modal -->
+<!--     <div class="notification" data-toggle="modal" data-target="#notification-modal">
       <div class='proposal-empty-body'>
         <h3>DONE</h3>
       </div>
+    </div> -->
+
+    <!-- New notification input -->
+    <div class="notification">
+      <div class="notification-content">
+        <p>Enter your email to be notify when the place is elected</p>
+          <div class="input-group">
+            <%= simple_form_for([@choogle, @notification]) do |f| %>
+              <%= f.error_notification %>
+
+              <%= f.simple_fields_for :user do |h| %>
+                <%= h.input :email, class: "input-choogle", label: false %>
+              <% end %>
+              <%= f.button :submit, class: 'btn btn-choogle-secondary', value: "Notify me" %>
+            <% end %>
+          </div>
+      </div>
+
     </div>
 
   </div>
 </div>
 
-<!-- New Notification Modal -->
+<!-- New Notification Modal (not used yet) -->
 <div class="modal fade" id="notification-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
