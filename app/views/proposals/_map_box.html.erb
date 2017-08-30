@@ -1,6 +1,11 @@
 <div class="container text-center" id="proposal-infobox">
   <div class="place-name">
-    <%= proposal.place.name %>
+    <p><%= proposal.place.name %></p>
+  </div>
+  <div class="place-address">
+    <% unless proposal.place.address.nil? %>
+      <p><%= proposal.place.address %></p>
+    <% end %>
   </div>
   <div class="place-rating">
     <% unless proposal.place.rating.nil? %>
@@ -12,5 +17,5 @@
       <% end %>
         ∙ <%= proposal.place.rating %>
     <% end %>
-   </div>
+  </div>
 </div>
