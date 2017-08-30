@@ -3,7 +3,7 @@
   text-align: center;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
-  display: table;
+  display: inline-block;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -27,6 +27,6 @@
   margin-bottom: 45px;
 }
 .banner-content {
-  min-height: 65vh;
+  min-height: 63vh;
   margin-top: 80px;
 }
