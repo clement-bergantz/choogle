@@ -10,8 +10,8 @@ class Upvote < ApplicationRecord
     # looking for all clients on the broadcast and push upvotes size and proposal id
     ActionCable.server.broadcast(
     "upvote_#{proposal.choogle.slug}",
-    upvotes: proposal.upvotes.size,
-    proposal_id: proposal.id,
+    upvotes: self.proposal.upvotes.size,
+    proposal_id: self.proposal.id,
     )
   end
 end

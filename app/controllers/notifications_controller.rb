@@ -2,21 +2,24 @@ class NotificationsController < ApplicationController
 	skip_before_action :authenticate_user!, only: [:new, :create]
 
     def create
-	
+
     @choogle = Choogle.find_by_slug(params[:slug])
 
     @user = current_or_guest_user
 
+    # Enter email
+    # Search , if exist create notif with this id
+    # If not update guest and create notif with this guest
+
     # we are looking in the db if we find a user with this email
     if User.find_by_email(user_params[:user][:email]).nil?
-    	# if the email is not found we set it with the email in the input 
+    	# if the email is not found we set it with the email in the input
         @user.email = user_params[:user][:email]
     	@user.save
     else
     	# error message (? if the email is found that's not a problem ?? why an error message ?)
-    	raise
     end
-   
+
     @notification = Notification.new
     @notification.user = @user
     @notification.choogle = @choogle
@@ -26,9 +29,8 @@ class NotificationsController < ApplicationController
     	redirect_to choogle_path(params[:slug])
     else
     	# error message
-    	raise
     end
-    
+
 	end
 
 	private
