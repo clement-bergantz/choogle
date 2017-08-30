@@ -90,7 +90,7 @@
       <div class="proposal-wrapper" id="comments">
         <ul class="media-list">
         <%= render @comments %>
-        </ul>œ
+        </ul>
       </div>
       <%= render 'comments/form' %>
     </div>
@@ -181,7 +181,7 @@
         // Update the div with the received informations from broadcast method on model
         received: function(data) {
           console.log(data);
-          $('.media-list').append(data['comment']);
+          $('#chatroom').find('.media-list').prepend(data['message_partial']);
         }
       }
     );

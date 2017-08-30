@@ -7,8 +7,11 @@ class Comment < ApplicationRecord
   def broadcast_comment
     # looking for all clients on the broadcast and push comments size and proposal id
     ActionCable.server.broadcast(
-    "chat_room_#{choogle.slug}",
-    comment: self,
-    )
+    "chat_rooms_#{choogle.slug}", {
+      message_partial: ApplicationController.renderer.render(
+              partial: "comments/comment",
+              locals: { comment: self }
+            ),
+    })
   end
 end

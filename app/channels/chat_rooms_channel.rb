@@ -1,8 +1,6 @@
 class ChatRoomsChannel < ApplicationCable::Channel
   def subscribed
-    def subscribed
-      stream_from "comment_#{comment.choogle.slug}"
-    end
+    stream_from "chat_rooms_#{params[:choogle_slug]}"
   end
 
   def unsubscribed
