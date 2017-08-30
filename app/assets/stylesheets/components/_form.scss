@@ -5,19 +5,19 @@
 .date-form {
   width: 600px;
   margin: auto;
-}
-.date-form label {
-  display: table !important;
-  margin-bottom: 10px;
+ label {
+    display: table !important;
+    margin-bottom: 10px;
+  }
 }
 
 .form-date-element {
-  height: 39px !important;
+  height: 35px !important;
   background-color: white !important;
 }
 
 .btn-margin {
-  margin-top: 35px;
+  margin-top: 31px;
 }
 
 // force the autocomplete window to be "in front of the modal
@@ -25,7 +25,7 @@
   z-index: 1051 !important;
 }
 
-// flatpickr
+// flatpikr
 .flatpickr-month {
   background-color: $purple;
 }

@@ -1,0 +1,22 @@
+#proposal-infobox {
+  display:block;
+  overflow:auto;
+  width: 150px;
+
+  .place-name p {
+    font-weight: bold;
+  };
+
+  .place-address p {
+    font-size: 12px;
+    font-weight: lighter;
+  };
+
+  #star-rating-good {
+  color: $yellow;
+  };
+
+  #star-rating-bad {
+  color: $beton;
+  }
+}
