@@ -17,10 +17,10 @@
         <% unless current_or_guest_user.facebook_picture_url.nil? %>
           <% avatar_url = current_or_guest_user.facebook_picture_url %>
         <% else %>
-          <% avatar_url = image_tag 'default-avatar.jpg' %>
+          <% avatar_url = 'default-avatar.jpg' %>
           <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <% end %>
-        <%= image_tag 'default-avatar.jpg', class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
             <% if user_signed_in? %>
