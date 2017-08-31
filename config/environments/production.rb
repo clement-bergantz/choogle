@@ -1,6 +1,6 @@
 Rails.application.configure do
   config.action_mailer.delivery_method     = :postmark
-  config.action_mailer.postmark_settings   = { api_key: ENV['d7042949-b021-4146-82f1-bbf36ffd76a3'] }
+  config.action_mailer.postmark_settings   = { api_key: ENV['POSTMARK'] }
   config.action_mailer.default_url_options = { host: "https://www.choogle.xyz/" }
   # Settings specified here will take precedence over those in config/application.rb.
 
