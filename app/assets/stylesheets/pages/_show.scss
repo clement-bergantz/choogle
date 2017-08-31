@@ -28,9 +28,9 @@
 }
 
 .choogle-infos {
-  display: flex;
-  align-items: center;
-  padding: 20px;
+  // display: flex;
+  // align-items: center;
+  // padding: 20px;
   border-radius: 4px;
   transition: all 0.15s ease;
   background-color: white;
@@ -42,13 +42,13 @@
 .choogle-infos-timer {
   text-align: center;
   margin: 20px;
-  width: 50%;
+  // width: 50%;
 }
 .choogle-infos-link {
   text-align: center;
-  width: 500px;
+  // width: 500px;
   margin: 20px;
-  width: 50%;
+  // width: 50%;
 }
 .choogle-infos-link a:hover {
   color: $purple;
