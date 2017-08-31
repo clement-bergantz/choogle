@@ -73,9 +73,12 @@
   flex-grow: 1;
 }
 .map-container {
-  flex-shrink: 0;
   width: 40%;
-  height: 100vh;
+  // comment the line below and uncomment the 2 next line for original comportement
+  min-height: 70vh;
+  max-height: 100vh;
+  // height:100vh;
+  // flex-shrink: 0;
   position: sticky !important;
   top: 0 !important;
   margin: 20px;
