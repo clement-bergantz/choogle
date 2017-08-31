@@ -19,13 +19,10 @@ class ProposalsController < ApplicationController
       @client = GooglePlaces::Client.new(ENV['GOOGLE_API_SERVER_KEY'])
       # We get the Google Places Object matching user entry (e.g.: "La Vie Moderne, Bordeaux")
       place_info = @client.spots_by_query(proposal_params["place"])[0]
-      # We are looking in the DB if the Object exists
       if Place.find_by(api_google_id: place_info.place_id).nil?
-        # If it doesn't: let's create one!
         @place = Place.new(address: place_info.formatted_address)
         @place.name = place_info.name
-        # We are getting the API id, which will be useful in the future the query Google about our own Places Objects.
-        # Ex: if I want to fetch a Place rating on a "place" instance of Place
+        @place.rating = place_info.rating unless place_info.rating.nil?
         @place.api_google_id = place_info.place_id
       else
         @place = Place.find_by(api_google_id: place_info.place_id)

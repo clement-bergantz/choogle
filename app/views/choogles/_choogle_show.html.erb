@@ -14,7 +14,7 @@
     <div class="event">
       <div class="event-infos">
         <h1><%= @choogle.title %></h1>
-        <p>on <%= @choogle.happens_at %></p>
+        <p>on <%= @choogle.happens_at.strftime("%A, %b %d at %l:%M %p") %></p>
         <p>proposed by <%= @choogle.user.first_name %></p>
       </div>
     </div>
@@ -24,6 +24,24 @@
         <p>Time left to vote</p>
         <div id="timer" data-timer="<%= (@choogle.due_at) %>">
           <%= render "choogles/timer"  %>
+            <div id="clockdiv">
+              <div>
+                <span class="days"></span>
+                <div class="smalltext">Days</div>
+              </div>
+              <div class="timer-hour">
+                <span class="hours"></span>
+                <div class="smalltext">Hours</div>
+              </div>
+              <div class="timer-minute">
+                <span class="minutes"></span>
+                <div class="smalltext">Minutes</div>
+              </div>
+              <div>
+                <span class="seconds"></span>
+                <div class="smalltext">Seconds</div>
+              </div>
+            </div>
         </div>
       </div>
       <div class="choogle-infos-link">
@@ -34,7 +52,7 @@
             <button class="btn btn-choogle-secondary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
           </div>
         </div>
-      </div>     
+      </div>
     </div>
 
     <div class="main-proposals">
@@ -72,9 +90,7 @@
         <% end %>
 
         <!-- Empty Proposal add a new one -->
-        <div class="btn proposal-btn">
-          <%= link_to "Add a new place", new_choogle_proposal_path(@choogle), remote: true %>
-        </div>
+        <%= link_to "Add a new place", new_choogle_proposal_path(@choogle), remote: true, class: "btn btn-proposal" %>
         <%= render "proposals/modal" %>
 
       </div>
@@ -86,26 +102,44 @@
     </div>
 
     <!-- Comments -->
-    <div class="proposal-wrapper" id="chatroom">
-      <div class="proposal-wrapper" id="comments">
+    <div id="chatroom">
+      <div id="comments">
         <ul class="media-list">
         <%= render @comments %>
         </ul>
+        <%= render 'comments/form' %>
       </div>
-      <%= render 'comments/form' %>
     </div>
 
-    <!-- 'Done' redirecting to notification#new -->
-    <div class="proposal-empty" data-toggle="modal" data-target="#notification-modal">
+    <!-- Old 'Done' button redirecting to notification#new modal -->
+<!--     <div class="notification" data-toggle="modal" data-target="#notification-modal">
       <div class='proposal-empty-body'>
         <h3>DONE</h3>
       </div>
+    </div> -->
+
+    <!-- New notification input -->
+    <div class="notification">
+      <div class="notification-content">
+        <p>Enter your email to be notify when the timer is done</p>
+          <div class="input-group">
+            <%= simple_form_for([@choogle, @notification]) do |f| %>
+              <%= f.error_notification %>
+
+              <%= f.simple_fields_for :user do |h| %>
+                <%= h.input :email, class: "input-choogle", label: false %>
+              <% end %>
+              <%= f.button :submit, class: 'btn btn-choogle-secondary', value: "Notify me" %>
+            <% end %>
+          </div>
+      </div>
+
     </div>
 
   </div>
 </div>
 
-<!-- New Notification Modal -->
+<!-- New Notification Modal (not used yet) -->
 <div class="modal fade" id="notification-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -167,4 +201,24 @@
       }
     );
   </script>
+  <script>
+    App.cable.subscriptions.create(
+      {
+        channel: 'ChatRoomsChannel',
+        choogle_slug: '<%= @choogle.slug %>'
+      },
+      {
+        // just log the connected channel
+        connected: function(data) {
+          console.log("<%= "[connected #{@choogle.slug}]" %>");
+        },
+        // Update the div with the received informations from broadcast method on model
+        received: function(data) {
+          console.log(data);
+          $('#chatroom').find('.media-list').prepend(data['message_partial']);
+        }
+      }
+    );
+  </script>
+
 <% end %>

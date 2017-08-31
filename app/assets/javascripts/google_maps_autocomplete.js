@@ -14,23 +14,9 @@ function setAddressAutocomplete(selector) {
 
 function onPlaceChanged() {
   var place = this.getPlace();
-  // var components = getAddressComponents(place);
-  // $('#proposal_place').trigger('blur').val(place);
 }
 
 function getAddressComponents(place) {
-  // If you want lat/lng, you can look at:
-  // - place.geometry.location.lat()
-  // - place.geometry.location.lng()
-
   var place_id = place.place_id;
 
  }
-//
- //   return {
- //     address: street_number == null ? route : (street_number + ' ' + route),
- //     zip_code: zip_code,
- //     city: city,
- //     country_code: country_code
- //   };
- // }
