@@ -105,7 +105,15 @@
     <div id="chatroom">
       <div id="comments">
         <ul class="media-list">
-        <%= render @comments %>
+          <li class="media-comment">
+             <%= image_tag('chooglebot.png', class: "avatar") %>
+            <div class="media-body">
+              <p class="media-heading">ChoogleBot
+              <div class='text-area'>Welcome on the ChoogleChat, human! Talk to your friends now 🚀 </div>
+              <small class="text-muted"> <%= Time.now.strftime("%^a %H:%M %p") %></small></p>
+            </div>
+          </li>
+          <%= render @comments %>
         </ul>
         <%= render 'comments/form' %>
       </div>
