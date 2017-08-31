@@ -106,7 +106,7 @@
           <%= link_to "Add a new place", new_choogle_proposal_path(@choogle), remote: true, class: "btn btn-proposal" %>
           <%= render "proposals/modal" %>
         </div>
-        
+
       </div>
 
       <div class="map-container hidden-xs">
@@ -243,7 +243,6 @@
         received: function(data) {
           console.log(data);
           $('#chatroom').find('.media-list').append(data['message_partial']);
-          scrollLastCommentIntoView()
         }
       }
     );
