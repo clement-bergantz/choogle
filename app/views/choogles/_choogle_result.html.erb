@@ -10,16 +10,16 @@
       <div class="col-sm-7">
         <div class="result-content">
           <div class="result-info">
-            <h2><%= sort_prop_by_upvotes(@choogle.proposals).first.place.name %></h2>
-            <p>suggested by <%= sort_prop_by_upvotes(@choogle.proposals).first.user.first_name %></p>
-            <h4><%= sort_prop_by_upvotes(@choogle.proposals).first.place.address %></h4>
+            <h2><%= @choogle.proposals.most_upvoted.place.name %></h2>
+            <p>suggested by <%= @choogle.proposals.most_upvoted.user.first_name %></p>
+            <h4><%= @choogle.proposals.most_upvoted.place.address %></h4>
             <h4>⭐️⭐️⭐️</h4>
           </div>
           <div class="result-tags">
             <!-- tags of the proposal -->
             <div class="tag">
-              <% if sort_prop_by_upvotes(@choogle.proposals).first.tags.any? %>
-                <% sort_prop_by_upvotes(@choogle.proposals).first.tags.each do |tag| %>
+              <% if @choogle.proposals.most_upvoted.tags.any? %>
+                <% @choogle.proposals.most_upvoted.tags.each do |tag| %>
                 <h5 class="tags" style="background-color: <%= tag.color %>"><%= tag.name %></h5>
                 <% end %>
               <% end %>
@@ -43,8 +43,6 @@
 
 </div>
 
-<!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
 
 <%= content_for(:after_js) do %>
   <script>
