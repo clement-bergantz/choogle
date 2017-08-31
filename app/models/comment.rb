@@ -12,6 +12,7 @@ class Comment < ApplicationRecord
               partial: "comments/comment",
               locals: { comment: self }
             ),
+      current_user_id: user.id
     })
   end
 end
