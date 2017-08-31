@@ -10,6 +10,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :facebook_picture_url])
   end
 
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
 
  # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user
