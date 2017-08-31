@@ -216,6 +216,7 @@
         received: function(data) {
           console.log(data);
           $('#chatroom').find('.media-list').append(data['message_partial']);
+          scrollLastCommentIntoView()
         }
       }
     );
