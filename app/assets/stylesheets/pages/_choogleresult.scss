@@ -1,0 +1,73 @@
+.wrapper-result {
+  background: #833ab4; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  align-items: center;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  height:auto;
+  width:auto;
+  height: 75vh;
+}
+
+.choogle-result  {
+  margin-bottom: 20px;
+  h1 {
+    color: white !important;
+    font-size: 20px;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  }
+  p {
+    color: white !important;
+    font-size: 12px;
+  }
+}
+
+.result-info {
+  h2 {
+    margin: 0 0 2px 0;
+  }
+  h4 {
+    font-size: 15px;
+    color: $darkbeton;
+  }
+  p {
+  font-weight: lighter;
+  color: #6A7C94;
+  }
+}
+
+.result-content {
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 15px;
+}
+
+.result-tags {
+  margin-top: 10px;
+}
+
+// map
+.result-map {
+  flex-shrink: 0;
+  width: auto;
+  height: 25vh;
+  position: sticky !important;
+  top: 0 !important;
+  margin-top: 15px;
+  border: 8px solid white;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+// .res {
+//   flex-shrink: 0;
+//   width: 40%;
+//   height: 100vh;
+//   position: sticky !important;
+//   top: 0 !important;
+//   margin: 20px;
+// }
+

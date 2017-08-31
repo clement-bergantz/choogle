@@ -15,6 +15,7 @@
   align-items: flex-end;
   h1 {
     color: white;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   }
   p {
     color: white;
@@ -35,7 +36,7 @@
   background-color: white;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   p {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 }
 .choogle-infos-timer {
@@ -60,7 +61,7 @@
 .input-choogle {
   padding: 6px 12px;
   border-radius: 4px;
-  border: 1px solid $purple; 
+  border: 1px solid $purple;
   margin-right: 3px;
 }
 
@@ -105,4 +106,33 @@
     z-index: 1051 !important;
 }
 
+#clockdiv > div{
+  display: inline-block;
+  text-align: center;
+  width: 90px;
+}
+
+#clockdiv div > span{
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0px;
+  color: $beton;
+}
+
+.smalltext{
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0px;
+  color: $beton;
+}
+
+.timer-hour {
+  border-right: 1px solid $beton;
+  border-left: 1px solid $beton;
+}
+
+.timer-minute {
+  border-right: 1px solid $darkbeton;
+}
 

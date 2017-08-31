@@ -7,12 +7,16 @@
   z-index: 10;
   width: 100%;
   color: white;
+  background-color: transparent !important;
 }
 
 .navbar-home .navbar-wagon-link{
-  color: lightgray;
+  color: white;
 }
 
+.navbar-home .navbar-wagon-link:hover{
+  color: $purple;
+}
 
 /***** MAIN navbar *****/
 .navbar-wagon {
