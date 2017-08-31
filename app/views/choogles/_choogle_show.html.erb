@@ -123,11 +123,11 @@
       <div class="notification-content">
         <p>Enter your email to be notify when the timer is done</p>
           <div class="input-group">
-            <%= simple_form_for([@choogle, @notification]) do |f| %>
+            <%= simple_form_for [@choogle, @notification], html: { class: "input-group" } do |f| %>
               <%= f.error_notification %>
 
               <%= f.simple_fields_for :user do |h| %>
-                <%= h.input :email, class: "input-choogle", label: false %>
+                <%= h.input :email, label: false, input_html: { class: 'input-choogle' } %>
               <% end %>
               <%= f.button :submit, class: 'btn btn-choogle-secondary', value: "Notify me" %>
             <% end %>
