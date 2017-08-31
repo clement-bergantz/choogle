@@ -1,42 +1,55 @@
 <% content_for(:after_js) do %>
 
-  <script>
-    // Set the date we're counting down to (@choogle.due_at)
-    var choogleDueAt = $('#timer').data('timer');
+<script>
+  function getTimeRemaining(endtime) {
+    var t = Date.parse(endtime) - Date.parse(new Date());
+    var seconds = Math.floor((t / 1000) % 60);
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    return {
+      'total': t,
+      'days': days,
+      'hours': hours,
+      'minutes': minutes,
+      'seconds': seconds
+    };
+  }
 
-    var countDownDate = new Date(choogleDueAt).getTime();
+  function initializeClock(id, endtime) {
+    var clock = document.getElementById(id);
+    var daysSpan = clock.querySelector('.days');
+    var hoursSpan = clock.querySelector('.hours');
+    var minutesSpan = clock.querySelector('.minutes');
+    var secondsSpan = clock.querySelector('.seconds');
 
-    // Update the count down every 1 second
-    var x = setInterval(function() {
+    function updateClock() {
+      var t = getTimeRemaining(endtime);
 
-      // Get todays date and time
-      var now = new Date().getTime();
+      daysSpan.innerHTML = t.days;
+      hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
-      // Find the distance between now an the count down date
-      var distance = countDownDate - now;
-
-      // Time calculations for days, hours, minutes and seconds
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      // Display the result in the element with id="demo"
-      document.getElementById("timer").innerHTML = days + " days " + hours + " hours "
-      + minutes + " minutes and " + seconds + " seconds ";
-
-      // If the count down is finished, write some text
-      if (distance < 0) {
-        clearInterval(x);
+      if (t.total <= 0) {
+        clearInterval(timeinterval);
         // document.getElementById("demo").innerHTML = "EXPIRED";
-      // Ajax request to render either the choogle show or the result page
+        // Ajax request to render either the choogle show or the result page
         $.ajax({
           type: "GET",
           url: "<%= choogle_path(@choogle.slug) %>",
           dataType: 'script'
         });
       }
-    }, 1000);
-  </script>
+    }
 
+    updateClock();
+    var timeinterval = setInterval(updateClock, 1000);
+  }
+
+  var choogledue = $('#timer').data('timer')
+  var deadline = new Date(Date.parse(choogledue.replace(/-/g, '/').replace(/[a-z]+/gi, ' ')));
+  initializeClock('clockdiv', deadline);
+
+  </script>
 <% end %>

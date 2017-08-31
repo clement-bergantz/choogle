@@ -2,7 +2,6 @@ class UpvotesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create]
 
   def create
-
     @proposal = Proposal.find(params[:id])
     @choogle = Choogle.find_by_slug(params[:slug])
 

@@ -3,14 +3,34 @@
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
+        markers = <%= raw @hash.to_json %>;
+        Gmaps.store = {} // Initialize storage
+        Gmaps.store.markers = markers.map(function(m) {
+          marker = handler.addMarker(m);
+          marker.serviceObject.set('id', m.id); // You can add other attributes using set
+          return marker;
+        });
+        handler.bounds.extendWith(Gmaps.store.markers);
         handler.fitMapToBounds();
         if (markers.length == 0) {
           handler.getMap().setZoom(14);
         } else if (markers.length == 1) {
           handler.getMap().setZoom(15);
         }
+        Gmaps.selectMarker = function(id) {
+          $.each(Gmaps.store.markers, function() {
+            if (this.serviceObject.id == id) {
+              google.maps.event.trigger(this.serviceObject, 'click')
+              this.serviceObject.setAnimation(google.maps.Animation.BOUNCE);
+            }
+            else this.serviceObject.setAnimation(null);
+          });
+        }
+        <% @choogle.proposals.each do |proposal| %>
+          $( "#proposal-<%= proposal.id %>" ).click(function() {
+            Gmaps.selectMarker(<%= proposal.id %>);
+          });
+        <% end %>
       });
     });
   <% end %>
