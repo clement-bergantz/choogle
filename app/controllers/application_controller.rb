@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :current_or_guest_user
+  add_flash_types :notifyme
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
@@ -53,7 +54,6 @@ class ApplicationController < ActionController::Base
     u = User.create(
       :first_name => "guest",
       :email => "guest_#{Time.now.to_i}#{rand(100)}@example.com",
-      :facebook_picture_url => "http://photos.techfieber.de/wp-content/uploads/2011/10/facebook-default-avatar.jpg"
       )
     u.save!(:validate => false)
     session[:guest_user_id] = u.id
