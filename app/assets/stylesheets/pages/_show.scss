@@ -29,7 +29,8 @@
 .choogle-infos {
   // display: flex;
   // align-items: center;
-  // padding: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
   border-radius: 4px;
   transition: all 0.15s ease;
   background-color: white;
@@ -112,3 +113,18 @@
   border-right: 1px solid $beton;
 }
 
+@media (max-width: 415px) {
+
+  #clockdiv > div{
+  width: 50px;
+  }
+
+  #clockdiv div > span{
+    font-size: 11px;
+  }
+
+  .smalltext{
+    font-size: 11px;
+  }
+
+}
