@@ -112,7 +112,7 @@
   cursor: pointer;
   opacity: 0.75;
   box-shadow: none;
-  border: 0.5px solid white;
+  // border: 0.5px solid white;
 }
 .proposal-upvote:hover, .proposal-upvote.proposal-upvote-upvoted {
   color: $red;
@@ -191,6 +191,31 @@
   background-color: white;
   color: $purple;
   border: 1px solid white;
+}
+
+.strike {
+  color: #A62D8D;
+}
+
+.strike .proposal-arrow {
+  color: #A62D8D;
+  transition: all 0.15s ease;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid transparent;
+  border-bottom: 9px solid #A62D8D;
+  border-radius: 2px;
+  margin: auto;
+}
+
+.upvote:hover {
+  text-decoration: none;
+}
+
+.upvote:focus {
+  text-decoration: none;
 }
 // .proposal-btn {
 //   background-color: transparent;

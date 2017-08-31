@@ -20,4 +20,5 @@ class Proposal < ApplicationRecord
 
 
   Proposal.select("proposals.*, COUNT(upvotes.id) as upvote_count").group("proposals.id").order("upvote_count DESC")
+
 end
