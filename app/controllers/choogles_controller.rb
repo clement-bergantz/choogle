@@ -6,20 +6,20 @@ class ChooglesController < ApplicationController
     @choogle = Choogle.find_by_slug(params[:slug])
     @user = current_or_guest_user
     @proposal = Proposal.new
-    proposals = @choogle.proposals
+    places = @choogle.places
 
-    @hash = Gmaps4rails.build_markers(proposals) do |proposal, marker|
-      marker.lat proposal.place.latitude
-      marker.lng proposal.place.longitude
-      marker.json({ :id => proposal.id })
+    @hash = Gmaps4rails.build_markers(places) do |place, marker|
+      marker.lat place.latitude
+      marker.lng place.longitude
       # // uncomment to add a specific marker
       # marker.picture({
       #   "url" => view_context.image_path("marker.png"),
       #   "width" => 64,
       #   "height" =>64
       # })
-      marker.infowindow render_to_string(partial: "/proposals/map_box", locals: { proposal: proposal })
+      # marker.infowindow render_to_string(partial: "/places/map_box", locals: { place: place })
     end
+    @proposal = Proposal.new
     @user = current_or_guest_user
     @comment = Comment.new
     @comments = Comment.where(choogle: @choogle).order('created_at')

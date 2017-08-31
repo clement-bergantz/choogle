@@ -215,7 +215,7 @@
         // Update the div with the received informations from broadcast method on model
         received: function(data) {
           console.log(data);
-          $('#chatroom').find('.media-list').prepend(data['message_partial']);
+          $('#chatroom').find('.media-list').append(data['message_partial']);
         }
       }
     );
