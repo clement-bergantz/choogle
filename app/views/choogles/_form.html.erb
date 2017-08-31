@@ -1,18 +1,18 @@
 <%= simple_form_for(@choogle, remote: true) do |f| %>
   <div class="date-form">
     <div class="row">
-      <div class="col-xs-12 col-md-8">
+      <div class="col-xs-12 col-sm-8">
         <%= f.input :title, error: "Your event needs a name" , label: "Event's name", placeholder: "Give a name to your Choogle"%>
       </div>
-      <div class="col-xs-12 col-md-4">
-          <%= f.input :happens_at, as: :text, label: "Event's date", placeholder: "Happening date", input_html: { class: 'flatpickr-input form-date-element' } %>
+      <div class="col-xs-12 col-sm-4">
+        <%= f.input :happens_at, as: :text, label: "Event's date", placeholder: "In 2 days", input_html: { class: 'flatpickr-input form-date-element' } %>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-md-8">
+      <div class="col-xs-12 col-sm-8">
         <%= f.input :due_at, as: :text, label: "Closing votes date", placeholder: "Due date for voting", input_html: { class: 'flatpickr-input form-date-element'} %>
       </div>
-      <div class="col-xs-12 col-md-4 date-form-btn btn-setup-1">
+      <div class="col-xs-12 col-sm-4 date-form-btn btn-setup-1">
         <%= f.button :submit, value: "Let's Choogle", class: "btn-choogle btn-margin" %>
       </div>
     </div>
