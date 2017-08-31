@@ -192,6 +192,24 @@
   color: $purple;
   border: 1px solid white;
 }
+
+.strike {
+  color: $purple;
+}
+
+.strike .proposal-arrow {
+  color: $purple;
+  transition: all 0.15s ease;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid transparent;
+  border-bottom: 9px solid $purple;
+  border-radius: 2px;
+  margin: auto;
+}
+
 // .proposal-btn {
 //   background-color: transparent;
 //   height: 40px;

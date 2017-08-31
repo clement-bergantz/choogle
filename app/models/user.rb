@@ -43,4 +43,5 @@ class User < ApplicationRecord
     end
     usertags.flatten
   end
+
 end
