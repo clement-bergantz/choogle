@@ -8,7 +8,7 @@
     <%= f.input :email, required: true, autofocus: true, placeholder: "luke.skywalker@rebel-alliance.com" %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
-    <%= f.input :facebook_picture_url, as: :hidden, :input_html => { :value => "#{User::AVATARS.sample}" } %>
+    <%= f.input :facebook_picture_url, as: :hidden, :input_html => { :value => image_tag "default-avatar.jpg" } %>
   </div>
 
   <div class="form-actions">

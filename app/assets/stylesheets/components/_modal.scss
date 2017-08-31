@@ -1,14 +1,17 @@
 
 .modal-content {
   border-radius: 15px;
-  background: linear-gradient(to right, #833ab4, #fd1d1d);
+  background: #833ab4;
+  background: -webkit-linear-gradient(110deg, #833ab4, #fd1d1d);
+  background: linear-gradient(110deg, #833ab4, #fd1d1d);
   border: none;
   padding: 20px;
   color: white;
 }
 
 .modal-content h1 {
-  margin-bottom: 45px;
+  color: white !important;
+  margin-bottom: 45px ;
   font-size: 50px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
@@ -25,15 +28,15 @@
   margin-bottom: 10px;
 }
 
-.select2-container--bootstrap .select2-selection {
-  height: 39px !important;
-  font-size: 18px !important;
-  border-radius: 6px !important;
-}
+// .select2-container--bootstrap .select2-selection {
+//   // height: 39px !important;
+//   // font-size: 18px !important;
+//   // border-radius: 6px !important;
+// }
 
-.select2-container--bootstrap .select2-selection--multiple .select2-selection__rendered {
-  margin-top: 3px;
-}
+// .select2-container--bootstrap .select2-selection--multiple .select2-selection__rendered {
+//   margin-top: 3px;
+// }
 // .help-block {
 //   position: absolute;
 // }

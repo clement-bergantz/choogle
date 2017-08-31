@@ -1,15 +1,16 @@
 .doodle {
     position: absolute;
+    border-radius: 4px;
     display: flex;
     width: 600px;
     height: auto;
-    bottom: -190px;
+    bottom: -208px;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 15px 15px 26px 4px rgba(0, 0, 0, 0.2);
 }
 .wrapper-doodle {
-  height: 265px;
+  height: 240px;
   align-items: flex-end;
   display: flex;
   justify-content: center;
@@ -19,6 +20,11 @@
 .wrapper-features {
   background-color: white;
   padding: 10px;
+  h2 {
+    margin: 15px 0px;
+    color: #47495B;
+    font-size: xx-large;
+  }
 }
 .features {
   display: flex;
@@ -26,26 +32,20 @@
   padding: 10px;
   margin-bottom: 20px;
   justify-content: space-around;
-}
-.wrapper-features h2 {
-  margin: 15px 0px;
-  color: #47495B;
-}
-.features h3 {
-  margin: 15px 0;
-  color: #47495B;
+  h3 {
+    margin: 15px 0;
+    color: #47495B;
+  }
+  h6 {
+    margin: 0px;
+    font-size: 40px;
+  }
+  p {
+    color: #6A7C94;
+    font-size: medium;
+  }
 }
 
-.features h6 {
-  margin: 0px;
-  font-size: 40px;
-}
-.features p {
-  color: #6A7C94;
-}
-// .rules p {
-//   margin-bottom: 0;
-// }
 .feature {
   padding: 15px;
   width: 30%;
@@ -65,16 +65,22 @@
 
 // Wrapper to explain "why Choogle"
 .wrapper-rules {
-  background: $red;
-  background: -webkit-linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
-  background: linear-gradient(to right, #fcb045 , #fd1d1d, #833ab4);
+  background: #833ab4; /* fallback for old browsers */
+  background: -webkit-linear-gradient(110deg, #833ab4, #fd1d1d, #fcb045); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(110deg, #833ab4, #fd1d1d, #fcb045); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding: 10px;
   color: white;
   padding: 20px;
+  h2 {
+    color: white !important;
+    font-size: xx-large;
+  }
+  p {
+    color: white !important;
+    font-size: medium;
+  }
 }
-.wrapper-rules h2 {
-  margin: 15px 0;
-}
+
 .rules {
   display: flex;
   text-align: center;

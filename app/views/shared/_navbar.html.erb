@@ -14,10 +14,10 @@
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-      <% if user_signed_in? %>
-        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+        <% unless current_or_guest_user.facebook_picture_url.nil? %>
+          <% avatar_url = current_or_guest_user.facebook_picture_url %>
         <% else %>
-          <% avatar_url = "http://placehold.it/30x30" %>
+          <% avatar_url = 'default-avatar.jpg' %>
           <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <% end %>
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>

@@ -11,8 +11,14 @@
   background-color: white;
   color: $darkorange;
   border: none;
-  font-size: 19px;
+  font-size: 17px;
   box-shadow: 18px 11px 38px -15px grey;
+}
+
+.btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {
+  background-color: white;
+  color: $darkorange;
+  border: none;
 }
 
 // button over white background
@@ -28,3 +34,4 @@
   font-weight: normal;
   border-color: $purple;
 }
+
