@@ -10,13 +10,14 @@
   position: relative;
   box-sizing: border-box;
   background: #833ab4; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(110deg, #833ab4, #fd1d1d, #fcb045); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(110deg, #833ab4, #fd1d1d, #fcb045); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .banner h1 {
   font-size: 50px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  color: white !important;
 }
 .banner p {
   font-size: 25px;

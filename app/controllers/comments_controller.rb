@@ -14,20 +14,10 @@ class CommentsController < ApplicationController
     @comment.user = @user
     choogle = Choogle.find_by(slug: params[:slug])
     @comment.choogle = choogle
+    @comment.save
     respond_to do |format|
-      if @user
-        # @comment = @user.comments.build(comment_params)
-        if @comment.save
-          flash.now[:success] = 'Your comment was successfully posted!'
-        else
-          flash.now[:error] = 'Your comment cannot be saved.'
-        end
-        format.html {redirect_to choogle_path(params[:slug])}
-        format.js
-      else
-        format.html {redirect_to choogle_path(params[:slug])}
-        format.js {render nothing: true}
-      end
+      format.html {redirect_to choogle_path(params[:slug])}
+      format.js
     end
   end
 
