@@ -1,9 +1,10 @@
 .doodle {
     position: absolute;
+    border-radius: 4px;
     display: flex;
     width: 600px;
     height: auto;
-    bottom: -190px;
+    bottom: -208px;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 15px 15px 26px 4px rgba(0, 0, 0, 0.2);

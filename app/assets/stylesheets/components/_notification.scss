@@ -5,12 +5,22 @@
   padding: 20px;
   border-radius: 3px;
   transition: all 0.15s ease;
-  margin: 20px 0px;
+  margin: 20px 0px 50px 0px;
   background-color: white;
   justify-content: center;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  .form-group {
+    margin-bottom: 0px;
+    margin-right: 3px;
+  }
 }
 .notification h3 {
   color: lightgrey;
   text-decoration: none;
+}
+.notification-content {
+  margin: 20px;
+  p {
+    margin-bottom: 10px;
+  }
 }

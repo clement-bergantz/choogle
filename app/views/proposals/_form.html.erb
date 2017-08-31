@@ -7,9 +7,9 @@
       <%= h.input :first_name, label: "Let your friends know who you are", input_html: {id: 'sign_up_code', value: current_or_guest_user.first_name } %>
     <% end %>
   <% end %>
-  <%= f.input :place, label: "Add a place" %>
+  <%= f.input :place, label: "Add a new place" %>
   <%= f.association :tags, class: 'tag-selector', collection: current_or_guest_user.tags, label: "Add tags to this place (max 20 char)" %>
-  <%= f.button :submit, value: "Ready to Choogle", class: 'btn btn-choogle btn-proposal-margin' %>
+  <%= f.button :submit, value: "Add a new place", class: 'btn btn-choogle btn-proposal-margin' %>
 <% end %>
 
 <script>
