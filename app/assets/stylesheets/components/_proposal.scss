@@ -3,7 +3,6 @@
   justify-content: flex-end;
 }
 .proposals {
-  position: relative;
   width: 100%,
 }
 .map-container {
@@ -175,7 +174,6 @@
   width: 100% !important;
 }
 .btn-proposal {
-  position: absolute;
   right: 0px;
   background-color: transparent;
   color: white;
@@ -184,10 +182,15 @@
   border-radius: 6px;
   margin-top: 20px;
 }
+.add-a-place {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
 .btn-proposal:hover {
   background-color: white;
   color: $purple;
-  border: none;
+  border: 1px solid white;
 }
 // .proposal-btn {
 //   background-color: transparent;
