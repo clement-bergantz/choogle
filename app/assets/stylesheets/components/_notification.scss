@@ -9,8 +9,18 @@
   background-color: white;
   justify-content: center;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  .form-group {
+    margin-bottom: 0px;
+    margin-right: 3px;
+  }
 }
 .notification h3 {
   color: lightgrey;
   text-decoration: none;
+}
+.notification-content {
+  margin: 20px;
+  p {
+    margin-bottom: 10px;
+  }
 }
