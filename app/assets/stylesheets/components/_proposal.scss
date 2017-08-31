@@ -7,9 +7,10 @@
   width: 100%,
 }
 .map-container {
-  flex-shrink: 0;
+  // flex-shrink: 0;
   width: 40%;
-  height: 100vh;
+  min-height: 70vh;
+  max-height: 100vh;
   position: sticky !important;
   top: 0 !important;
   margin: 20px 0 20px 20px;
