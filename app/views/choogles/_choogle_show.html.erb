@@ -20,39 +20,51 @@
     </div>
 
     <div class="choogle-infos">
-      <div class="choogle-infos-timer">
-        <p>Time left to vote</p>
-        <div id="timer" data-timer="<%= (@choogle.due_at) %>">
-          <%= render "choogles/timer"  %>
-            <div id="clockdiv">
-              <div>
-                <span class="days"></span>
-                <div class="smalltext">Days</div>
-              </div>
-              <div class="timer-hour">
-                <span class="hours"></span>
-                <div class="smalltext">Hours</div>
-              </div>
-              <div class="timer-minute">
-                <span class="minutes"></span>
-                <div class="smalltext">Minutes</div>
-              </div>
-              <div>
-                <span class="seconds"></span>
-                <div class="smalltext">Seconds</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="choogle-infos-timer">
+              <p>Time left to vote</p>
+              <div id="timer" data-timer="<%= (@choogle.due_at) %>">
+                <%= render "choogles/timer"  %>
+                  <div id="clockdiv">
+                    <div>
+                      <span class="days"></span>
+                      <div class="smalltext">Days</div>
+                    </div>
+                    <div class="timer-hour">
+                      <span class="hours"></span>
+                      <div class="smalltext">Hours</div>
+                    </div>
+                    <div class="timer-minute">
+                      <span class="minutes"></span>
+                      <div class="smalltext">Minutes</div>
+                    </div>
+                    <div>
+                      <span class="seconds"></span>
+                      <div class="smalltext">Seconds</div>
+                    </div>
+                  </div>
               </div>
             </div>
-        </div>
-      </div>
-      <div class="choogle-infos-link">
-        <div class="invite-link">
-          <p>Invite your friends with this link</p>
-          <div class="input-group">
-            <input id='link' type="text" class="input-choogle" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
-            <button class="btn btn-choogle-secondary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
+          </div>
+          <div class="col-md-6">
+            <div class="choogle-infos-link">
+              <div class="invite-link">
+                <p>Invite your friends with this link</p>
+                <div class="input-group">
+                  <input id='link' type="text" class="input-choogle" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
+                  <button class="btn btn-choogle-secondary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+
+
+
     </div>
 
     <div class="main-proposals">
@@ -153,6 +165,8 @@
   </div>
 </div>
 
+<div class="trigger-user hidden" data-id="<%= current_or_guest_user.id %>"></div>
+
 <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
 
@@ -197,6 +211,9 @@
         received: function(data) {
           console.log(data);
           $('#upvote-' + data['proposal_id']).text(data['upvotes']);
+          // if(data['user']['id'] = $('.hidden').attr('data-id'));
+
+          $('#proposal-' + data['proposal_id']).find('.upvote').addClass('strike');
         }
       }
     );
