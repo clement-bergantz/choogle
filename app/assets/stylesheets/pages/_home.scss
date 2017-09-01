@@ -2,7 +2,7 @@
     position: absolute;
     border-radius: 4px;
     display: flex;
-    width: 600px;
+    width: 520px;
     height: auto;
     bottom: -208px;
     left: 50%;
@@ -67,8 +67,7 @@
 // Wrapper to explain "why Choogle"
 .wrapper-rules {
   background: #833ab4; /* fallback for old browsers */
-  background: -webkit-linear-gradient(110deg, #833ab4, #fd1d1d, #fcb045); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(110deg, #833ab4, #fd1d1d, #fcb045); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
   padding: 10px;
   color: white;
   padding: 20px;
