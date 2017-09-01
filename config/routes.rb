@@ -13,11 +13,14 @@ Rails.application.routes.draw do
 
   resources :choogles, only: [:create]
 
+  get '/tag_color' => "tags#tag_color"
+
   get "/:slug" => "choogles#show", as: :choogle
   post "/:slug/comments" => "comments#create", as: :choogle_comments
   post "/:slug/notifications" => "notifications#create", as: :choogle_notifications
   get "/:slug/proposals/new" => "proposals#new", as: :new_choogle_proposal
   post ":slug/proposals" => "proposals#create", as: :choogle_proposals
   post "/:slug/proposals/:id/upvotes" => "upvotes#create", as: :upvote
+
 
 end

@@ -19,5 +19,20 @@
       theme: "bootstrap",
       maximumInputLength: 20,
       placeholder: "Select or create your own tags."
+    }
+  );
+
+  $("#proposal_tag_ids").on('select2:select', function(event) {
+    var tagName = event.params.data.text;
+    $tag = $('.select2-container').find('[title="' + tagName + '"]');
+
+    $.ajax({
+      url: '/tag_color?tag=' + tagName,
+      method: "get",
+      success: function(data) {
+        $tag.css('background-color', data.color);
+      }
     });
+
+  });
 </script>
