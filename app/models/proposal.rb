@@ -16,9 +16,7 @@ class Proposal < ApplicationRecord
     .order('upvotes_count DESC')
   }
 
-
-
-
-  Proposal.select("proposals.*, COUNT(upvotes.id) as upvote_count").group("proposals.id").order("upvote_count DESC")
+  scope :by_upvotes, -> { joins(:upvotes).group("proposals.id").order("COUNT(upvotes) DESC") }
+  scope :most_upvoted, -> { by_upvotes.first }
 
 end
