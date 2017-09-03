@@ -8,6 +8,10 @@ class ChooglesController < ApplicationController
     @proposal = Proposal.new
     proposals = @choogle.proposals
 
+    if @choogle.due_at - 1.seconds < Time.zone.now
+      proposals = [proposals.most_upvoted]
+    end
+
     @hash = Gmaps4rails.build_markers(proposals) do |proposal, marker|
       marker.lat proposal.place.latitude
       marker.lng proposal.place.longitude

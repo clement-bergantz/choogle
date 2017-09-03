@@ -48,7 +48,7 @@
   }
 
   var choogledue = $('#timer').data('timer')
-  var deadline = new Date(Date.parse(choogledue.replace(/-/g, '/').replace(/[a-z]+/gi, ' ')));
+  var deadline = new Date(Date.parse(choogledue.replace(/-/g, '/')));
   initializeClock('clockdiv', deadline);
 
   </script>

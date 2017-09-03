@@ -1,66 +1,221 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- force IE browsers in compatibility mode to use their most aggressive rendering engine -->
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    <meta charset="utf-8">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"bc12d0ca7c","applicationID":"5568624,5587075","transactionName":"IlgMRUFXWFhWEE5XRQ5ZFm5VWVddXQVOVEUTWBBuBggE","queueTime":0,"applicationTime":24,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    
+    <meta name="google-site-verification" content="zkGmv5KaIk6MSXZKto5vTWO-I_eOv8Is1Tm5MwjDqhY" />
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    <title>Error 500 - Blast the tumbeasts!</title>
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+    <!-- Mobile viewport optimization h5bp.com/ad -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
-</head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+    <meta name="google-site-verification" content="zkGmv5KaIk6MSXZKto5vTWO-I_eOv8Is1Tm5MwjDqhY">
+
+    <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+    <meta http-equiv="cleartype" content="on">
+
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+    <script type="text/javascript">
+      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+        analytics.load("yrl223ypcgqwe36mpxlc");
+        analytics.page();
+
+      }}();
+
+      analytics.ready(function() {
+        if (window.location.href.indexOf('manage.') == -1) {
+          olark('api.box.show');
+        } else {
+          olark('api.box.hide');
+        }
+      });
+
+    </script>
+    
+
+
+
+    <!-- touch icons -->
+    <link rel="shortcut icon" type="image/x-icon" href="//dka575ofm4ao0.cloudfront.net/assets/base/favicon-7b6bd44315553f2a582175e914b953abe1122ce07fdbeafad9b979b72bab93f9.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//dka575ofm4ao0.cloudfront.net/assets/base/apple-touch-icon-144x144-precomposed-7d3097763fe154094a05832a78198472c19987c237559e8417338710b0e8523d.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="//dka575ofm4ao0.cloudfront.net/assets/base/apple-touch-icon-114x114-precomposed-22c166b3c3faf171f4ed497f9acc2e1798da85f2bd6ad419cdb38bc49ccdb17f.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="//dka575ofm4ao0.cloudfront.net/assets/base/apple-touch-icon-72x72-precomposed-0a000280b9b1502ff141a54f42107906a2c4d6557f5caf97a04c6e6d2f44e3b6.png" />
+    <link rel="apple-touch-icon-precomposed" href="//dka575ofm4ao0.cloudfront.net/assets/base/apple-touch-icon-57x57-precomposed-7a352593336de24a9ac19cec1cd60ae5ef50fc8f84365cebb665db7222db476d.png" />
+
+    <meta name="stripe-key" content="pk_nJqsBQM6Nzl9uHnxbmYlJ85IXM3k8" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="1IJvq9UQoHDBmMd6N7KJ51AMBgh4IkJmeSHZxVI//zMy6dK6vwtQ8/tH+Dw6b/dE6tbKQdkXVt3n/9vbSSkIow==" />
+
+    <!-- Le fonts -->
+<style>
+  @font-face {
+    font-family: 'proxima-nova';
+    src: url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaLight-f0b2f7c12b6b87c65c02d3c1738047ea67a7607fd767056d8a2964cc6a2393f7.eot?host=manage.statuspage.io');
+    src: url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaLight-f0b2f7c12b6b87c65c02d3c1738047ea67a7607fd767056d8a2964cc6a2393f7.eot?host=manage.statuspage.io#iefix') format('embedded-opentype'),
+         url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaLight-e642ffe82005c6208632538a557e7f5dccb835c0303b06f17f55ccf567907241.woff?host=manage.statuspage.io') format('woff'),
+         url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaLight-0f094da9b301d03292f97db5544142a16f9f2ddf50af91d44753d9310c194c5f.ttf?host=manage.statuspage.io') format('truetype');
+    font-weight:300;
+    font-style:normal;
+  }
+   
+  @font-face {
+    font-family: 'proxima-nova';
+    src: url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaRegular-366d17769d864aa72f27defaddf591e460a1de4984bb24dacea57a9fc1d14878.eot?host=manage.statuspage.io');
+    src: url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaRegular-366d17769d864aa72f27defaddf591e460a1de4984bb24dacea57a9fc1d14878.eot?host=manage.statuspage.io#iefix') format('embedded-opentype'),
+         url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaRegular-2ee4c449a9ed716f1d88207bd1094e21b69e2818b5cd36b28ad809dc1924ec54.woff?host=manage.statuspage.io') format('woff'),
+         url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaRegular-a40a469edbd27b65b845b8000d47445a17def8ba677f4eb836ad1808f7495173.ttf?host=manage.statuspage.io') format('truetype');
+    font-weight:400;
+    font-style:normal;
+  }
+   
+  @font-face {
+    font-family: 'proxima-nova';
+    src: url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaRegularIt-0bf83a850b45e4ccda15bd04691e3c47ae84fec3588363b53618bd275a98cbb7.eot?host=manage.statuspage.io');
+    src: url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaRegularIt-0bf83a850b45e4ccda15bd04691e3c47ae84fec3588363b53618bd275a98cbb7.eot?host=manage.statuspage.io#iefix') format('embedded-opentype'),
+         url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaRegularIt-0c394ec7a111aa7928ea470ec0a67c44ebdaa0f93d1c3341abb69656cc26cbdd.woff?host=manage.statuspage.io') format('woff'),
+         url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaRegularIt-9e43859f8015a4d47d9eaf7bafe8d1e26e3298795ce1f4cdb0be0479b8a4605e.ttf?host=manage.statuspage.io') format('truetype');
+    font-weight:400;
+    font-style:italic;
+  }
+   
+  @font-face {
+    font-family: 'proxima-nova';
+    src: url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaSemibold-09566917307251d22021a3f91fc646f3e45f8d095209bcd2cded8a1979f06e54.eot?host=manage.statuspage.io');
+    src: url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaSemibold-09566917307251d22021a3f91fc646f3e45f8d095209bcd2cded8a1979f06e54.eot?host=manage.statuspage.io#iefix') format('embedded-opentype'),
+         url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaSemibold-86724fb2152613d735ba47c3f47a9ad2424b898bea4bece213dacee40344f966.woff?host=manage.statuspage.io') format('woff'),
+         url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaSemibold-cf3e4eb7fbdf6fb83e526cc2a0141e55b01097e6e1abfd4cbdc3eda75d183f74.ttf?host=manage.statuspage.io') format('truetype');
+    font-weight:500;
+    font-style:normal;
+  }
+   
+  @font-face {
+    font-family: 'proxima-nova';
+    src: url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaBold-622ea489d20e12e691663f83217105e957e2d3d09703707d40155a29c06cc9d9.eot?host=manage.statuspage.io');
+    src: url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaBold-622ea489d20e12e691663f83217105e957e2d3d09703707d40155a29c06cc9d9.eot?host=manage.statuspage.io#iefix') format('embedded-opentype'),
+         url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaBold-c8dc577ff7f76d2fc199843e38c04bb2e9fd15889421358d966a9f846c2ed1cd.woff?host=manage.statuspage.io') format('woff'),
+         url('//dka575ofm4ao0.cloudfront.net/assets/ProximaNovaBold-27177fe9242acbe089276ee587feef781446667ffe9b6fdc5b7fe21ad73e12f3.ttf?host=manage.statuspage.io') format('truetype');
+    font-weight:700;
+    font-style:normal;
+  }
+</style>
+
+
+    <!-- Le styles -->
+    <link rel="stylesheet" media="all" href="//dka575ofm4ao0.cloudfront.net/assets/application-eb47f424238a82cdb285b3dbe75eb67b1710d823c426139ba2a79423a218ec09.css" />
+
+    <!-- Le JS notifier for Honeybadger -->
+
+  </head>
+
+  <body class="front_facing error_500">
+
+      
+  <div class="layout-header">
+    <div class="container">
+        <a class="logo" href="https://www.statuspage.io"><img src="//dka575ofm4ao0.cloudfront.net/assets/base/logos/atlassian-statuspage-dark-93196001939ddebd72a92cbf1af126ef84373740205c4e04912a80c53ee01e7b.svg" alt="Atlassian statuspage dark" /></a>
+
+      <div style="float:right;line-height:40px;color:#aaa;">
+        Better Error Pages is a free tool provided by <a href="https://www.statuspage.io">StatusPage</a>.
+      </div>
+      <div class="clearfix"></div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
-</body>
+
+
+  
+<div class="content error error-404">
+  <h5>Looks Like We Broke Something</h5>
+  <p>
+    Le sigh. It doesn't happen often but it looks like we got ourselves a bug on live servers. Hitting that back button and trying again might be your best bet. If that doesn't work you can <a href="https://www.statuspage.io">head back to the homepage</a>.
+  </p>
+
+  <h5>Official System Status</h5>
+  <p>
+    <strong><span id="official-system-status"></span></strong><br>
+    If our status page says we're up but something is clearly wrong, <a href="mailto:hi@statuspage.io">shoot us an email</a> letting us know what you're seeing.
+  </p>
+
+  <center style="margin-top:1rem">
+    <img src="//dka575ofm4ao0.cloudfront.net/assets/error/tbstand1-9c3c942cd0840a017da8c516ac2f46c6fac08e36c36cb124a099d3e59f98e2b6.png" alt="Tbstand1" />
+  </center>
+</div>
+
+
+
+
+    <script src="//dka575ofm4ao0.cloudfront.net/assets/application-a3418c1a1f42f4ba77dfc3a6ba1e8561b16ec708bdeda6ee40a7ee1bfd7cc22a.js"></script>
+    
+
+
+<!-- FOR FLASH NOTICES -->
+
+
+
+<!-- FOR ERROR -->
+
+
+
+
+
+
+
+      <script>
+//<![CDATA[
+window.webpackManifest = {"1":"components-bundle-cb5a3e55552dbda7de08.js","2":"globals-bundle-fa75b963b5c65a11d7d1.js","3":"status-bundle-dbe095ed3c9c7b88d647.js","4":"hipchat_sidebar-bundle-3e9cfea40153bb197ed4.js","5":"manage-bundle-3af6cd4a0af7b7e12cd7.js"}
+//]]>
+</script>
+  <script src="//dka575ofm4ao0.cloudfront.net/assets/common-fdf49fac690960aba3a1.js"></script>
+    <script src="//dka575ofm4ao0.cloudfront.net/assets/globals-bundle-fa75b963b5c65a11d7d1.js"></script>
+    <script src="//dka575ofm4ao0.cloudfront.net/assets/components-bundle-cb5a3e55552dbda7de08.js"></script>
+  <script src="//dka575ofm4ao0.cloudfront.net/assets/react_ujs-42b5d6fdef4545340a70b5e857a8785c35a39cce83dd5e21a4be09cb1bf67c69.js"></script>
+
+
+
+    <script>
+          var options = {
+            analyticsserver: "analytics.atlassian.com",
+            product: "statuspage"
+          };
+          var h = window.herment(options);
+          h.start();
+    </script>
+
+    <script>
+      $(function() {
+
+        SP.unloading = false;
+        $(window).unload(function() {
+          SP.unloading = true;
+        });
+
+      })
+    </script>
+
+        <script type="text/javascript" src="//dka575ofm4ao0.cloudfront.net/se.js"></script>
+<script type="text/javascript">
+  window.setStatusPageText({
+    urlOverride: 'https://metastatuspage.com',
+    code: 'doesntmatter',
+    elem: '#official-system-status',
+    secure: false
+  });
+</script>
+
+
+
+  </body>
 </html>
+
+<!-- Thu, 31 Aug 2017 19:40:34 +0000 -->
