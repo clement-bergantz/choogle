@@ -14,7 +14,6 @@
   background: linear-gradient(110deg, #833ab4, #fd1d1d, #fcb045); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .banner h1 {
-  font-size: 50px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   color: white !important;
@@ -24,9 +23,12 @@
   font-weight: lighter;
   color: rgb(255, 255, 255);
   opacity: 0.6;
-  margin-bottom: 45px;
 }
 .banner-content {
   min-height: 63vh;
-  margin-top: 80px;
+  margin-top: 100px;
+}
+.banner-head {
+  margin: 20px 0 40px 0;
+  padding: 20px;
 }
