@@ -19,7 +19,8 @@
 // Wrapper to display "How it works"
 .wrapper-features {
   background-color: white;
-  padding: 10px;
+  margin: 30px 0 30px 0;
+  padding: 20px;
   h2 {
     margin: 15px 0px;
     color: #47495B;
@@ -30,8 +31,7 @@
   display: flex;
   flex-wrap:wrap;
   text-align: center;
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 20px;
   justify-content: space-around;
   h3 {
     margin: 15px 0;
@@ -48,8 +48,7 @@
 }
 
 .feature {
-  padding: 15px;
-  width: 30%;
+  padding: 20px;
   border-radius: 10px;
   padding-top: 15px;
   background: white;
