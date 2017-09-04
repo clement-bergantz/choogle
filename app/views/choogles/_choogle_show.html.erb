@@ -196,7 +196,7 @@
 
   <script>
     $(window).load(function() {
-      $(".media-list").animate({scrollTop: $(document).height()}, 1000);
+      scrollLastCommentIntoView();
     });
   </script>
 
@@ -239,9 +239,9 @@
           console.log(data);
           $('#chatroom').find('.media-list').append(data['message_partial']);
           if (data.current_user_id == <%= current_or_guest_user.id %>) {
-            scrollLastCommentIntoView();
             $('#comment_content').val("");
           }
+          scrollLastCommentIntoView();
         }
       }
     );
