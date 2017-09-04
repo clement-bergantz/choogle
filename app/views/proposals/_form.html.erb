@@ -22,6 +22,14 @@
     }
   );
 
+  function writeStyles(styleName, cssText) {
+    var styleElement = document.createElement('style');
+    styleElement.type = 'text/css';
+    styleElement.id = styleName;
+    styleElement.innerHTML = cssText;
+    document.getElementsByTagName('head')[0].appendChild(styleElement);
+  }
+
   $("#proposal_tag_ids").on('select2:select', function(event) {
     var tagName = event.params.data.text;
     $tag = $('.select2-container').find('[title="' + tagName + '"]');
@@ -30,9 +38,11 @@
       url: '/tag_color?tag=' + tagName,
       method: "get",
       success: function(data) {
-        $tag.css('background-color', data.color);
+        // $tag.css('background-color', data.color);
+        tagColor = data.color;
+        cssText = $tag.selector + ' { background-color: ' + data.color + '!important; }';
+        writeStyles('styles_js', cssText);
       }
     });
-
   });
 </script>
