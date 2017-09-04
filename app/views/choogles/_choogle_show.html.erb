@@ -61,10 +61,6 @@
           </div>
         </div>
       </div>
-
-
-
-
     </div>
 
     <div class="main-proposals">
@@ -124,7 +120,7 @@
              <%= image_tag('chooglebot.png', class: "avatar") %>
             <div class="media-body">
               <p class="media-heading">ChoogleBot
-              <div class='text-area'>Welcome on the ChoogleChat, human! Talk to your friends now 🚀 </div>
+              <div class='text-area'>Welcome to the ChoogleChat, human! Talk to your friends now 🚀 </div>
               <small class="text-muted"> <%= Time.now.strftime("%^a %H:%M %p") %></small></p>
             </div>
           </li>
@@ -133,13 +129,6 @@
         <%= render 'comments/form' %>
       </div>
     </div>
-
-    <!-- Old 'Done' button redirecting to notification#new modal -->
-<!--     <div class="notification" data-toggle="modal" data-target="#notification-modal">
-      <div class='proposal-empty-body'>
-        <h3>DONE</h3>
-      </div>
-    </div> -->
 
     <!-- New notification input -->
     <div class="notification">
@@ -195,12 +184,18 @@
   </script>
 
   <script>
-  $('#comment_content').on('keyup', function(event) {
-    if (event.which == 13 && ! event.shiftKey) {
-        event.preventDefault();
-        $("#new_comment").submit();
-        $(this).val("");
-        }
+    $('#comment_content').on('keyup', function(event) {
+      if (event.which == 13 && ! event.shiftKey) {
+          event.preventDefault();
+          $("#new_comment").submit();
+          $(this).val("");
+          }
+      });
+  </script>
+
+  <script>
+    $(window).load(function() {
+      scrollLastCommentIntoView();
     });
   </script>
 
@@ -243,8 +238,9 @@
           console.log(data);
           $('#chatroom').find('.media-list').append(data['message_partial']);
           if (data.current_user_id == <%= current_or_guest_user.id %>) {
-            scrollLastCommentIntoView();
+            $('#comment_content').val("");
           }
+          scrollLastCommentIntoView();
         }
       }
     );
