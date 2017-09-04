@@ -245,6 +245,7 @@
           $('#chatroom').find('.media-list').append(data['message_partial']);
           if (data.current_user_id == <%= current_or_guest_user.id %>) {
             scrollLastCommentIntoView();
+            $('#comment_content').val("");
           }
         }
       }
