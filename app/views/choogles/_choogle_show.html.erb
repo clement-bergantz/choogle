@@ -185,12 +185,18 @@
   </script>
 
   <script>
-  $('#comment_content').on('keyup', function(event) {
-    if (event.which == 13 && ! event.shiftKey) {
-        event.preventDefault();
-        $("#new_comment").submit();
-        $(this).val("");
-        }
+    $('#comment_content').on('keyup', function(event) {
+      if (event.which == 13 && ! event.shiftKey) {
+          event.preventDefault();
+          $("#new_comment").submit();
+          $(this).val("");
+          }
+      });
+  </script>
+
+  <script>
+    $(window).load(function() {
+      $(".media-list").animate({scrollTop: $(document).height()}, 1000);
     });
   </script>
 
