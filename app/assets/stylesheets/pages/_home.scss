@@ -4,7 +4,7 @@
     display: flex;
     width: 520px;
     height: auto;
-    bottom: -208px;
+    bottom: -235px;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 15px 15px 26px 4px rgba(0, 0, 0, 0.2);
@@ -19,7 +19,8 @@
 // Wrapper to display "How it works"
 .wrapper-features {
   background-color: white;
-  padding: 10px;
+  margin: 30px 0 30px 0;
+  padding: 20px;
   h2 {
     margin: 15px 0px;
     color: #47495B;
@@ -30,8 +31,7 @@
   display: flex;
   flex-wrap:wrap;
   text-align: center;
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 20px;
   justify-content: space-around;
   h3 {
     margin: 15px 0;
@@ -48,8 +48,7 @@
 }
 
 .feature {
-  padding: 15px;
-  width: 30%;
+  padding: 20px;
   border-radius: 10px;
   padding-top: 15px;
   background: white;
@@ -66,17 +65,17 @@
 
 // Wrapper to explain "why Choogle"
 .wrapper-rules {
-  background: #833ab4; /* fallback for old browsers */
-  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
-  padding: 10px;
-  color: white;
+  background: white; /* fallback for old browsers */
+  // background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  margin: 30px 0 60px 0;
   padding: 20px;
+  color: white;
   h2 {
-    color: white !important;
+    color: $darkbeton !important;
     font-size: xx-large;
   }
   p {
-    color: white !important;
+    color: $beton !important;
     font-size: medium;
   }
 }
