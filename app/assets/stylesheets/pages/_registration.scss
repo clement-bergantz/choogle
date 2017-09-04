@@ -10,6 +10,12 @@ position: relative;
     h2 {
       color: white;
     }
+    .help-block {
+      color: white;
+    }
+    .control-label {
+      color: white;
+    }
 }
 
 .btn-registration {
@@ -17,10 +23,18 @@ position: relative;
   margin-bottom: 30px;
 }
 
-.form-links a {
+.form-links {
+  a {
   color: white;
     &:hover {
       text-decoration: none;
       color: $beton;
     }
+  }
+  h3 {
+    color: $darkbeton;
+  }
+  p {
+    color: white;
+  }
 }
