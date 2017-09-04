@@ -8,7 +8,6 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 20px;
   box-sizing: border-box;
   background: #833ab4; /* fallback for old browsers */
   background: -webkit-linear-gradient(110deg, #833ab4, #fd1d1d, #fcb045); /* Chrome 10-25, Safari 5.1-6 */
@@ -26,8 +25,9 @@
   opacity: 0.6;
 }
 .banner-content {
+  margin: 80px 0 80px 0;
 }
 .banner-head {
-  margin: 20px 0 40px 0;
   padding: 20px;
+  margin-bottom: 30px;
 }
