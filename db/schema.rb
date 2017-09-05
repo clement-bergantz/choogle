@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20170830093547) do
     t.string   "title"
     t.datetime "due_at"
     t.datetime "happens_at"
+    t.integer  "user_id"
     t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
     t.index ["user_id"], name: "index_choogles_on_user_id", using: :btree
   end
 

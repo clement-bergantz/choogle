@@ -1,10 +1,31 @@
-<h1>Sign Up</h1>
+<div class="wrapper page-forms">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-offset-3 col-sm-6">
+        <%= simple_form_for current_or_guest_user, url: create_password_path do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs custom-edit-form">
+          <h2 class="text-center">Sign Up</h2>
+          <%= f.input :email, required: true, input_html: {value: guest_email} %>
+          <%= f.input :first_name, label: "Name", required: true, autofocus: true, input_html: {value: guest_first_name}  %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true, error: 'Passwords must match' %>
 
-    <!-- need verify guest mail and not display it in form -->
-<%= simple_form_for current_or_guest_user, url: create_password_path do |f| %>
-  <%= f.input :email, required: true, input_html: {value: guest_email} %>
-  <%= f.input :first_name, label: "Name", required: true, autofocus: true, input_html: {value: guest_first_name}  %>
-  <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-  <%= f.input :password_confirmation, required: true, error: 'Passwords must match' %>
-  <%= f.submit "Sign Up" %>
-<% end %>
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up", class: "btn-proposal center-block btn-registration"  %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+</style>
