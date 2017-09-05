@@ -20,7 +20,7 @@
             <div class="tag">
               <% if @choogle.proposals.most_upvoted.tags.any? %>
                 <% @choogle.proposals.most_upvoted.tags.each do |tag| %>
-                <h5 class="tags" style="background-color: <%= tag.color %>"><%= tag.name %></h5>
+                <h5 class="tags" style="background-color: <%= tag.color_hex %>"><%= tag.name %></h5>
                 <% end %>
               <% end %>
             </div>
