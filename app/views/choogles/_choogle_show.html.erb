@@ -89,7 +89,7 @@
                 <div class="tag">
                   <% if proposal.proposal_tags.any? %>
                     <% proposal.proposal_tags.each do |proposaltag| %>
-                    <h5 class="tags" style="background-color: <%= proposaltag.tag.color %>"><%= proposaltag.tag.name %></h5>
+                    <h5 class="tags" style="background-color: <%= proposaltag.tag.color_hex %>"><%= proposaltag.tag.name %></h5>
                     <% end %>
                   <% end %>
                 </div>

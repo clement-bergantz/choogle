@@ -28,20 +28,27 @@ class User < ApplicationRecord
       user.update(user_params)
     else
       user = User.new(user_params)
-      user.password = Devise.friendly_token[0,20]  # Fake password for validation
+      user.password = Devise.friendly_token[0, 20] # Fake password for validate
       user.save
     end
 
-    return user
+    user
+  end
+
+  def remove_duplicates(array)
+    response = []
+    array.each do |tag|
+      response << tag unless response.include?(tag)
+    end
+    response
   end
 
   # This is used to get all tags of the instance of user
   def tags
     usertags = []
-    self.proposals.each do |proposal|
-      usertags << proposal.tags.map(&:name)
+    proposals.each do |proposal|
+      usertags << proposal.tags.map(&:name) unless usertags.include?(proposal.tags.map(&:name))
     end
-    usertags.flatten
+    remove_duplicates(usertags.flatten)
   end
-
 end
