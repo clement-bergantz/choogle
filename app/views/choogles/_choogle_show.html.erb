@@ -86,10 +86,6 @@
       <%= render "shared/map" %>
     </div>
 
-    <div class="programs">
-        <button class="sort-btn" data-sort="order:desc">Descending</button>
-    </div>
-
     <!-- Comments -->
     <div id="chatroom">
       <div id="comments">
@@ -194,9 +190,10 @@
           console.log(data);
           $('#upvote-' + data['proposal_id']).text(data['upvotes']);
           $('#proposal-' + data['proposal_id']).attr('data-order', data['upvotes']);
-          if(data['user']['id'] == $('.hidden').attr('data-id')) {
+          if(data['user_id'] == $('.hidden').attr('data-id')) {
             $('#proposal-' + data['proposal_id']).find('.proposal-upvote').toggleClass('strike');
           };
+          mixer.sort('order:desc');
         }
       }
     );
@@ -225,21 +222,22 @@
     );
   </script>
 
-<script>
-  var mixer = mixitup('#mixcontainer', {
-	animation: {
-    effects: 'fade rotateZ(-180deg)',
-    duration: 700
-  },
-  classNames: {
-    block: 'programs',
-    elementSort: 'sort-btn'
-  },
-  selectors: {
-    target: '.mix-target'
-  }
-  });
-</script>
-
-
+  <script>
+    // Initialize the mixer for animations of proposals
+    var mixer = mixitup('#mixcontainer', {
+  	animation: {
+      effects: 'fade rotateZ(-180deg)',
+      duration: 700
+    },
+    classNames: {
+      elementSort: 'sort-btn'
+    },
+    selectors: {
+      target: '.mix-target'
+    },
+    behavior: {
+      liveSort: true
+    }
+    });
+  </script>
 <% end %>
