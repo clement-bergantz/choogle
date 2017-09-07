@@ -15,7 +15,7 @@ class ChooglesController < ApplicationController
     @hash = Gmaps4rails.build_markers(proposals) do |proposal, marker|
       marker.lat proposal.place.latitude
       marker.lng proposal.place.longitude
-      marker.json({ :id => proposal.id })
+      marker.json({ :id => proposal.id, :address => proposal.place.address, :country => proposal.place.country })
       marker.infowindow render_to_string(partial: "/proposals/map_box", locals: { proposal: proposal })
     end
     @user = current_or_guest_user
