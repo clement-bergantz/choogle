@@ -1,5 +1,9 @@
 <li class="media-comment">
-   <%= image_tag 'default-avatar.jpg', alt: comment.user.first_name, class: "avatar" %>
+    <% if comment.user.facebook_picture_url.nil?  %>
+      <div class="avatar"><%= image_tag "default-avatar.jpg", class: "avatar"%></div>
+    <% else %>
+      <img src="<%= comment.user.facebook_picture_url %>" alt="Picture of <%= comment.user.first_name %>" class="avatar">
+    <% end %>
   <div class="media-body">
     <p class="media-heading"><%= comment.user.first_name %>
     <div class='text-area'><%= comment.content %></div>
