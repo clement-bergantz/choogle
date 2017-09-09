@@ -139,6 +139,19 @@
   </div>
 </div>
 
+<!-- First Name Modal -->
+
+<%= render "choogles/first_name" %>
+
+<% if current_or_guest_user.first_name == 'guest' %>
+  <script>
+    setTimeout(function (){
+      console.log('3');
+      $('#first-name-modal').modal('show');
+    }, 4000);
+  </script>
+<% end %>
+
 <div class="trigger-user hidden" data-id="<%= current_or_guest_user.id %>"></div>
 
 

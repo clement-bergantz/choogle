@@ -1,13 +1,13 @@
-<div class="wrapper page-forms">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-offset-3 col-sm-6">
-
+<div class="modal fade" id="first-name-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
         <%= simple_form_for(current_or_guest_user, url: user_registration_path, html: { method: :put }) do |f| %>
 
-          <div class="form-inputs custom-edit-form">
-            <h2 class="text-center">Edit</h2>
-            <%= f.input :first_name, required: true, autofocus: true %>
+        <h1 class="text-center">Who are you ?</h1>
+
+          <div class="form-inputs custom-first-name-form">
+            <%= f.input :first_name, label: false, required: true, autofocus: true %>
           </div>
 
           <div class="form-actions">
