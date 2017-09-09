@@ -19,4 +19,7 @@ class Proposal < ApplicationRecord
   scope :by_upvotes, -> { joins(:upvotes).group("proposals.id").order("COUNT(upvotes) DESC") }
   scope :most_upvoted, -> { by_upvotes.first }
 
+  def upvoters
+    self.upvotes.map(&:user).map(&:first_name)
+  end
 end

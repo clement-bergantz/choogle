@@ -190,6 +190,8 @@
           console.log(data);
           $('#upvote-' + data['proposal_id']).text(data['upvotes']);
           $('#proposal-' + data['proposal_id']).attr('data-order', data['upvotes']);
+          var upvotersFormat = data['upvoters'].join(" <br/>")
+          $('#proposal-' + data['proposal_id']).find('.proposal-upvote').attr('data-content', upvotersFormat);
           if(data['user_id'] == $('.hidden').attr('data-id')) {
             $('#proposal-' + data['proposal_id']).find('.proposal-upvote').toggleClass('strike');
           };

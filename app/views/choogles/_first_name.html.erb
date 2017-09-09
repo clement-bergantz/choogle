@@ -1,0 +1,21 @@
+<div class="wrapper page-forms">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-offset-3 col-sm-6">
+
+        <%= simple_form_for(current_or_guest_user, url: user_registration_path, html: { method: :put }) do |f| %>
+
+          <div class="form-inputs custom-edit-form">
+            <h2 class="text-center">Edit</h2>
+            <%= f.input :first_name, required: true, autofocus: true %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "OK", class: "btn-proposal center-block btn-registration"  %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
