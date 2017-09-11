@@ -1,4 +1,4 @@
-<%= simple_form_for([choogle, proposal], remote: true) do |f| %>
+<%= simple_form_for([choogle, proposal], remote: true, html: { class: "form-proposal"}) do |f| %>
   <div id="proposal-errors"></div>
 
   <!-- If it's a guest session, ask for his name -->
@@ -11,6 +11,8 @@
   <%= f.association :tags, class: 'tag-selector', collection: current_or_guest_user.tags, label: "Add tags to this place (max 20 char)" %>
   <%= f.button :submit, value: "Add a new place", class: 'btn btn-choogle btn-proposal-margin' %>
 <% end %>
+<div class="loader"></div>
+
 
 <script>
   $("#proposal_tag_ids").select2(
@@ -47,5 +49,11 @@
         writeStyles('styles_js', cssText);
       }
     });
+  });
+
+  $(".form-proposal").submit(function() {
+      $(".loader").show();
+      $(this).find(".btn").hide();
+      return true;
   });
 </script>
