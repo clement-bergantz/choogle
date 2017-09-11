@@ -13,6 +13,7 @@ class Upvote < ApplicationRecord
     upvotes: self.proposal.upvotes.size,
     proposal_id: self.proposal.id,
     user_id: self.user.id,
+    upvoters: self.proposal.upvoters,
     )
   end
 end

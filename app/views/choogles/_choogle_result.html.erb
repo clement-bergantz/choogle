@@ -13,7 +13,17 @@
             <h2><%= @choogle.proposals.most_upvoted.place.name %></h2>
             <p>suggested by <%= @choogle.proposals.most_upvoted.user.first_name %></p>
             <h4><%= @choogle.proposals.most_upvoted.place.address %></h4>
-            <h4>⭐️⭐️⭐️</h4>
+            <div class="place-rating">
+              <% unless @choogle.proposals.most_upvoted.place.rating.nil? %>
+                <% @choogle.proposals.most_upvoted.place.rating_round.times do  %>
+                  <i class ="fa fa-star" id="star-rating-good" aria-hidden="true"></i>
+                <% end %>
+                <% (5 - @choogle.proposals.most_upvoted.place.rating_round).times do  %>
+                  <i class ="fa fa-star" id="star-rating-bad" aria-hidden="true"></i>
+                <% end %>
+                  ∙ <%= @choogle.proposals.most_upvoted.place.rating %>
+              <% end %>
+            </div>
           </div>
           <div class="result-tags">
             <!-- tags of the proposal -->

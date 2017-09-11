@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   # custom path to sign_up/registration
-  get "users/sign_up" => "passwords#new", as: "new_user_registration"
-  patch "/passwords" => "passwords#create", as: "create_password"
+  get "users/sign_up" => "registrations#new", as: "new_user_registration"
+  patch "/registrations" => "registrations#create", as: "create_registration"
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

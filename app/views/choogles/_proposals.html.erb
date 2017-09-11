@@ -5,7 +5,13 @@
        in this upvotes div for arrow and counter -->
     <%= link_to upvote_path(@choogle, proposal), remote: true, method: :post, class: "upvote" do %>
       <!-- Add class strike for user upvotes for special puprle awesome design -->
-      <div class='proposal-upvote <%= "strike" if proposal.upvotes.find_by(user: current_or_guest_user) != nil %>'>
+      <div class='proposal-upvote <%= "strike" if proposal.upvotes.find_by(user: current_or_guest_user) != nil %>'
+         data-html="true"
+         data-content=
+           '<% proposal.upvoters.each do |t| %>
+             <%= t %> <br/>
+           <% end %>'
+         >
         <div class="proposal-arrow"></div>
         <div class='proposal-count' id="upvote-<%= proposal.id %>"><%= proposal.upvotes.size %></div>
       </div>
@@ -26,4 +32,14 @@
       </div>
     </div>
   </div>
+<% end %>
+
+<% content_for(:after_js) do %>
+  <script>
+  $('.proposal-upvote').popover({
+    placement: 'top',
+    trigger: 'hover',
+    delay: {show: 800, hide: 100}
+  });
+  </script>
 <% end %>

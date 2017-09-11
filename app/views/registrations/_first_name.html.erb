@@ -1,0 +1,21 @@
+<div class="modal fade" id="first-name-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= simple_form_for current_or_guest_user, url: create_registration_path, remote: true do |f| %>
+
+        <h1 class="text-center">Who are you ?</h1>
+
+          <div class="form-inputs custom-first-name-form">
+            <%= f.input :first_name, label: false, required: true, autofocus: true %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "OK", class: "btn-proposal center-block btn-registration"  %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
