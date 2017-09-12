@@ -35,6 +35,7 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
   gem 'rails-assets-flatpickr'
   gem 'rails-assets-mixitup'
+  gem 'rails-assets-momentjs'
 end
 
 # Mailer

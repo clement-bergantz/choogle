@@ -8,4 +8,5 @@
 //= require simple_form_autocomplete
 //= require select2
 //= require mixitup
+//= require momentjs
 //= require_tree .

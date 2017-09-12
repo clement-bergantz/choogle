@@ -183,6 +183,7 @@ GEM
       sprockets-rails (>= 2.0.0)
     rails-assets-flatpickr (3.0.7)
     rails-assets-mixitup (3.2.1)
+    rails-assets-momentjs (2.18.1)
     rails-assets-underscore (1.8.3)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
@@ -295,6 +296,7 @@ DEPENDENCIES
   rails (= 5.0.5)
   rails-assets-flatpickr!
   rails-assets-mixitup!
+  rails-assets-momentjs!
   rails-assets-underscore!
   redis
   sass-rails
