@@ -4,7 +4,7 @@
   <!-- If it's a guest session, ask for his name -->
   <% unless user_signed_in? || current_or_guest_user.first_name != 'guest' %>
     <%= f.simple_fields_for :user do |h| %>
-      <%= h.input :first_name, label: false, placeholder: "your name here...", input_html: {id: 'sign_up_code', value: @user.first_name } %>
+      <%= h.input :first_name, label: false, placeholder: "your name here...", input_html: {id: 'sign_up_code', value: nil } %>
     <% end %>
   <% end %>
 
