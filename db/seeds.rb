@@ -113,7 +113,7 @@ end
 
 puts "Notifications creation"
 
-1.upto(50) do |n|
+1.upto(8) do |n|
     Notification.create!(
       choogle: Choogle.all.sample,
       user: User.all.sample,
