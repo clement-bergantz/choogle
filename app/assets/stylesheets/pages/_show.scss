@@ -128,3 +128,22 @@
   }
 
 }
+
+.popover-content {
+    color: white;
+    background-color: #282828;
+    font-size: 12px;
+    border-radius: 2px;
+}
+
+.popover {
+  padding: 0px;
+}
+
+.popover.top > .arrow:after {
+    border-top-color: #282828;
+}
+
+.proposal-wrapper:hover {
+    opacity: 1;
+}
