@@ -2,18 +2,18 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-8">
-        <%= f.input :title, error: "Your event needs a name" , label: "Event's name", placeholder: "Give a name to your Choogle"%>
+        <%= f.input :title, error: "Your event needs a name" , label: false, placeholder: "what's the occasion ? Afterwork, dinner, holidays..."%>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <%= f.input :happens_at, as: :text, label: "Event's date", placeholder: "In 2 days", input_html: { class: 'flatpickr-input form-date-element' } %>
+        <%= f.input :happens_at, as: :text, label: false, placeholder: "when ?", input_html: { class: 'flatpickr-input form-date-element' } %>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-8">
-        <%= f.input :due_at, as: :text, label: "Closing votes date", placeholder: "Due date for voting", input_html: { class: 'flatpickr-input form-date-element'} %>
+        <%= f.input :due_at, as: :text, label: false, placeholder: "deadline for the poll ?", input_html: { class: 'flatpickr-input form-date-element'} %>
       </div>
       <div class="col-xs-12 col-sm-4 date-form-btn btn-setup-1">
-        <%= f.button :submit, value: "Let's Choogle", class: "btn-choogle btn-margin" %>
+        <%= f.button :submit, value: "Create a poll", class: "btn-choogle btn-margin" %>
       </div>
     </div>
     <div id="choogle-errors"></div>

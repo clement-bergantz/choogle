@@ -8,9 +8,9 @@ class Choogle < ApplicationRecord
   validates :slug, presence: true
 
   validate do |choogle|
-    choogle.errors.add(:base, "Your Choogle should have a title") if choogle.title.blank?
-    choogle.errors.add(:base, "You have to add an Event date") if choogle.happens_at.blank?
-    choogle.errors.add(:base, "You have to indicate a closing date for votes") if choogle.due_at.blank?
+    choogle.errors.add(:base, "Please add a title to your poll, so your friends understand what it is") if choogle.title.blank?
+    choogle.errors.add(:base, "Please add a date") if choogle.happens_at.blank?
+    choogle.errors.add(:base, "Please set a deadline for your poll") if choogle.due_at.blank?
   end
 
   validate :happens_at_cannot_be_in_the_past, :due_at_cannot_be_in_the_past, :due_at_must_be_before_happens_at
