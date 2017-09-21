@@ -9,29 +9,29 @@
 }
 .btn-choogle:hover {
   background-color: white;
-  color: $darkorange;
+  color: $paradise-pink;
   border: none;
   font-size: 17px;
-  box-shadow: 18px 11px 38px -15px grey;
+  box-shadow: 18px 11px 38px -15px black;
 }
 
 .btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {
   background-color: white;
-  color: $darkorange;
+  color: $paradise-pink;
   border: none;
 }
 
 // button over white background
 .btn-choogle-secondary {
-  background-color: $purple;
+  background-color: $paradise-pink;
   color: white;
   font-weight: normal;
   border: none !important;
 }
 .btn-choogle-secondary:hover {
   background-color: white;
-  color: $purple;
+  color: $paradise-pink;
   font-weight: normal;
-  border-color: $purple;
+  border-color: $paradise-pink;
 }
 

@@ -6,7 +6,7 @@
   padding: 0px 30px;
   color: rgba(0,0,0,0.3);
   // background-color: rgba(255, 255, 255, 0);
-  background: $red;
+  background: red;
   background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
   p {
     color: white;
@@ -26,7 +26,7 @@
 }
 
 .footer-links a:hover {
-  color: $orange;
+  color: orange;
 }
 .footer .fa-heart {
   color: white;
