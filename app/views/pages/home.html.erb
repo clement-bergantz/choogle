@@ -1,42 +1,40 @@
-
-<!-- Banner -->
-<div class="banner">
-  <div class="banner-content">
-      <div class="banner-head">
-        <h1>Where are we going next ?</h1>
-        <p>Choogle is the easiest way to collectivly choose a bar, 
-a restaurant, an holiday destination or any other place</p>
-      </div>
-      <!-- form -->
-      <div class="date-form">
-        <%= render "choogles/form" %>
-        <%= render "proposals/modal" %>
-      </div>
-  </div>
-</div>
-
-<!-- wrapper to display the main features -->
-<div class="wrapper-features">
-  <div class="features">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-4">
-          <div class="feature">
-              <h6>🙋</h6>
-              <h3>Make a collective decision</h3>
-              <p>Share your poll with your friends. They can add new places and vote for their favorite. No account needed.</p>
-          </div>
+<div class="master-head">
+  <div class="banner">
+    <div class="banner-content">
+        <div class="banner-head">
+          <h1>Where are we going next ?</h1>
+          <p>Choogle is the easiest way to collectivly choose a bar, a restaurant, an holiday destination or any other place</p>
         </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="feature">
-            <h6>⏰</h6>
-            <h3>Stop losing time on long group decision making</h3>
-            <p>Set a deadline for your poll and the most upvoted place is automatically choosen. Enjoy!</p>
+        <div class="date-form">
+          <%= render "choogles/form" %>
+          <%= render "proposals/modal" %>
+        </div>
+    </div>
+  </div>
+
+  <div class="wrapper-features">
+    <div class="features">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <div class="feature">
+                <h6>🙋</h6>
+                <h3>Make a collective decision</h3>
+                <p>Share your poll with your friends. They can add new places and vote for their favorite. No account needed.</p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <div class="feature">
+              <h6>⏰</h6>
+              <h3>Stop losing time on long group decision making</h3>
+              <p>Set a deadline for your poll and the most upvoted place is automatically choosen. Enjoy!</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  
 </div>
 
 <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
