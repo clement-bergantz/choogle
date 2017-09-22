@@ -1,19 +1,19 @@
 // button over white background
-.btn-primary {
+.btn-choogle {
   background-color: $paradise-pink;
   color: white;
-  font-weight: normal;
-  border: none !important;
+  font-weight: bold;
+  border-color: $paradise-pink;
 }
-.btn-choogle-secondary:hover {
+.btn-choogle:hover {
   background-color: white;
   color: $paradise-pink;
-  font-weight: normal;
+  font-weight: bold;
   border-color: $paradise-pink;
 }
 
 // button over gradient background
-.btn-choogle {
+.btn-choogle-secondary {
   background-color: transparent;
   color: white;
   font-weight: bold;
@@ -21,7 +21,7 @@
   border-radius: 6px;
   width: 100%;
 }
-.btn-choogle:hover {
+.btn-choogle-secondary:hover {
   background-color: white;
   color: $paradise-pink;
   border: none;
