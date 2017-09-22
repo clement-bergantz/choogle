@@ -2,13 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4 small-padding">
-        <%= f.input :title, error: "Your event needs a name" , label: false, placeholder: "what's the occasion ? Afterwork, holidays...", input_html: { class: 'form-home-input' } %>
+        <%= f.input :title, error: "Your event needs a name" , label: false, placeholder: "What's the occasion ? Afterwork, holidays...", input_html: { class: 'form-home-input' } %>
       </div>
       <div class="col-xs-12 col-sm-3 small-padding">
-        <%= f.input :happens_at, as: :text, label: false, placeholder: "when ?", input_html: { class: 'flatpickr-input form-home-input textarea' } %>
+        <%= f.input :happens_at, as: :text, label: false, placeholder: "When ?", input_html: { class: 'flatpickr-input form-home-input textarea' } %>
       </div>
       <div class="col-xs-12 col-sm-3 small-padding">
-        <%= f.input :due_at, as: :text, label: false, placeholder: "deadline for the poll ?", input_html: { class: 'flatpickr-input form-home-input textarea'} %>
+        <%= f.input :due_at, as: :text, label: false, placeholder: "Deadline for the poll ?", input_html: { class: 'flatpickr-input form-home-input textarea'} %>
       </div>
       <div class="col-xs-12 col-sm-2 small-padding">
         <%= f.button :submit, value: "Create a poll", class: "btn-choogle" %>

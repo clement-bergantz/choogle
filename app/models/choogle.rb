@@ -32,19 +32,19 @@ class Choogle < ApplicationRecord
 
   def happens_at_cannot_be_in_the_past
     if happens_at.present? && happens_at < Date.today
-      errors.add(:happens_at, "Event can't happen in the past")
+      errors.add(:happens_at, "Sorry, but you can not use choogle in the past 😊")
     end
   end
 
   def due_at_cannot_be_in_the_past
     if due_at.present? && due_at < Date.today
-      errors.add(:due_at, "Closing votes date can't be in the past")
+      errors.add(:due_at, "The deadline can not be in the past 😊")
     end
   end
 
   def due_at_must_be_before_happens_at
     if due_at.present? && happens_at.present? && due_at >= happens_at
-      errors.add(:base, "Closing votes date should be set before Choogle date")
+      errors.add(:base, "The deadline should be set before the date of your event")
     end
   end
 
