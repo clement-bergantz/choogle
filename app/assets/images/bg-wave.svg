@@ -1,0 +1,17 @@
+<svg width="1440px" height="798px" viewBox="0 0 1440 798" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0.25781251%" y1="49.7500002%" x2="101.257813%" y2="49.7500002%" id="linearGradient-1">
+            <stop stop-color="#1A2980" offset="0%"></stop>
+            <stop stop-color="#26D0CE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Choogle_home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home-page" transform="translate(0.000000, -395.000000)" fill="url(#linearGradient-1)">
+            <g id=".masterhead`" transform="translate(-46.000000, 3.000000)">
+                <path d="M1486,1189.54958 C1286.85491,1189.54958 0.586211383,1125.92501 0.586211383,1016 C0.586211383,906.074991 0.586211383,1103.01226 0.586211383,951.476493 C0.586211383,799.940729 1304.89447,314.12373 1486,402.927054 C1667.10553,491.730378 1685.14509,1189.54958 1486,1189.54958 Z" id=".wrapper"></path>
+            </g>
+        </g>
+    </g>
+</svg>
