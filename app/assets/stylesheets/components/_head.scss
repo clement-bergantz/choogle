@@ -1,0 +1,19 @@
+.master-head {
+  padding-top: 200px;
+}
+.head {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.head-content {
+  width: 550px;
+  h1 {
+    font-size: 60px;
+    margin: 30px;
+  }
+  p {
+    margin: 20px;
+  }
+}

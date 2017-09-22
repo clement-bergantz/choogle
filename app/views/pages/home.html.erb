@@ -1,15 +1,13 @@
 <div class="master-head">
-  <div class="banner">
-    <div class="banner-content">
-        <div class="banner-head">
-          <h1>Where are we going next ?</h1>
-          <p>Choogle is the easiest way to collectivly choose a bar, a restaurant, an holiday destination or any other place</p>
-        </div>
-        <div class="date-form">
-          <%= render "choogles/form" %>
-          <%= render "proposals/modal" %>
-        </div>
+  <div class="head">
+    <div class="head-content">
+      <h1>Where are we going next ?</h1>
+      <p>Choogle is the easiest way to collectivly choose a bar, a restaurant, an holiday destination or any other place</p>
     </div>
+  </div>
+  <div class="form-home">
+    <%= render "choogles/form" %>
+    <%= render "proposals/modal" %>
   </div>
 
   <div class="wrapper-features">
@@ -34,7 +32,7 @@
       </div>
     </div>
   </div>
-  
+
 </div>
 
 <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
