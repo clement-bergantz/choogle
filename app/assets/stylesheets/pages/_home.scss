@@ -1,58 +1,24 @@
-.doodle {
-    position: absolute;
-    border-radius: 4px;
-    display: flex;
-    width: 520px;
-    height: auto;
-    bottom: -235px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 15px 15px 26px 4px rgba(0, 0, 0, 0.2);
-}
-.wrapper-doodle {
-  height: 240px;
-  align-items: flex-end;
-  display: flex;
-  justify-content: center;
-  background-color: white;
-}
-// Wrapper to display "How it works"
-.wrapper-features {
-  background-color: white;
+.headlines {
   margin: 30px 0 30px 0;
   padding: 20px;
+}
+.headline {
+  display: flex;
+  padding: 20px;
   h2 {
-    margin: 15px 0px;
-    color: #47495B;
-    font-size: xx-large;
+    margin-top: 5px;
   }
 }
-.features {
-  display: flex;
-  flex-wrap:wrap;
-  text-align: center;
-  padding: 20px;
-  justify-content: space-around;
+.headline-text {
+  margin-left: 20px;
   h3 {
-    margin: 15px 0;
-    color: #47495B;
-  }
-  h6 {
-    margin: 0px;
-    font-size: 40px;
+    margin-top: 0px;
   }
   p {
-    color: #6A7C94;
-    font-size: medium;
+    text-align: left;
   }
 }
 
-.feature {
-  padding: 20px;
-  border-radius: 10px;
-  padding-top: 15px;
-  background: white;
-}
 #choogle-errors p {
   color: rgba(238, 238, 238, 1);
   font-size: 15px;
