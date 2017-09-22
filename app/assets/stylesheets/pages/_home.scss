@@ -1,6 +1,6 @@
 .headlines {
-  margin: 100px 0 100px 0;
-  padding: 20px;
+  margin: 200px 0 100px 0;
+  padding: 20px 20px 175px 20px;
 }
 .headline {
   display: flex;
@@ -13,9 +13,11 @@
   margin-left: 20px;
   h3 {
     margin-top: 0px;
+    color: white;
   }
   p {
     text-align: left;
+    color: white;
   }
 }
 

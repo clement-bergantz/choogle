@@ -1,5 +1,5 @@
 h1 {
-  font-family: Lato;
+  font-family: Raleway;
   font-size: 48px;
   font-weight: bold;
   font-style: normal;
@@ -16,14 +16,25 @@ h2 {
 }
 h3 {
   font-family: Lato;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 26px;
+  font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
   text-align: left;
   color: $darkbeton;
+}
+h4 {
+  font-family: Lato;
+  font-size: 20px;
+  color: $beton;
+  font-weight: normal;
+  text-align: center;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
 }
 p {
   font-family: Lato;
