@@ -9,7 +9,7 @@ class Choogle < ApplicationRecord
 
   validate do |choogle|
     choogle.errors.add(:base, "Please add a title to your poll, so your friends understand what it is") if choogle.title.blank?
-    choogle.errors.add(:base, "Please add a date") if choogle.happens_at.blank?
+    choogle.errors.add(:base, "Please tell your friends when the event will take place") if choogle.happens_at.blank?
     choogle.errors.add(:base, "Please set a deadline for your poll") if choogle.due_at.blank?
   end
 
@@ -44,7 +44,7 @@ class Choogle < ApplicationRecord
 
   def due_at_must_be_before_happens_at
     if due_at.present? && happens_at.present? && due_at >= happens_at
-      errors.add(:base, "The deadline should be set before the date of your event")
+      errors.add(:base, "The deadline should be set before the date of your event 😊")
     end
   end
 

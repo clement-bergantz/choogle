@@ -22,13 +22,12 @@
 }
 
 #choogle-errors p {
-  color: rgba(238, 238, 238, 1);
+  color: $paradise-pink;
   font-size: 15px;
-  font-weight: bold;
   margin: 2px;
 }
 #proposal-errors {
-  color: red;
+  color: $paradise-pink;
 }
 
 // Wrapper to explain "why Choogle"

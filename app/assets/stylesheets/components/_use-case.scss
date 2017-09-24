@@ -1,0 +1,18 @@
+.use-case {
+	display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#myCarousel {
+	width: 90%;
+}
+.carousel-inner {
+	width: 50%;
+	left: 10%;
+}
+.carousel-control.left {
+	background-image: none;
+}
+.carousel-control.right {
+	background-image: none;
+}
