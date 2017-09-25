@@ -1,5 +1,8 @@
+.main-wrapper {
+  min-height: calc(100vh - 70px);
+}
 .headlines {
-  margin: 200px 0 100px 0;
+  margin: 200px 0 50px 0;
   padding: 20px 20px 175px 20px;
 }
 .headline {
@@ -28,23 +31,6 @@
 }
 #proposal-errors {
   color: $paradise-pink;
-}
-
-// Wrapper to explain "why Choogle"
-.wrapper-rules {
-  background: white; /* fallback for old browsers */
-  // background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
-  margin: 30px 0 60px 0;
-  padding: 20px;
-  color: white;
-  h2 {
-    color: $darkbeton !important;
-    font-size: xx-large;
-  }
-  p {
-    color: $beton !important;
-    font-size: medium;
-  }
 }
 
 .rules {

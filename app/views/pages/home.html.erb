@@ -1,76 +1,94 @@
-<div class="head">
-  <div class="head-content">
-    <h1>Where are<br>we going next ?</h1>
-    <h4>Choogle is the easiest way to collectivly choose a bar, a restaurant, an holiday destination or any other place</h4>
-  </div>
-</div>
-<div class="master-head">
-  <div class="form-home">
-    <div class="form-home-content">
-      <%= render "choogles/form" %>
-      <%= render "proposals/modal" %>
+<div class="main-wrapper">
+
+  <div class="head">
+    <div class="head-content">
+      <h1>Where are<br>we going next ?</h1>
+      <h4>Choogle is the easiest way to collectivly choose a bar, a restaurant, an holiday destination or any other place</h4>
     </div>
   </div>
-  <div class="headlines">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="headline">
+
+  <div class="master-head">
+    <div class="form-home">
+      <div class="form-home-content">
+        <%= render "choogles/form" %>
+        <%= render "proposals/modal" %>
+      </div>
+    </div>
+    <div class="headlines">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="headline">
               <h2>🙋</h2>
               <div class="headline-text">
                 <h3>Make a collective decision</h3>
                 <p>Share your poll with your friends. They can add new places and vote for their favorite. No account needed.</p>
               </div>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <div class="headline">
-            <h2>⏰</h2>
-              <div class="headline-text">
-                <h3>Stop losing time on long group decision making</h3>
-                <p>Set a deadline for your poll and the most upvoted place is automatically choosen. Enjoy!</p>
-              </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="headline">
+                <h2>⏰</h2>
+                <div class="headline-text">
+                  <h3>Stop losing time on long group decision making</h3>
+                  <p>Set a deadline for your poll and the most upvoted place is automatically choosen. Enjoy!</p>
+                </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="use-case">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="assets/afterwork.jpg" alt="Afterwork">
-        <div class="carousel-caption d-none d-md-block">
-        <h3>Afterwork</h3>
-        <p>Bar1</p>
+
+  <div class="use-case hidden-xs">
+    <h3>Some places choosen with Choogle</h3>
+    <div>
+      <div id="slider" class="carousel slide col-xs-9  padd-lt0" data-ride="carousel" data-interval="3000">
+        <div class="carousel-inner">
+          <div class="item active">
+              <img alt="First slide"4 src="assets/festival.jpg" >   
+          </div>
+          <div class="item">
+              <img alt="Second slide" src="assets/afterwork.jpg">  
+          </div>
+          <div class="item">
+              <img alt="Third slide" src="assets/weekend.jpg">
+          </div>
+        </div>
+      </div>
+      <div id="slider_captions" class="col-xs-3 ">
+        <div>
+          <div id="caption-0" class="carousel-caption">
+              <h2>Liverpool International Music Festival 2017, Liverpool</h2>
+              <p>Upvoted by Amelia, Oliver, Jack, George, Ava, Henry, Emily and Jacob.</p>
+              <p>Proposed by Ava for the </strong>Annual festival trip.</strong></p>
+          </div>
+          <div id="caption-1" class="carousel-caption">
+              <h2>Rosa Bonheur, Parc des Buttes Chaumont, Paris</h2>
+              <p>Upvoted by Lisa, Romain, Eliott, Simon, Marie, Vincent, Tatiana et Sylvain.</p>
+              <p>Proposed by Lisa for the <strong>Afterwork drink.</strong></p>
+          </div>
+          <div id="caption-2" class="carousel-caption">
+              <h2>Letchworth state park, New York</h2>
+              <p>Upvoted by Joshua, Andrew, William and Aydan.</p>
+              <p>Proposed by Andrew for the </strong>Summer weekend with friends.</strong></p>
+          </div>
+        </div>
+        <!-- This below is used to let user control previous or next use-case -->
+  <!--       <a data-slide="prev" role="button" href="#slider" class="left carousel-control"><span class="glyphicon glyphicon-chevron-down"></span></a>
+        <a data-slide="next" role="button" href="#slider" class="right carousel-control"><span class="glyphicon glyphicon-chevron-up"></span></a> -->
+      </div>
     </div>
-      </div>
-
-      <div class="item">
-        <img src="assets/festival.jpg" alt="Chicago">
-      </div>
-
-      <div class="item">
-        <img src="assets/weekend.jpg" alt="New York">
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
   </div>
+
 </div>
+
 <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
+
+<!-- Loading for the Bootstrap carousel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 <% content_for(:after_js) do %>
   <script>
@@ -81,6 +99,13 @@
         time_24hr: false,
         minuteIncrement: 15,
         minDate: "today"
+      });
+      // JS script for the Carousel
+      $("#slider").on('slide.bs.carousel', function(evt) {
+         var step = $(evt.relatedTarget).index();
+         $('#slider_captions .carousel-caption:not(#caption-'+step+')').fadeOut('slow', function() {
+            $('#caption-'+step).fadeIn();
+         });
       });
     });
   </script>

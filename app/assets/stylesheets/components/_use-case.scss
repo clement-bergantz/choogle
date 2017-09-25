@@ -1,18 +1,53 @@
 .use-case {
 	display: flex;
-  align-items: center;
-  justify-content: space-around;
+	flex-direction: column;
+	padding: 100px;
+	h3 {
+		text-align: center;
+		margin-bottom: 120px;
+	}
 }
-#myCarousel {
-	width: 90%;
+.slider-container {
+	margin-top:35px;
+	height:100%;
 }
-.carousel-inner {
-	width: 50%;
-	left: 10%;
+.carousel-caption {
+	position: absolute;
+	top: 0;
+	text-align: left;
+	left: inherit;
+	right: inherit;
+	width: auto;
+  color:#000;
+  bottom:-95px;
+  text-shadow: none;
+  h2 {
+  	text-align: left;
+  	color: $darkbeton;
+  }
+	p {
+		text-align: left;
+		color: $beton;
+	}
 }
-.carousel-control.left {
-	background-image: none;
+.carousel-caption:not(#caption-0) {
+    display: none;
 }
-.carousel-control.right {
-	background-image: none;
+.carousel-caption:not(#caption-0) {
+    display: none;
+}
+.carousel-control {
+    background: none repeat scroll 0 0 #000 !important;
+    bottom: 0;
+    color: #fff;
+    font-size: 20px;
+    height: 75px;
+    opacity: 0.5;
+    padding: 20px !important;
+    position: static !important;
+    right: 108px !important;
+    text-align: left;
+    top: 296px;
+    width: 100px;
+    z-index: 9999;
 }
