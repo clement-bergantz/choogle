@@ -112,13 +112,16 @@
         minuteIncrement: 15,
         minDate: "today"
       });
-      // JS script for the Carousel
+      // Carousel slide
       $("#slider").on('slide.bs.carousel', function(evt) {
          var step = $(evt.relatedTarget).index();
          $('#slider_captions .carousel-caption:not(#caption-'+step+')').fadeOut('slow', function() {
             $('#caption-'+step).fadeIn();
          });
       });
+      // Random color on tags
+      var color = '#'+Math.floor(Math.random()*16777215).toString(16);
+      $('.tags').css('background-color', color);
     });
   </script>
 <% end %>
