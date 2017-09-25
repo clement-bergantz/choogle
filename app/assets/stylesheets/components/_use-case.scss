@@ -11,15 +11,21 @@
 	margin-top:35px;
 	height:100%;
 }
+.carousel {
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: $isabellina;
+}
 .carousel-caption {
 	position: absolute;
-	top: 0;
+	top: -30px;
 	text-align: left;
-	left: inherit;
+	left: 30px;
 	right: inherit;
 	width: auto;
-  color:#000;
-  bottom:-95px;
+  color: #000;
+  bottom: -110px;
   text-shadow: none;
   h2 {
   	text-align: left;
@@ -50,4 +56,9 @@
     top: 296px;
     width: 100px;
     z-index: 9999;
+}
+.item {
+  img {
+    border-radius: 4px;
+  }
 }
