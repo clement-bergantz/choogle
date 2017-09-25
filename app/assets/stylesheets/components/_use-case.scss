@@ -1,7 +1,7 @@
 .use-case {
 	display: flex;
 	flex-direction: column;
-	padding: 100px;
+	padding: 100px 0px 100px 0px;
 	h3 {
 		text-align: center;
 		margin-bottom: 120px;
@@ -61,4 +61,11 @@
   img {
     border-radius: 4px;
   }
+}
+.tag {
+  margin: 10px 0px 10px 0px;
+}
+.tags {
+  background-color: red;
+  margin-right: 5px;
 }
