@@ -54,7 +54,7 @@
                 <p>Invite your friends with this link</p>
                 <div class="input-group">
                   <input id='link' type="text" class="input-choogle" placeholder="http://choogle.xyz/<%= @choogle.slug %>" readonly="readonly">
-                  <button class="btn btn-choogle-secondary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
+                  <button class="btn btn-choogle" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
                 </div>
               </div>
             </div>
@@ -107,15 +107,15 @@
     <!-- New notification input -->
     <div class="notification">
       <div class="notification-content">
-        <p>Enter your email to be notify when the timer is done</p>
+        <p>Get the selected place right in your inbox when the timer is done</p>
           <div class="input-group">
             <%= simple_form_for [@choogle, @notification], html: { class: "input-group" } do |f| %>
               <%= f.error_notification %>
 
               <%= f.simple_fields_for :user do |h| %>
-                <%= h.input :email, label: false, input_html: { class: 'input-choogle' } %>
+                <%= h.input :email, label: false, placeholder: "your email...", input_html: { class: 'input-choogle' } %>
               <% end %>
-              <%= f.button :submit, class: 'btn btn-choogle-secondary', value: "Notify me" %>
+              <%= f.button :submit, class: 'btn btn-choogle', value: "Notify me" %>
             <% end %>
           </div>
       </div>

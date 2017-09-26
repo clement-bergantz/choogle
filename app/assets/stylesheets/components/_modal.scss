@@ -1,21 +1,11 @@
-
 .modal-content {
-  border-radius: 15px;
-  background: #833ab4;
-  background: -webkit-linear-gradient(110deg, #833ab4, #fd1d1d);
-  background: linear-gradient(110deg, #833ab4, #fd1d1d);
+  border-radius: 4px;
   border: none;
   padding: 20px;
-  color: white;
-}
-
-.modal-content h1 {
-  color: white !important;
-  margin-bottom: 45px ;
-  font-size: 50px;
-  font-weight: bold;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  h1 {
+    margin-bottom: 45px ;
+    text-align: center;
+  }
 }
 
 .btn-proposal-margin {
@@ -23,9 +13,11 @@
 }
 
 .modal-content label {
-  margin-top: 4px;
+  margin-top: 20px;
   display: table !important;
   margin-bottom: 10px;
+  color: $darkbeton;
+  font-weight: 400;
 }
 
 // .select2-container--bootstrap .select2-selection {

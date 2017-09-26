@@ -12,7 +12,7 @@
   max-height: 100vh;
   position: sticky !important;
   top: 0 !important;
-  margin: 20px 0 20px 20px;
+  margin: 15px 0 15px 15px;
   border: 8px solid white;
   border-radius: 4px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -23,12 +23,12 @@
 }
 .proposal {
   transition: all 0.15s ease;
-  padding: 20px 0 0 0;
+  padding: 15px 0 0 0;
 }
 .proposal-wrapper {
   display: flex;
   align-items: center;
-  padding: 18px;
+  padding: 15px;
   border-radius: 3px;
   background-color: white;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -39,7 +39,7 @@
 /* Body design */
 .proposal-body {
   flex: 1 1 auto;
-  margin-bottom: 6px;
+  margin-top: 10px;
 }
 .proposal-body h3 {
   font-weight: bold;
@@ -98,7 +98,7 @@
   color: #E6E6E6;
 }
 .proposal-controls a:hover {
-  color: #FF504D !important;
+  color: $paradise-pink !important;
 }
 .proposal-controls-hidden a {
   color: transparent;
@@ -119,7 +119,7 @@
   cursor: pointer;
 }
 .proposal-upvote-upvoted .proposal-arrow {
-  border-bottom-color: #FF504D;
+  border-bottom-color: $paradise-pink;
 }
 .proposal:hover .proposal-upvote {
   transform: scale(1.1)
@@ -128,7 +128,7 @@
   color: #E6E6E6;
 }
 .proposal-upvote:hover .proposal-arrow {
-  border-bottom: 9px solid #FF504D;
+  border-bottom: 9px solid $paradise-pink;
 }
 
 /* Empty proposal */
@@ -194,18 +194,18 @@
 }
 
 .strike {
-  color: #A62D8D;
+  color: $paradise-pink;
 }
 
 .strike .proposal-arrow {
-  color: #A62D8D;
+  color: $paradise-pink;
   transition: all 0.15s ease;
   width: 0;
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-top: 6px solid transparent;
-  border-bottom: 9px solid #A62D8D;
+  border-bottom: 9px solid $paradise-pink;
   border-radius: 2px;
   margin: auto;
 }
@@ -245,7 +245,7 @@
   display: none;
   justify-content: space-around;
   border: 2px solid white;
-  border-top: 2px solid $orange;
+  border-top: 2px solid $st-patricks-blue;
   border-radius: 50%;
   width: 30px;
   height: 30px;

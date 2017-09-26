@@ -10,8 +10,8 @@ $body-bg:                 $beton;
 $font-size-base: 15px;
 
 // Colors
-$gray-base:       gray;
-$brand-primary:   blue;
+$gray-base:       $darkbeton;
+$brand-primary:   $st-patricks-blue;
 $brand-success:   green;
 $brand-info:      yellow;
 $brand-danger:    red;
@@ -27,7 +27,7 @@ $btn-primary-color:              $paradise-pink !default;
 $btn-font-weight:                bold !default;
 
 $input-border:                   $beton !default;
-$input-border-focus:             $paradise-pink !default;
+$input-border-focus:             $st-patricks-blue !default;
 $input-bg:                       white !default;
 $input-color-placeholder:        $beton !default;
 $label-color:                 	$beton !default;
