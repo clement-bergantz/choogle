@@ -36,6 +36,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-flatpickr'
   gem 'rails-assets-mixitup'
   gem 'rails-assets-momentjs'
+  gem 'rails-assets-moment-timezone'
 end
 
 # Mailer

@@ -9,4 +9,5 @@
 //= require select2
 //= require mixitup
 //= require momentjs
+//= require moment-timezone
 //= require_tree .

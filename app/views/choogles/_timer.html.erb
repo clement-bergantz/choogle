@@ -47,8 +47,9 @@
     var timeinterval = setInterval(updateClock, 1000);
   }
 
-  var choogledue = $('#timer').data('timer')
-  var deadline = moment().format(choogledue);
+// Date.parse(moment(Date.parse(deadline)).format())
+
+  var deadline = $('#timer').data('timer');
   initializeClock('clockdiv', deadline);
 
   </script>
