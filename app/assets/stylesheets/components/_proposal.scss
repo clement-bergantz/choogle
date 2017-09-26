@@ -115,7 +115,7 @@
   // border: 0.5px solid white;
 }
 .proposal-upvote:hover, .proposal-upvote.proposal-upvote-upvoted {
-  color: $red;
+  color: red;
   cursor: pointer;
 }
 .proposal-upvote-upvoted .proposal-arrow {
@@ -145,7 +145,7 @@
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 .proposal-empty h3 {
-  color: lightgrey;
+  color: $beton;
   text-decoration: none;
 }
 
@@ -189,7 +189,7 @@
 }
 .btn-proposal:hover {
   background-color: white;
-  color: $purple;
+  color: $paradise-pink;
   border: 1px solid white;
 }
 
@@ -236,7 +236,7 @@
 //   background-color: white;
 //   border: none;
 //   a {
-//     color: $purple;
+//     color: $paradise-pink;
 //   }
 // }
 

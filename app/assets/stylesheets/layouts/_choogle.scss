@@ -1,8 +1,13 @@
-// Style font
 h1 {
-	font-size: 48px;
-	font-weight: bold;
-	color: $darkbeton;
+  font-family: Raleway;
+  font-size: 48px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: $darkbeton;
 }
 h2 {
   font-size: 20px;
@@ -10,17 +15,38 @@ h2 {
   color: $darkbeton;
 }
 h3 {
-	font-size: 18px;
-  font-weight: bold;
+  font-family: Lato;
+  font-size: 26px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
   color: $darkbeton;
 }
+h4 {
+  font-family: Lato;
+  font-size: 20px;
+  color: $beton;
+  font-weight: normal;
+  text-align: center;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
 p {
+  font-family: Lato;
   font-size: 15px;
-  font-weight: 400;
-  margin: 0px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
   color: $beton;
 }
-
 body {
   margin: 0;
   padding: 0;

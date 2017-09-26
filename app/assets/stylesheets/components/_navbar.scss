@@ -54,12 +54,11 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
-  color: white;
+  // font-size: 14px;
+  color: $beton;
 }
 .navbar-wagon-link:hover {
-  color: $purple;
+  color: $paradise-pink;
   text-decoration: none;
 }
 

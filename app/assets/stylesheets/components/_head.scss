@@ -1,0 +1,21 @@
+.master-head {
+  padding-top: 50px;
+  background: url(bg-wave.svg) no-repeat top;
+  background-size: cover;
+}
+.head {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 150px;
+}
+.head-content {
+  width: 550px;
+  h1 {
+    font-size: 60px;
+    margin: 30px;
+  }
+  p {
+    margin: 20px;
+  }
+}
