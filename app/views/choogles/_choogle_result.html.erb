@@ -3,8 +3,8 @@
     <div class="row general-infos">
       <div class="choogle-result">
        <h1><%= @choogle.title %></h1>
-       <p>happening the <%= @choogle.happens_at %></p>
-       <p>created by <%= @choogle.user.first_name %></p>
+       <p>on <%= @choogle.happens_at.strftime("%A, %b %d at %l:%M %p") %></p>
+       <p>proposed by <%= @choogle.user.first_name %></p>
       </div>
       <!-- Choogle résult info get from google maps -->
       <div class="col-sm-7">
