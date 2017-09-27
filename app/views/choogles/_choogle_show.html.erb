@@ -89,13 +89,8 @@
     <!-- Comments -->
     <div id="chatroom">
       <div id="comments">
+        <h4>Leave a message to your friends</h4>
         <ul class="media-list">
-          <li class="media-comment">
-            <div class="media-body">
-              <div class='text-area'>Leave a message to your friends</div>
-              <small class="text-muted"> <%= Time.now.strftime("%^a %H:%M %p") %></small></p>
-            </div>
-          </li>
           <%= render @comments %>
         </ul>
         <%= render 'comments/form' %>

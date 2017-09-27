@@ -13,7 +13,7 @@
   }
 }
 .media-list {
-  margin-bottom: 50px;
+  margin: 50px 0px;
 }
 .media-list .avatar {
   height: 30px;
@@ -23,6 +23,8 @@
 .media-heading {
   font-size: 13px;
   font-weight: 300;
+  text-align: left;
+  margin-left: 5px;
 }
 .media-comment {
   display: flex;
