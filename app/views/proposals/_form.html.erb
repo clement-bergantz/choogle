@@ -12,7 +12,7 @@
     <% end %>
   <% end %>
   <%= f.input :place, label: false, placeholder: "Search a place", error: "Please add a place"%>
-  <%= f.association :tags, class: 'tag-selector', collection: current_or_guest_user.tags, label: "Describe this place with your own words" %>
+  <%= f.association :tags, class: 'tag-selector', collection: current_or_guest_user.tags, label: "Describe this place with tags" %>
   <%= f.button :submit, value: "Add a place", class: 'btn btn-choogle btn-proposal-margin' %>
 <% end %>
 <div class="loader"></div>
