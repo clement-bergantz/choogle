@@ -35,9 +35,7 @@
   </head>
   <body>
     <%= render 'shared/navbar' %>
-    <div class="flashes-div">
-      <%= render 'shared/flashes' %>
-    </div>
+    <%= render 'shared/flashes' %>
     <%= yield %>
 
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
