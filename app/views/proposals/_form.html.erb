@@ -5,7 +5,7 @@
   <% unless user_signed_in? || current_or_guest_user.first_name != 'guest' %>
     <%= f.simple_fields_for :user do |h| %>
       <%= h.input :first_name,
-      label: "Let your friends know who you are",
+      label: false,
       placeholder: "Your name",
       input_html: {id: 'sign_up_code',
       value: nil } %>
