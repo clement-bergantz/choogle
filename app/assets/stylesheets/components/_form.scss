@@ -1,22 +1,28 @@
-.form-control {
-  color: $darkbeton !important;
+.form-home {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
-
-.date-form {
-  padding: 20px;
- label {
-    display: table !important;
-    margin-bottom: 10px;
-  }
+.form-home-content {
+  max-width: 1030px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 30px 30px 15px 30px;
 }
-
-.form-date-element {
-  height: 35px !important;
-  background-color: white !important;
+.form-home-input {
+  height: 44px !important;
+  color: $darkbeton;
 }
-
-.btn-margin {
-  margin-top: 31px;
+.textarea {
+  padding-top: 11px;
+}
+.small-padding {
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 // force the autocomplete window to be "in front of the modal
@@ -26,21 +32,21 @@
 
 // flatpikr
 .flatpickr-month {
-  background-color: $purple;
+  background-color: $paradise-pink;
 }
 .flatpickr-weekday {
   color: white !important;
-  background: $purple !important;
+  background: $paradise-pink !important;
 }
 .flatpickr-weekdays {
-  background-color: $purple;
+  background-color: $paradise-pink;
 }
 .flatpickr-day.selected {
-  background: $purple;
+  background: $paradise-pink;
   border: none;
 }
 
 .flatpickr-day.selected:hover {
-  background: $purple;
+  background: $paradise-pink;
   border: none;
 }

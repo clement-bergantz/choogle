@@ -10,12 +10,12 @@ $body-bg:                 $beton;
 $font-size-base: 15px;
 
 // Colors
-$gray-base:       $gray;
-$brand-primary:   $blue;
-$brand-success:   $green;
-$brand-info:      $yellow;
-$brand-danger:    $red;
-$brand-warning:   $orange;
+$gray-base:       $darkbeton;
+$brand-primary:   $st-patricks-blue;
+$brand-success:   green;
+$brand-info:      yellow;
+$brand-danger:    red;
+$brand-warning:   orange;
 
 // Buttons & inputs' radius
 $border-radius-base:  4px;
@@ -23,11 +23,11 @@ $border-radius-large: 6px;
 $border-radius-small: 2px;
 
 // Override other variables below!
-$btn-primary-color:              $purple !default;
+$btn-primary-color:              $paradise-pink !default;
 $btn-font-weight:                bold !default;
 
 $input-border:                   $beton !default;
-$input-border-focus:             $purple !default;
+$input-border-focus:             $st-patricks-blue !default;
 $input-bg:                       white !default;
 $input-color-placeholder:        $beton !default;
 $label-color:                 	$beton !default;

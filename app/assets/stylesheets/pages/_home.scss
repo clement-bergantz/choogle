@@ -1,83 +1,36 @@
-.doodle {
-    position: absolute;
-    border-radius: 4px;
-    display: flex;
-    width: 520px;
-    height: auto;
-    bottom: -235px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 15px 15px 26px 4px rgba(0, 0, 0, 0.2);
+.main-wrapper {
+  min-height: calc(100vh - 70px);
 }
-.wrapper-doodle {
-  height: 240px;
-  align-items: flex-end;
+.headlines {
+  margin: 200px 0 50px 0;
+  padding: 20px 20px 175px 20px;
+}
+.headline {
   display: flex;
-  justify-content: center;
-  background-color: white;
-}
-// Wrapper to display "How it works"
-.wrapper-features {
-  background-color: white;
-  margin: 30px 0 30px 0;
   padding: 20px;
   h2 {
-    margin: 15px 0px;
-    color: #47495B;
-    font-size: xx-large;
+    margin-top: 5px;
   }
 }
-.features {
-  display: flex;
-  flex-wrap:wrap;
-  text-align: center;
-  padding: 20px;
-  justify-content: space-around;
+.headline-text {
+  margin-left: 20px;
   h3 {
-    margin: 15px 0;
-    color: #47495B;
-  }
-  h6 {
-    margin: 0px;
-    font-size: 40px;
+    margin-top: 0px;
+    color: white;
   }
   p {
-    color: #6A7C94;
-    font-size: medium;
+    text-align: left;
+    color: white;
   }
 }
 
-.feature {
-  padding: 20px;
-  border-radius: 10px;
-  padding-top: 15px;
-  background: white;
-}
 #choogle-errors p {
-  color: rgba(238, 238, 238, 1);
+  color: $paradise-pink;
   font-size: 15px;
-  font-weight: bold;
   margin: 2px;
 }
 #proposal-errors {
-  color: $red;
-}
-
-// Wrapper to explain "why Choogle"
-.wrapper-rules {
-  background: white; /* fallback for old browsers */
-  // background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
-  margin: 30px 0 60px 0;
-  padding: 20px;
-  color: white;
-  h2 {
-    color: $darkbeton !important;
-    font-size: xx-large;
-  }
-  p {
-    color: $beton !important;
-    font-size: medium;
-  }
+  color: $paradise-pink;
 }
 
 .rules {

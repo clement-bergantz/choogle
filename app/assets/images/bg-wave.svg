@@ -1,0 +1,16 @@
+
+<svg width="1486px" height="871px" viewBox="0 0 1486 871" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0.25781251%" y1="49.7500002%" x2="101.257813%" y2="49.7500002%" id="linearGradient-1">
+            <stop stop-color="#1A2980" offset="0%"></stop>
+            <stop stop-color="#26D0CE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Choogle_home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-269.000000, -146.000000)" fill="url(#linearGradient-1)">
+            <path d="M1754.41379,1008.02435 C1633.10395,1043.06823 328.245279,961.944864 269,861.107933 C269,776.243306 269,787.943047 269,717.305643 C367.18538,581.743905 1571.45063,115.379534 1754.41379,148.209648 C1754.41379,356.212044 1754.41379,833.659591 1754.41379,1008.02435 Z" id=".wrapper"></path>
+        </g>
+    </g>
+</svg>

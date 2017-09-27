@@ -1,0 +1,114 @@
+Searching 3321 files for "gray" (regex)
+
+/Users/clementbergantz/code/clement-bergantz/CHOOGLE/app/assets/stylesheets/config/_bootstrap_variables.scss:
+   11  
+   12  // Colors
+   13: $gray-base:       $gray;
+   14  $brand-primary:   $blue;
+   15  $brand-success:   $green;
+
+/Users/clementbergantz/code/clement-bergantz/CHOOGLE/log/development.log:
+    <binary>
+
+3 matches across 2 files
+
+
+Searching 3323 files for "paradise-pink" (regex)
+
+/Users/clementbergantz/code/clement-bergantz/CHOOGLE/app/assets/stylesheets/components/_btnchoogle.scss:
+   24  // button over white background
+   25  .btn-choogle-secondary {
+   26:   background-color: $paradise-pink;
+   27    color: white;
+   28    font-weight: normal;
+   ..
+   31  .btn-choogle-secondary:hover {
+   32    background-color: white;
+   33:   color: $paradise-pink;
+   34    font-weight: normal;
+   35:   border-color: $paradise-pink;
+   36  }
+   37  
+
+/Users/clementbergantz/code/clement-bergantz/CHOOGLE/app/assets/stylesheets/components/_form.scss:
+   27  // flatpikr
+   28  .flatpickr-month {
+   29:   background-color: $paradise-pink;
+   30  }
+   31  .flatpickr-weekday {
+   32    color: white !important;
+   33:   background: $paradise-pink !important;
+   34  }
+   35  .flatpickr-weekdays {
+   36:   background-color: $paradise-pink;
+   37  }
+   38  .flatpickr-day.selected {
+   39:   background: $paradise-pink;
+   40    border: none;
+   41  }
+   42  
+   43  .flatpickr-day.selected:hover {
+   44:   background: $paradise-pink;
+   45    border: none;
+   46  }
+
+/Users/clementbergantz/code/clement-bergantz/CHOOGLE/app/assets/stylesheets/components/_navbar.scss:
+   60  }
+   61  .navbar-wagon-link:hover {
+   62:   color: $paradise-pink;
+   63    text-decoration: none;
+   64  }
+
+/Users/clementbergantz/code/clement-bergantz/CHOOGLE/app/assets/stylesheets/components/_proposal.scss:
+  190  .btn-proposal:hover {
+  191    background-color: white;
+  192:   color: $paradise-pink;
+  193    border: 1px solid white;
+  194  }
+  ...
+  237  //   border: none;
+  238  //   a {
+  239: //     color: $paradise-pink;
+  240  //   }
+  241  // }
+
+/Users/clementbergantz/code/clement-bergantz/CHOOGLE/app/assets/stylesheets/components/_tag.scss:
+    3    border-radius: 8px;
+    4    /*Background color in show page directly linked with the color in the DB*/
+    5:   /*background-color: $paradise-pink;*/
+    6    padding: 3px 10px;
+    7    font-size: 13px;
+
+/Users/clementbergantz/code/clement-bergantz/CHOOGLE/app/assets/stylesheets/config/_bootstrap_variables.scss:
+   24  
+   25  // Override other variables below!
+   26: $btn-primary-color:              $paradise-pink !default;
+   27  $btn-font-weight:                bold !default;
+   28  
+   29  $input-border:                   $beton !default;
+   30: $input-border-focus:             $paradise-pink !default;
+   31  $input-bg:                       white !default;
+   32  $input-color-placeholder:        $beton !default;
+
+/Users/clementbergantz/code/clement-bergantz/CHOOGLE/app/assets/stylesheets/pages/_show.scss:
+    1  .wrapper {
+    2:   background: $paradise-pink;
+    3    background: -webkit-linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+    4    // TODO : add transparency/opacity on linear gradient
+    .
+   52  }
+   53  .choogle-infos-link a:hover {
+   54:   color: $paradise-pink;
+   55  }
+   56  .input-group {
+   ..
+   62    padding: 6px 12px;
+   63    border-radius: 4px !important;
+   64:   border: 1px solid $paradise-pink;
+   65    margin-right: 3px;
+   66  }
+
+/Users/clementbergantz/code/clement-bergantz/CHOOGLE/log/development.log:
+    <binary>
+
+18 matches across 8 files

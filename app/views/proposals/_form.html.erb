@@ -5,15 +5,15 @@
   <% unless user_signed_in? || current_or_guest_user.first_name != 'guest' %>
     <%= f.simple_fields_for :user do |h| %>
       <%= h.input :first_name,
-      label: "Let your friends know who you are",
+      label: false,
       placeholder: "Your name",
       input_html: {id: 'sign_up_code',
       value: nil } %>
     <% end %>
   <% end %>
-  <%= f.input :place, label: "Add a new place" %>
-  <%= f.association :tags, class: 'tag-selector', collection: current_or_guest_user.tags, label: "Add tags to this place (max 20 char)" %>
-  <%= f.button :submit, value: "Add a new place", class: 'btn btn-choogle btn-proposal-margin' %>
+  <%= f.input :place, label: false, placeholder: "Search a place", error: "Please add a place"%>
+  <%= f.association :tags, class: 'tag-selector', collection: current_or_guest_user.tags, label: "Describe this place with tags" %>
+  <%= f.button :submit, value: "Add a place", class: 'btn btn-choogle btn-proposal-margin' %>
 <% end %>
 <div class="loader"></div>
 
@@ -24,7 +24,7 @@
       tags: true,
       theme: "bootstrap",
       maximumInputLength: 20,
-      placeholder: "Select or create your own tags."
+      placeholder: "cheap, outdoor, tapas, point of view..."
     }
   );
   // This function is used to append the stylesheet with the right name and color
