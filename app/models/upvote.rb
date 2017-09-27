@@ -12,7 +12,8 @@ class Upvote < ApplicationRecord
     "upvote_#{proposal.choogle.slug}",
     upvotes: self.proposal.upvotes.size,
     proposal_id: self.proposal.id,
-    user: self.user,
+    user_id: self.user.id,
+    upvoters: self.proposal.upvoters,
     )
   end
 end

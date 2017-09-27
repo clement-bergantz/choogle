@@ -14,6 +14,8 @@
         handler.fitMapToBounds();
         if (markers.length == 0) {
           handler.getMap().setZoom(14);
+        } else if (markers.length == 1 && markers[0].country == markers[0].address) {
+          handler.getMap().setZoom(5);
         } else if (markers.length == 1) {
           handler.getMap().setZoom(15);
         }

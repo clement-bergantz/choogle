@@ -239,3 +239,20 @@
 //     color: $paradise-pink;
 //   }
 // }
+
+.loader {
+  margin: auto;
+  display: none;
+  justify-content: space-around;
+  border: 2px solid white;
+  border-top: 2px solid $orange;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

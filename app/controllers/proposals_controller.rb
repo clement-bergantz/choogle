@@ -32,7 +32,7 @@ class ProposalsController < ApplicationController
     # [USER]
     @user = current_or_guest_user
     # Check if user is guest
-    unless user_signed_in?
+    unless user_signed_in? || current_or_guest_user.first_name != 'guest' 
       @user.first_name = params["proposal"]["user"]["first_name"]
       @user.save
     end

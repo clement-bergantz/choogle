@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(content: comment_params[:content])
     @user = current_or_guest_user
 
-    unless user_signed_in?
+    unless user_signed_in? || current_or_guest_user.first_name != 'guest'
       @user.first_name = comment_params["user"]["first_name"]
       @user.save
     end

@@ -3,6 +3,12 @@ class Place < ApplicationRecord
   has_many :choogles, through: :proposals
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+  reverse_geocoded_by :latitude, :longitude do |obj, results|
+    if geo = results.first
+      obj.country = geo.country
+    end
+  end
+  after_validation :fetch_address
 
   def placify
     @client = GooglePlaces::Client.new(ENV['GOOGLE_API_SERVER_KEY'])

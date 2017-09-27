@@ -1,16 +1,22 @@
-<%= simple_form_for([choogle, proposal], remote: true) do |f| %>
+<%= simple_form_for([choogle, proposal], remote: true, html: { class: "form-proposal"}) do |f| %>
   <div id="proposal-errors"></div>
 
   <!-- If it's a guest session, ask for his name -->
-  <% unless user_signed_in? %>
+  <% unless user_signed_in? || current_or_guest_user.first_name != 'guest' %>
     <%= f.simple_fields_for :user do |h| %>
-      <%= h.input :first_name, label: "Let your friends know who you are", input_html: {id: 'sign_up_code', value: current_or_guest_user.first_name } %>
+      <%= h.input :first_name,
+      label: "Let your friends know who you are",
+      placeholder: "Your name",
+      input_html: {id: 'sign_up_code',
+      value: nil } %>
     <% end %>
   <% end %>
   <%= f.input :place, label: "Add a new place" %>
   <%= f.association :tags, class: 'tag-selector', collection: current_or_guest_user.tags, label: "Add tags to this place (max 20 char)" %>
   <%= f.button :submit, value: "Add a new place", class: 'btn btn-choogle btn-proposal-margin' %>
 <% end %>
+<div class="loader"></div>
+
 
 <script>
   $("#proposal_tag_ids").select2(
@@ -19,5 +25,39 @@
       theme: "bootstrap",
       maximumInputLength: 20,
       placeholder: "Select or create your own tags."
+    }
+  );
+  // This function is used to append the stylesheet with the right name and color
+  // getted from ajax request. The goal is to generate and display the colors during the tag selection/creation
+  function writeStyles(styleName, cssText) {
+    var styleElement = document.createElement('style');
+    styleElement.type = 'text/css';
+    styleElement.id = styleName;
+    styleElement.innerHTML = cssText;
+    document.getElementsByTagName('head')[0].appendChild(styleElement);
+  }
+
+  $("#proposal_tag_ids").on('select2:select', function(event) {
+    var tagName = event.params.data.text;
+    $tag = $('.select2-container').find('[title="' + tagName + '"]');
+
+    $.ajax({
+      url: '/tag_color?tag=' + tagName,
+      method: "get",
+      success: function(data) {
+        // $tag.css('background-color', data.color);
+        tagColor = data.color;
+        // Construct the CSS
+        cssText = $tag.selector + ' { background-color: ' + data.color + '!important; }';
+        // Append with the writeStyles function
+        writeStyles('styles_js', cssText);
+      }
     });
+  });
+
+  $(".form-proposal").submit(function() {
+      $(".loader").show();
+      $(this).find(".btn").hide();
+      return true;
+  });
 </script>

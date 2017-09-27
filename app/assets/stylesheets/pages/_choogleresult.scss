@@ -61,6 +61,14 @@
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+#star-rating-good {
+color: $orange;
+};
+
+#star-rating-bad {
+color: $beton;
+}
+
 // .res {
 //   flex-shrink: 0;
 //   width: 40%;
@@ -69,4 +77,3 @@
 //   top: 0 !important;
 //   margin: 20px;
 // }
-

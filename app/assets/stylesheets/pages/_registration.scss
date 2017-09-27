@@ -1,0 +1,54 @@
+.wrapper.page-forms {
+display: flex;
+flex: 1;
+position: relative;
+}
+
+.custom-edit-form {
+  padding-top: 80px;
+  color: white;
+    h2 {
+      color: white;
+    }
+    .help-block {
+      color: white;
+    }
+    .control-label {
+      color: white;
+    }
+}
+
+.custom-first-name-form {
+  padding-top: 20px;
+  color: white;
+    h2 {
+      color: white;
+    }
+    .help-block {
+      color: white;
+    }
+    .control-label {
+      color: white;
+    }
+}
+
+.btn-registration {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.form-links {
+  a {
+  color: white;
+    &:hover {
+      text-decoration: none;
+      color: $beton;
+    }
+  }
+  h3 {
+    color: $darkbeton;
+  }
+  p {
+    color: white;
+  }
+}

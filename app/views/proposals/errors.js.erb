@@ -1,2 +1,4 @@
 $("#proposal-errors").empty()
 $("#proposal-errors").append("<%= @proposal.errors.full_messages.join %>")
+$(".loader").hide()
+$(".form-proposal").find(".btn").show()

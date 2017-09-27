@@ -1,0 +1,45 @@
+<% sort_prop_by_upvotes(@choogle.proposals).each do |proposal| %>
+  <div class="mix-target proposal" id="proposal-<%= proposal.id %>" data-order="<%= proposal.upvotes.size %>">
+    <div class="proposal-wrapper">
+     <!-- Link to upvote method with choogle and proposal in the route
+       in this upvotes div for arrow and counter -->
+    <%= link_to upvote_path(@choogle, proposal), remote: true, method: :post, class: "upvote" do %>
+      <!-- Add class strike for user upvotes for special puprle awesome design -->
+      <div class='proposal-upvote <%= "strike" if proposal.upvotes.find_by(user: current_or_guest_user) != nil %>'
+         data-html="true"
+         data-content=
+           '<% proposal.upvoters.each do |t| %>
+             <%= t %> <br/>
+           <% end %>'
+         >
+        <div class="proposal-arrow"></div>
+        <div class='proposal-count' id="upvote-<%= proposal.id %>"><%= proposal.upvotes.size %></div>
+      </div>
+    <% end %>
+      <div class="proposal-content">
+        <div class='proposal-body'>
+        <!-- Change this to match our future awesome graphics and because style in view is bad, really bad but quickier for tonight -->
+          <h3 style="display:inline;"><%= proposal.place.name %></h3><p style="display:inline;"> proposed by <%= proposal.user.first_name %></p>
+          <!-- Implement 'display of all tags' after implementing the option to append many tags-->
+        </div>
+        <div class="tag">
+          <% if proposal.proposal_tags.any? %>
+            <% proposal.proposal_tags.each do |proposaltag| %>
+            <h5 class="tags" style="background-color: <%= proposaltag.tag.color_hex %>"><%= proposaltag.tag.name %></h5>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% content_for(:after_js) do %>
+  <script>
+  $('.proposal-upvote').popover({
+    placement: 'top',
+    trigger: 'hover',
+    delay: {show: 100, hide: 100}
+  });
+  </script>
+<% end %>
