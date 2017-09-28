@@ -4,11 +4,11 @@
   <!-- If it's a guest session, ask for his name -->
   <% unless user_signed_in? || current_or_guest_user.first_name != 'guest' %>
     <%= f.simple_fields_for :user do |h| %>
-      <%= h.input :first_name, label: false, placeholder: "your name here...", input_html: {id: 'sign_up_code', value: nil } %>
+      <%= h.input :first_name, label: false, placeholder: "your name...", input_html: {id: 'sign_up_code', value: nil } %>
     <% end %>
   <% end %>
 
-  <%= f.input :content, label: false, placeholder: "your message here...", required: true, maxlength: 2000, input_html: { class: 'content' } %>
+  <%= f.input :content, label: false, placeholder: "your message...", required: true, maxlength: 2000, input_html: { class: 'content' } %>
 
-  <%= f.button :submit, 'Send message', class: 'btn btn-choogle-secondary' %>
+  <%= f.button :submit, 'Send message', class: 'btn btn-choogle' %>
 <% end %>

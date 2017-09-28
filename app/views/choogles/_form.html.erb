@@ -1,19 +1,17 @@
 <%= simple_form_for(@choogle, remote: true) do |f| %>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-8">
-        <%= f.input :title, error: "Your event needs a name" , label: "Event's name", placeholder: "Give a name to your Choogle"%>
+      <div class="col-xs-12 col-sm-4 small-padding">
+        <%= f.input :title, error: "Your event needs a name" , label: false, placeholder: "What's the occasion ? Afterwork, holidays...", input_html: { class: 'form-home-input' } %>
       </div>
-      <div class="col-xs-12 col-sm-4">
-        <%= f.input :happens_at, as: :text, label: "Event's date", placeholder: "In 2 days", input_html: { class: 'flatpickr-input form-date-element' } %>
+      <div class="col-xs-12 col-sm-3 small-padding">
+        <%= f.input :happens_at, as: :text, label: false, placeholder: "When ?", input_html: { class: 'flatpickr-input form-home-input textarea' } %>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-8">
-        <%= f.input :due_at, as: :text, label: "Closing votes date", placeholder: "Due date for voting", input_html: { class: 'flatpickr-input form-date-element'} %>
+      <div class="col-xs-12 col-sm-3 small-padding">
+        <%= f.input :due_at, as: :text, label: false, placeholder: "Deadline for the poll ?", input_html: { class: 'flatpickr-input form-home-input textarea'} %>
       </div>
-      <div class="col-xs-12 col-sm-4 date-form-btn btn-setup-1">
-        <%= f.button :submit, value: "Let's Choogle", class: "btn-choogle btn-margin" %>
+      <div class="col-xs-12 col-sm-2 small-padding">
+        <%= f.button :submit, value: "Create a poll", class: "btn-choogle-home" %>
       </div>
     </div>
     <div id="choogle-errors"></div>

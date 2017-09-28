@@ -1,72 +1,106 @@
+<div class="main-wrapper">
 
-<!-- Banner -->
-<div class="banner">
-  <div class="banner-content">
-      <div class="banner-head">
-        <h1>Choogle a place to go</h1>
-        <p>Decision-making tool to choose the best place to go</p>
-      </div>
-      <!-- form -->
-      <div class="date-form">
+  <div class="head">
+    <div class="head-content">
+      <h1>Where are<br>we going next ?</h1>
+      <h4>Choogle is the easiest way to collectivly choose a bar, a restaurant, a holiday destination or any other place</h4>
+    </div>
+  </div>
+
+  <div class="master-head">
+    <div class="form-home">
+      <div class="form-home-content">
         <%= render "choogles/form" %>
         <%= render "proposals/modal" %>
       </div>
-  </div>
-  <%= image_tag "Doodle.png", {class: "doodle hidden-xs"}%>
-</div>
-
-
-<div class="wrapper-doodle hidden-xs">
-    <!-- <h4 style="color: grey">Creates happiness by chosing the suggestion that suits everybody 😊</h4> -->
-</div>
-
-<!-- wrapper to display the main features -->
-<div class="wrapper-features">
-  <h2 class="text-center">How it works</h2>
-  <div class="features">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-4">
-          <div class="feature">
-              <h6>☝️</h6>
-              <h3>Suggest options</h3>
-              <p>Select a first place to go, a date and a timer. Participants will have the option to add other suggestions.</p>
+    </div>
+    <div class="headlines">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="headline">
+              <h2>🙋</h2>
+              <div class="headline-text">
+                <h3>Make a collective decision</h3>
+                <p>Share your poll with your friends. They can add new places and vote for their favorites. No account needed.</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="feature">
-            <h6>👫</h6>
-            <h3>Invite participants to vote</h3>
-            <p>They can now upvote their favorite places. They don’t even need an account.</p>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="feature">
-            <h6>🎯</h6>
-            <h3>Select the best option</h3>
-            <p>Once the timer is over pick the final option and received all its informations.</p>
+          <div class="col-xs-12 col-sm-6">
+            <div class="headline">
+                <h2>⏰</h2>
+                <div class="headline-text">
+                  <h3>Stop losing time on long group decision-making</h3>
+                  <p>Set a deadline for your poll and the most upvoted place is automatically choosen.</p>
+                </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- wrapper to explain the functionning of Choogle -->
-<div class="wrapper-rules hidden-xs">
-  <h2 class="text-center">Why Choogle ?</h2>
-  <div class="rules">
-    <p>Thanks to Yelp, Tripadvisor, Google or Foursquare, finding the perfect place to go has never been easier.
-    <br>
-    But when you are with a lot of friends with different tastes, it's still complicated.
-    <br>
-    Choogle is a simple voting tool to choose with your friends the next place to go.
-    </p>
+  <div class="use-case hidden-xs">
+    <h3>Some places choosen with Choogle</h3>
+    <div class="container">
+      <div id="slider" class="carousel slide col-xs-8  padd-lt0" data-ride="carousel" data-interval="10000" data-pause="hover">
+        <div class="carousel-inner">
+          <div class="item active">
+              <img alt="First slide"4 src="assets/festival.jpg" >   
+          </div>
+          <div class="item">
+              <img alt="Second slide" src="assets/afterwork.jpg">  
+          </div>
+          <div class="item">
+              <img alt="Third slide" src="assets/weekend.jpg">
+          </div>
+        </div>
+      </div>
+
+      <div id="slider_captions" class="col-xs-4">
+        <div>
+          <div id="caption-0" class="carousel-caption">
+              <h2>Liverpool International Music Festival 2017, Liverpool</h2>
+              <div class="tag">
+                <h5 class="tags tags-color8">free</h5><h5 class="tags tags-color6">outdoors</h5><h5 class="tags tags-color7">sefton park</h5><h5 class="tags tags-color4">gorgon city</h5><h5 class="tags tags-color2">corinne bailey rae</h5><h5 class="tags tags-color1">so solid crew</h5><h5 class="tags tags-color3">rock</h5>
+              </div>
+              <p>Upvoted by Amelia, Oliver, Jack, George, Ava, Henry, Emily and Jacob.</p>
+              <p>Proposed by Ava for the <strong>Annual festival trip.</strong></p>
+
+          </div>
+          <div id="caption-1" class="carousel-caption">
+              <h2>Rosa Bonheur Bar, Belleville, Paris</h2>
+              <div class="tag">
+                <h5 class="tags tags-color3">guinguette</h5><h5 class="tags tags-color1">metro 7</h5><h5 class="tags tags-color4">metro 11</h5><h5 class="tags tags-color7">belleville</h5><h5 class="tags tags-color2">outdoor</h5><h5 class="tags tags-color6">rosé</h5><h5 class="tags tags-color8">tapas</h5><h5 class="tags tags-color7">pizza</h5>
+              </div>
+              <p>Upvoted by Lisa, Romain, Eliott, Simon, Marie, Vincent, Tatiana and Sylvain.</p>
+              <p>Proposed by Lisa for the <strong>Afterwork drink.</strong></p>
+          </div>
+          <div id="caption-2" class="carousel-caption">
+              <h2>Letchworth state park, New York</h2>
+              <div class="tag">
+                <h5 class="tags tags-color7">NY</h5><h5 class="tags tags-color6">point of view</h5><h5 class="tags tags-color1">waterfalls</h5><h5 class="tags tags-color3">hiking</h5><h5 class="tags tags-color4">
+                camping</h5><h5 class="tags tags-color2">nature</h5>
+              </div>
+              <p>Upvoted by Joshua, Andrew, William and Aydan.</p>
+              <p>Proposed by Andrew for the <strong>Summer weekend with friends.</strong></p>
+          </div>
+        </div>
+        <!-- This below is used to let user control previous or next use-case -->
+<!--         <a data-slide="prev" role="button" href="#slider" class="left carousel-control"><span class="glyphicon glyphicon-chevron-down"></span></a>
+        <a data-slide="next" role="button" href="#slider" class="right carousel-control"><span class="glyphicon glyphicon-chevron-up"></span></a> -->
+      </div>
+    </div>
   </div>
+
 </div>
 
 <!-- Loading Google Places for Autocomplete on New Proposal Modal Form -->
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>"></script>
+
+<!-- Loading for the Bootstrap carousel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 <% content_for(:after_js) do %>
   <script>
@@ -78,6 +112,16 @@
         minuteIncrement: 15,
         minDate: "today",
       });
+      // Carousel slide
+      $("#slider").on('slide.bs.carousel', function(evt) {
+         var step = $(evt.relatedTarget).index();
+         $('#slider_captions .carousel-caption:not(#caption-'+step+')').fadeOut('slow', function() {
+            $('#caption-'+step).fadeIn();
+         });
+      });
+      // // Random color on tags
+      // var color = '#'+Math.floor(Math.random()*16777215).toString(16);
+      // $('.tags').css('background-color', color);
     });
   </script>
 <% end %>
