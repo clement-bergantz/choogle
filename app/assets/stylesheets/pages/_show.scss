@@ -1,9 +1,7 @@
 .wrapper {
-  background: $purple;
-  background: -webkit-linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
-  // TODO : add transparency/opacity on linear gradient
-  // background: linear-gradient(to right, transparent, #833ab4, #fcb045, #fd1d1d);
-  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  background: $paradise-pink;
+  background: -webkit-linear-gradient(to right, #1a2980, #26d0ce);
+  background: linear-gradient(to right, #1a2980, #26d0ce);
 }
 .container {
   max-width: 1000px;
@@ -50,8 +48,14 @@
   margin: 20px;
   // width: 50%;
 }
+@media (max-width: 992px) {
+  .choogle-infos-link {
+    margin-top: 50px;
+  }
+}
+
 .choogle-infos-link a:hover {
-  color: $purple;
+  color: $paradise-pink;
 }
 .input-group {
   display: flex;
@@ -61,8 +65,10 @@
 .input-choogle {
   padding: 6px 12px;
   border-radius: 4px !important;
-  border: 1px solid $purple;
+  border: 1px solid $paradise-pink;
   margin-right: 3px;
+  width: 100%;
+  max-width: 250px;
 }
 
 // .choogle-container {

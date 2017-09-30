@@ -26,6 +26,8 @@
     <meta name="twitter:description" content="<%= meta_description %>">
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
 
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -33,9 +35,7 @@
   </head>
   <body>
     <%= render 'shared/navbar' %>
-    <div class="flashes-div">
-      <%= render 'shared/flashes' %>
-    </div>
+    <%= render 'shared/flashes' %>
     <%= yield %>
 
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
@@ -44,7 +44,6 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
 
     <%= yield(:after_js) %>
-
     <%= render 'shared/footer' %>
   </body>
 </html>

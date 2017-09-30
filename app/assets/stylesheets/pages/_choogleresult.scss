@@ -1,7 +1,8 @@
 .wrapper-result {
-  background: #833ab4; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  display: flex;
+  background: #26d0ce;
+  background: -webkit-linear-gradient(to right, #1a2980, #26d0ce);
+  background: linear-gradient(to right, #1a2980, #26d0ce);
   align-items: center;
   text-align: center;
   margin-left:auto;
@@ -12,21 +13,19 @@
 }
 
 .choogle-result  {
-  margin: 70px 0 30px 0;
+  margin: 50px 0 20px 0;
+  padding: 20px;
   h1 {
     color: white !important;
-    font-size: 25px;
-    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   }
   p {
     color: white !important;
-    font-size: 12px;
   }
 }
 
 .result-info {
   h2 {
-    margin: 0 0 2px 0;
+    margin: 10px 0 2px 0;
   }
   h4 {
     font-size: 15px;
@@ -40,8 +39,9 @@
 
 .result-content {
   background-color: white;
-  padding: 10px;
+  padding: 15px;
   border-radius: 4px;
+  margin: 15px 0 100px 0;
 }
 
 .result-tags {
@@ -55,14 +55,13 @@
   height: 35vh;
   position: sticky !important;
   top: 0 !important;
-  margin-top: 15px;
   border: 8px solid white;
   border-radius: 4px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 #star-rating-good {
-color: $orange;
+color: yellow;
 };
 
 #star-rating-bad {
