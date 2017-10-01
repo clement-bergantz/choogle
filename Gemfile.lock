@@ -114,6 +114,7 @@ GEM
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    local_time (2.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -290,6 +291,7 @@ DEPENDENCIES
   jquery-turbolinks
   letter_opener
   listen (~> 3.0.5)
+  local_time
   omniauth-facebook
   pg
   postmark-rails
@@ -317,4 +319,4 @@ RUBY VERSION
    ruby 2.3.4p301
 
 BUNDLED WITH
-   1.15.4
+   1.16.0.pre.2

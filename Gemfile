@@ -10,6 +10,7 @@ gem 'puma'
 gem 'rails', '5.0.5'
 gem 'redis'
 gem 'omniauth-facebook'
+gem 'local_time'
 
 #Front-End
 gem 'autoprefixer-rails'
