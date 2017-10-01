@@ -17,6 +17,11 @@ class Choogle < ApplicationRecord
 
   before_validation :generate_slug, on: :create
 
+  def due_at_tz
+     tz = TZInfo::Timezone.get(user.timecode)
+     tz.local_to_utc(due_at)
+  end
+
   def generate_slug
     slug = SecureRandom.urlsafe_base64(5)
     while Choogle.find_by(slug: slug)
@@ -48,7 +53,4 @@ class Choogle < ApplicationRecord
     end
   end
 
-  # def winning_proposal
-  #   proposals.
-  # end
 end
