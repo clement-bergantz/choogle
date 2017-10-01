@@ -19,6 +19,8 @@ class Choogle < ApplicationRecord
 
   def due_at_tz
      tz = TZInfo::Timezone.get(user.timecode)
+     # Must use the local to UTC method of the gem because the time inputs with the
+     # datepicker is considered as the local time for the user but stored in UTC.
      tz.local_to_utc(due_at)
   end
 
