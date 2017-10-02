@@ -30,9 +30,12 @@ class ProposalsController < ApplicationController
       @proposal.place = @place
     end
     # [USER]
+    # Update and save User timecode autofill with moment JS
     @user = current_or_guest_user
+    @user.timecode = params["proposal"]["user"]["timecode"]
+    @user.save
     # Check if user is guest
-    unless user_signed_in? || current_or_guest_user.first_name != 'guest' 
+    unless user_signed_in? || current_or_guest_user.first_name != 'guest'
       @user.first_name = params["proposal"]["user"]["first_name"]
       @user.save
     end

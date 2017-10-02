@@ -8,7 +8,7 @@ class ChooglesController < ApplicationController
     @proposal = Proposal.new
     proposals = @choogle.proposals
 
-    if @choogle.due_at - 1.seconds < Time.zone.now
+    if @choogle.due_at_tz - 1.seconds < Time.zone.now
       proposals = [proposals.most_upvoted]
     end
 
