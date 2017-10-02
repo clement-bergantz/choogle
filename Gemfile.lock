@@ -114,6 +114,7 @@ GEM
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    local_time (2.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -183,6 +184,10 @@ GEM
       sprockets-rails (>= 2.0.0)
     rails-assets-flatpickr (3.0.7)
     rails-assets-mixitup (3.2.1)
+    rails-assets-moment (2.18.1)
+    rails-assets-moment-timezone (0.5.13)
+      rails-assets-moment (>= 2.9.0)
+    rails-assets-momentjs (2.18.1)
     rails-assets-underscore (1.8.3)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
@@ -286,6 +291,7 @@ DEPENDENCIES
   jquery-turbolinks
   letter_opener
   listen (~> 3.0.5)
+  local_time
   omniauth-facebook
   pg
   postmark-rails
@@ -295,6 +301,8 @@ DEPENDENCIES
   rails (= 5.0.5)
   rails-assets-flatpickr!
   rails-assets-mixitup!
+  rails-assets-moment-timezone!
+  rails-assets-momentjs!
   rails-assets-underscore!
   redis
   sass-rails
@@ -311,4 +319,4 @@ RUBY VERSION
    ruby 2.3.4p301
 
 BUNDLED WITH
-   1.15.4
+   1.16.0.pre.2

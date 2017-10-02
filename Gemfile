@@ -10,6 +10,7 @@ gem 'puma'
 gem 'rails', '5.0.5'
 gem 'redis'
 gem 'omniauth-facebook'
+gem 'local_time'
 
 #Front-End
 gem 'autoprefixer-rails'
@@ -35,6 +36,8 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
   gem 'rails-assets-flatpickr'
   gem 'rails-assets-mixitup'
+  gem 'rails-assets-momentjs'
+  gem 'rails-assets-moment-timezone'
 end
 
 # Mailer

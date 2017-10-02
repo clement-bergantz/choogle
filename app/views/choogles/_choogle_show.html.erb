@@ -25,7 +25,7 @@
           <div class="col-md-6">
             <div class="choogle-infos-timer">
               <p>Time left to vote</p>
-              <div id="timer" data-timer="<%= (@choogle.due_at) %>">
+              <div id="timer" data-timer="<%= (@choogle.due_at_tz) %>">
                 <%= render "choogles/timer"  %>
                   <div id="clockdiv">
                     <div>
