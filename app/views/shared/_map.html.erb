@@ -1,7 +1,7 @@
 <% content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
-      var handler = Gmaps.build('Google');
+      var handler = Gmaps.build('Google', { markers: { clusterer: undefined  }});
       handler.buildMap({ internal: { id: 'map' } }, function() {
         markers = <%= raw @hash.to_json %>;
         Gmaps.store = {} // Initialize storage
