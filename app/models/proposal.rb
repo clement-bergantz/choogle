@@ -5,6 +5,7 @@ class Proposal < ApplicationRecord
   has_many :upvotes, dependent: :destroy
   has_many :proposal_tags, dependent: :destroy
   has_many :tags, through: :proposal_tags
+  validate :name_cannot_be_empty
 
   geocoded_by :place
   after_validation :geocode, if: :place_id_changed?
@@ -21,5 +22,11 @@ class Proposal < ApplicationRecord
 
   def upvoters
     self.upvotes.map(&:user).map(&:first_name)
+  end
+
+  def name_cannot_be_empty
+    if self.user.first_name.empty?
+      errors.add(:first_name, "Please enter a name!")
+    end
   end
 end
