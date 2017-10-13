@@ -26,7 +26,7 @@ class Proposal < ApplicationRecord
 
   def name_cannot_be_empty
     if self.user.first_name.empty?
-      errors.add(:first_name, "Please enter a name!")
+      errors.add(:first_name, "Please enter a name")
     end
   end
 end
