@@ -14,7 +14,6 @@ class User < ApplicationRecord
   has_many :tags, through: :proposals
   validates :first_name, presence: true
 
-
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
