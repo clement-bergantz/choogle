@@ -2,7 +2,7 @@
   <div id="proposal-errors"></div>
 
   <!-- If it's a guest session, ask for his name -->
-  <% unless user_signed_in? || current_or_guest_user.first_name != 'guest'%>
+  <% unless user_signed_in? || current_or_guest_user.first_name != 'guest' %>
     <%= f.simple_fields_for :user do |h| %>
       <%= h.input :first_name,
       label: false,
