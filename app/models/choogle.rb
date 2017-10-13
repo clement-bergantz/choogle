@@ -18,10 +18,12 @@ class Choogle < ApplicationRecord
   before_validation :generate_slug, on: :create
 
   def due_at_tz
-     tz = TZInfo::Timezone.get(user.timecode)
-     # Must use the local to UTC method of the gem because the time inputs with the
-     # datepicker is considered as the local time for the user but stored in UTC.
-     tz.local_to_utc(due_at)
+    # Compatibility for old Choogle or maybe some clients unable to get Timezone
+    return due_at if user.timecode == nil
+    # Must use the local to UTC method of the gem because the time inputs with the
+    # datepicker is considered as the local time for the user but stored in UTC.
+    tz = TZInfo::Timezone.get(user.timecode)
+    tz.local_to_utc(due_at)
   end
 
   def generate_slug
