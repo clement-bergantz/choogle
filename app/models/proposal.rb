@@ -22,4 +22,10 @@ class Proposal < ApplicationRecord
   def upvoters
     self.upvotes.map(&:user).map(&:first_name)
   end
+  
+  def name_cannot_be_empty
+    if self.user.first_name.empty?
+      errors.add(:first_name, "Please enter a name")
+    end
+  end
 end
