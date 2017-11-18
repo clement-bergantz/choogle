@@ -6,7 +6,6 @@
     <%= render 'choogle_show' %>
   <% else %>
     <%= render 'choogle_result' %>
-    <%= UserMailer.results(user).deliver_now %>
   <% end %>
 </div>
 

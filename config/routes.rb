@@ -22,5 +22,10 @@ Rails.application.routes.draw do
   post ":slug/proposals" => "proposals#create", as: :choogle_proposals
   post "/:slug/proposals/:id/upvotes" => "upvotes#create", as: :upvote
 
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
 
 end
