@@ -11,6 +11,8 @@ gem 'rails', '5.0.5'
 gem 'redis'
 gem 'omniauth-facebook'
 gem 'local_time'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 
 #Front-End
 gem 'autoprefixer-rails'
