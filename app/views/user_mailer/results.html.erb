@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>ERTYUIOP <% @user.first_name %>!</title>
+    <title><% @choogle.title %> will happen here!</title>
     <!--
     The style block is collapsed on page load to save you some scrolling.
     Postmark automatically inlines all CSS properties for maximum email client
@@ -406,31 +406,11 @@
                   <tr>
                     <td class="content-cell">
                       <h1>Hi, <%= @user.first_name %></h1>
-                      <p>THIS IS IT SIMON! THIS IS THE GOOD EMAIL!!!</p>
-                      <p>We will notify you on <%= @choogle.due_at.strftime("%A, %b %d at %l:%M %p") %> with the selected place for your event.</p>
-                      <p>Share this link with other participants so they can upvote their favorite place too :</p>
-                      <!-- Action -->
-                      <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td align="center">
-                            <!-- Border based button
-                       https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td align="center">
-                                  <table border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                      <td>
-                                        <a href="http://choogle.xyz/<%= @choogle.slug %>" class="button button--" target="_blank">http://choogle.xyz/<%= @choogle.slug %></a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
+                      <p>The people have spoken!</p>
+                      <p>For <%= @choogle.title %> you will all meet here :</p>
+                      <p><%= @place %></p>
+                      <p>More info here: </p>
+                      <p>Link to your Choogle here:</p>
                       <p>Thanks!<br/>The Choogle Team</p>
                     </td>
                   </tr>
