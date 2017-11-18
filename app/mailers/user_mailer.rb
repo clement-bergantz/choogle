@@ -10,10 +10,9 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: subject)
   end
 
-  def results(user_id)
-    @user = User.find(user_id) # Instance variable => available in view
-    # We search the choogle concerns by the last notification
-    @choogle = @user.notifications.last.choogle
+  def results(choogle_id, user_id)
+    @choogle = Choogle.find(choogle_id)
+    @user = User.find(user_id)
     subject = @choogle.title
 
     @greeting = "Hi"

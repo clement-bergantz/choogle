@@ -7,7 +7,7 @@ class Notification < ApplicationRecord
   private
 
   def send_welcome_email
-    UserMailer.welcome(self.user).deliver_now
+    UserMailer.welcome(self.user).deliver_later
   end
 
 end
