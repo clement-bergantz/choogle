@@ -6,14 +6,43 @@
   margin: 0;
   text-align: center;
   color: white;
+  display: inline-block;
+  min-width: 360px;
+  position: absolute;
+  top: 81px;
+  right: 48px;
+
+    @include mq($until: tablet) {
+      max-width: 280px;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      min-width: 0;
+    }
 }
 .alert-info {
-  background: green;
+  background: $paradise-pink;
+  border-color: $paradise-pink;
 }
 .alert-warning {
-  background: red;
+  background: $paradise-pink;
 }
 
 .alert-danger {
   background-color: transparent !important;
 }
+
+// .alert__container {
+//   background: $st-patricks-blue;
+//   background: linear-gradient(to right, $st-patricks-blue, $medium-turquoise);
+//   display: flex;
+//   justify-content: right;
+//   flex-direction: row-reverse;
+//   padding-right: 30px;
+//   height: 52px;
+
+//   @include mq($until: tablet) {
+//     justify-content:center;
+//     padding: 0;
+//   }
+// }

@@ -3,16 +3,19 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= notice %>
   </div>
-<% end %>
-<% if notifyme %>
+<% elsif notifyme %>
   <div class="alert alert-info alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= notifyme %>
   </div>
-<% end %>
-<% if alert %>
+<% elsif alert %>
   <div class="alert alert-warning alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= alert %>
+  </div>
+<% else %>
+  <div class="alert alert-info alert-dismissible hide" id="clipboard-notice">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    Copied to clipboard
   </div>
 <% end %>
