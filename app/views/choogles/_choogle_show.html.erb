@@ -145,7 +145,10 @@
     }
     function clipboardNotice() {
       // remove class hide
-      $('#clipboard-notice').removeClass('hide');
+      $('html, body').animate({
+          scrollTop: $("body").offset().top
+      }, 20);
+      $('#clipboard-notice').fadeIn(50).removeClass('hide');
     }
   </script>
 

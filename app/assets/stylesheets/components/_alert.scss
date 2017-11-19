@@ -11,6 +11,7 @@
   position: absolute;
   top: 81px;
   right: 48px;
+  transition: .5s ease;
 
     @include mq($until: tablet) {
       max-width: 280px;
