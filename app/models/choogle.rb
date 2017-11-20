@@ -40,14 +40,14 @@ class Choogle < ApplicationRecord
   end
 
   def happens_at_cannot_be_in_the_past
-    if happens_at.present? && happens_at < Date.today
-      errors.add(:happens_at, "Sorry, but you can not use choogle in the past 😊")
+    if happens_at.present? && happens_at < Time.current
+      errors.add(:base, "Sorry, but you can't use Choogle in the past 😊")
     end
   end
 
   def due_at_cannot_be_in_the_past
-    if due_at.present? && due_at < Date.today
-      errors.add(:due_at, "The deadline can not be in the past 😊")
+    if due_at.present? && self.due_at_tz < Time.current
+      errors.add(:base, "The deadline can't be set in the past 😊")
     end
   end
 
