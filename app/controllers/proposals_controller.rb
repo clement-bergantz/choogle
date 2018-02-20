@@ -35,19 +35,19 @@ class ProposalsController < ApplicationController
     @user.timecode = params["proposal"]["user"]["timecode"]
     @user.save
     # Check if user is guest
-    unless user_signed_in? || current_or_guest_user.first_name != 'guest'
+    if user_signed_in? || @user.first_name != 'guest'
       @user.first_name = params["proposal"]["user"]["first_name"]
       @user.save
     end
+
     @proposal.user = @user
-    # We search the Choogle by its slug
+
     @proposal.choogle = Choogle.find_by_slug(params[:slug])
 
     set_create_tags
 
     respond_to do |format|
       if @proposal.save
-        # Upvote auto
         @user.upvotes.new(proposal: @proposal).save
         format.js {render :js => "window.location.href='#{choogle_path}'"}
       else

@@ -11,4 +11,5 @@
 //= require local-time
 //= require momentjs
 //= require moment-timezone
+//= require rails.validations
 //= require_tree .
