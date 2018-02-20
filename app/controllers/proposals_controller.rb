@@ -27,15 +27,18 @@ class ProposalsController < ApplicationController
       else
         @place = Place.find_by(api_google_id: place_info.place_id)
       end
-      @proposal.place = @place
+    else
+      @place = Place.new
     end
+    @proposal.place = @place
+
     # [USER]
     # Update and save User timecode autofill with moment JS
     @user = current_or_guest_user
     @user.timecode = params["proposal"]["user"]["timecode"]
     @user.save
     # Check if user is guest
-    if user_signed_in? || @user.first_name != 'guest'
+    unless user_signed_in? || @user.first_name != 'guest'
       @user.first_name = params["proposal"]["user"]["first_name"]
       @user.save
     end
@@ -82,7 +85,7 @@ class ProposalsController < ApplicationController
 
   def proposal_params
     # Strongs params need to be specify if array
-    params.require(:proposal).permit(:place, tag_ids: [])
+    params.require(:proposal).permit(:place, user: [:first_name, :timecode], tag_ids: [])
   end
 
 end

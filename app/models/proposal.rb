@@ -6,7 +6,7 @@ class Proposal < ApplicationRecord
   has_many :proposal_tags, dependent: :destroy
   has_many :tags, through: :proposal_tags
 
-  validate :guest_cant_propose
+  validate :guest_cant_propose, :proposal_must_have_place
 
   geocoded_by :place
   after_validation :geocode, if: :place_id_changed?
@@ -26,6 +26,10 @@ class Proposal < ApplicationRecord
   end
 
   def guest_cant_propose
-    errors.add(:base, "Please add your name") if user.first_name == "guest"
+    errors.add(:base, "Please add your name") if user.first_name == "guest" || user.first_name.nil? || user.first_name.empty?
+  end
+
+  def proposal_must_have_place
+    errors.add(:base, "Please add a place") if place_id.nil?
   end
 end

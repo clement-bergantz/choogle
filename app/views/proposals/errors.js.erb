@@ -1,4 +1,8 @@
 $("#proposal-errors").empty()
-$("#proposal-errors").append("<%= @proposal.errors.full_messages.join %>")
+
+<% @proposal.errors.full_messages.each do |error| %>
+  $("#proposal-errors").append('<p>' + '<%= error %>' + '</p>')
+<% end %>
+
 $(".loader").hide()
 $(".form-proposal").find(".btn").show()
