@@ -405,13 +405,11 @@
                   <!-- Body content -->
                   <tr>
                     <td class="content-cell">
-                      <h1>Hi, <%= @user.first_name %></h1>
-                      <p>The people have spoken!</p>
-                      <p>For <%= @choogle.title %> you will all meet here :</p>
-                      <p><%= @place %></p>
-                      <p>More info here: </p>
-                      <p>Link to your Choogle here:</p>
-                      <p>Thanks!<br/>The Choogle Team</p>
+                      <h1>Hi <%= @user.first_name %>,</h1>
+                      <p>The deadline for your event on <%= @choogle.happens_at.strftime("%A, %b %d at %l:%M %p") %> is over.</p>
+                      <p>The following place was the most upvoted by your group 👉 <%= @place %></p>
+                      <p>You can find all the information you need <a href="http://choogle.xyz/<%= @choogle.slug %>" target="_blank">here</a></p>
+                      <p>Thanks and have fun 🍻<br/>The Choogle Team</p>
                     </td>
                   </tr>
                 </table>

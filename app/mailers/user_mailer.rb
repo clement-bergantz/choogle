@@ -14,7 +14,7 @@ class UserMailer < ApplicationMailer
     @choogle = Choogle.find(choogle_id)
     @user = User.find(user_id)
     @place = @choogle.proposals.most_upvoted.place
-    subject = "Find out where "+ @choogle.title + " is happening"
+    subject = @choogle.title + "-" + "And the most upvoted place is..."
 
     @greeting = "Hi"
     mail(to: @user.email, subject: subject)
