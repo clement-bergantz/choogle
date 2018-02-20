@@ -24,6 +24,7 @@ class ProposalsController < ApplicationController
         @place.name = place_info.name
         @place.rating = place_info.rating unless place_info.rating.nil?
         @place.api_google_id = place_info.place_id
+        @place.save
       else
         @place = Place.find_by(api_google_id: place_info.place_id)
       end
