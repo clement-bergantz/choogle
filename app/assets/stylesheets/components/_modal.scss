@@ -6,6 +6,10 @@
     margin-bottom: 45px ;
     text-align: center;
   }
+  @include mq($until: tablet) {
+    position: absolute;
+    width: calc(100vw - 20px);
+  }
 }
 
 .btn-proposal-margin {
