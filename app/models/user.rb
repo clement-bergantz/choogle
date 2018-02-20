@@ -43,6 +43,10 @@ class User < ApplicationRecord
     response
   end
 
+  def is_guest?
+    first_name.nil? || first_name == "guest" || first_name.empty?
+  end
+
   # This is used to get all tags of the instance of user
   def tags
     usertags = []

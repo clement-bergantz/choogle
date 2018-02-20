@@ -51,8 +51,7 @@ class ProposalsController < ApplicationController
     set_create_tags
 
     respond_to do |format|
-      if @proposal.save
-        @user.upvotes.new(proposal: @proposal).save
+      if @proposal.save && @user.upvotes.new(proposal: @proposal).save
         format.js {render :js => "window.location.href='#{choogle_path}'"}
       else
         format.js {render "proposals/errors"}

@@ -5,14 +5,9 @@
         <%= simple_form_for current_or_guest_user, url: create_registration_path, remote: true do |f| %>
 
         <h1 class="text-center">Who are you ?</h1>
-
-          <div class="form-inputs custom-first-name-form">
             <%= f.input :first_name, label: "Let your friends know who you are", placeholder: "Your name", input_html: {value: nil}, required: true, autofocus: true %>
-          </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, "OK", class: "btn-proposal center-block btn-registration"  %>
-          </div>
+          <%= f.button :submit, "Add your name", class: "btn btn-choogle btn-proposal-margin"  %>
         <% end %>
 
       </div>
