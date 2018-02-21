@@ -24,9 +24,11 @@ class RegistrationsController < ApplicationController
       else render :new
       end
     end
-
-    current_or_guest_user.upvotes.create(proposal: Proposal.find(params["proposal_id"])) if params["proposal_id"]
-
+    is_guest = current_or_guest_user.first_name == "guest" || current_or_guest_user.first_name.empty?
+    if params["proposal_id"] && !is_guest
+      upvote = Upvote.new(user: current_or_guest_user, proposal: Proposal.find(params["proposal_id"]))
+      upvote.save
+    end
   end
 
   private

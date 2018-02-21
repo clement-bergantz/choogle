@@ -2,6 +2,7 @@ class Upvote < ApplicationRecord
   belongs_to :proposal
   belongs_to :user
   validates :user_id, uniqueness: { scope: :proposal_id }
+  validate :guest_cant_upvote
   # Everything behind is for WS, at each save or destroy refresh on all clients
   after_save :broadcast_upvotes
   after_destroy :broadcast_upvotes
@@ -15,5 +16,9 @@ class Upvote < ApplicationRecord
     user_id: self.user.id,
     upvoters: self.proposal.upvoters,
     )
+  end
+
+  def guest_cant_upvote
+    errors.add(:base, "Fill your name if you want to upvote") if user.first_name == "guest"
   end
 end
