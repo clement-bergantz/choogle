@@ -29,7 +29,6 @@ gem 'simple_form_autocomplete'
 gem 'jquery-turbolinks'
 gem "select2-rails"
 
-
 # Gemfile
 gem "coffee-rails"
 gem "gmaps4rails"

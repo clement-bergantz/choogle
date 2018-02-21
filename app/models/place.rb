@@ -2,6 +2,9 @@ class Place < ApplicationRecord
 	has_many :proposals
   has_many :choogles, through: :proposals
   geocoded_by :address
+
+  validates :api_google_id, presence: true
+
   after_validation :geocode, if: :address_changed?
   reverse_geocoded_by :latitude, :longitude do |obj, results|
     if geo = results.first

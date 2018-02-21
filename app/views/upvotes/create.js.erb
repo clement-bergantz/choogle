@@ -1,8 +1,11 @@
-<% if @upvote.errors.any? %>
-  console.log('<%= @upvote.errors.full_messages %>');
+<% if current_or_guest_user.first_name == 'guest' %>
+  $('#render-choogle').append("<%= j render(partial: 'registrations/first_name', locals: {proposal_id: @proposal.id}) %>")
+  $('#first-name-modal').modal('show');
 <% else %>
-  <% if current_or_guest_user.first_name == 'guest' %>
-    $('#first-name-modal').modal('show');
+  <% if @upvote.errors.any? %>
+    console.log('<%= @upvote.errors.full_messages %>');
+  <% else %>
+    $("#upvote-<%= @proposal.id %>").text('<%= @proposal.upvotes.size %>');
   <% end %>
-  $("#upvote-<%= @proposal.id %>").text('<%= @proposal.upvotes.size %>');
 <% end %>
+

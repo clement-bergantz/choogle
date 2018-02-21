@@ -14,10 +14,16 @@ class CommentsController < ApplicationController
     @comment.user = @user
     choogle = Choogle.find_by(slug: params[:slug])
     @comment.choogle = choogle
-    @comment.save
-    respond_to do |format|
-      format.html {redirect_to choogle_path(params[:slug])}
-      format.js
+
+    if current_or_guest_user.first_name.empty?
+      respond_to do |format|
+        format.js {render "comments/errors"}
+      end
+    elsif @comment.save
+      respond_to do |format|
+        format.html {redirect_to choogle_path(params[:slug])}
+        format.js {render "comments/create"}
+      end
     end
   end
 

@@ -24,31 +24,34 @@ class ProposalsController < ApplicationController
         @place.name = place_info.name
         @place.rating = place_info.rating unless place_info.rating.nil?
         @place.api_google_id = place_info.place_id
+        @place.save
       else
         @place = Place.find_by(api_google_id: place_info.place_id)
       end
-      @proposal.place = @place
+    else
+      @place = Place.new
     end
+    @proposal.place = @place
+
     # [USER]
     # Update and save User timecode autofill with moment JS
     @user = current_or_guest_user
     @user.timecode = params["proposal"]["user"]["timecode"]
     @user.save
     # Check if user is guest
-    unless user_signed_in? || current_or_guest_user.first_name != 'guest'
+    unless user_signed_in? || @user.first_name != 'guest'
       @user.first_name = params["proposal"]["user"]["first_name"]
       @user.save
     end
+
     @proposal.user = @user
-    # We search the Choogle by its slug
+
     @proposal.choogle = Choogle.find_by_slug(params[:slug])
 
     set_create_tags
 
     respond_to do |format|
-      if @proposal.save
-        # Upvote auto
-        @user.upvotes.new(proposal: @proposal).save
+      if @proposal.save && @user.upvotes.new(proposal: @proposal).save
         format.js {render :js => "window.location.href='#{choogle_path}'"}
       else
         format.js {render "proposals/errors"}
@@ -82,7 +85,7 @@ class ProposalsController < ApplicationController
 
   def proposal_params
     # Strongs params need to be specify if array
-    params.require(:proposal).permit(:place, tag_ids: [])
+    params.require(:proposal).permit(:place, user: [:first_name, :timecode], tag_ids: [])
   end
 
 end

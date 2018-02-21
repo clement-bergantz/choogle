@@ -2,7 +2,6 @@ class ChooglesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :new, :create]
 
   def show
-    # we find the choogle by its slug
     @choogle = Choogle.find_by_slug(params[:slug])
     @user = current_or_guest_user
     @proposal = Proposal.new
@@ -21,8 +20,6 @@ class ChooglesController < ApplicationController
     @user = current_or_guest_user
     @comment = Comment.new
     @comments = Comment.where(choogle: @choogle).order('created_at')
-    # @place = Place.find(params[:id])
-    # @place_coordinates = { lat: @place.latitude, lng: @place.longitude }
 
     @notification = Notification.new
 

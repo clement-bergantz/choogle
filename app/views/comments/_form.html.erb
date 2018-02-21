@@ -1,4 +1,4 @@
-<%= simple_form_for([@choogle, @comment], remote: true) do |f| %>
+<%= simple_form_for([@choogle, @comment], remote: true, html: {id: "create-comment-form"}) do |f| %>
   <%= f.error_notification %>
 
   <!-- If it's a guest session, ask for his name -->
