@@ -9,6 +9,7 @@ class RegistrationsController < ApplicationController
   end
 
   def create
+
     # First Name modal behavior :
     if params[:user][:password_confirmation].nil? && params[:user][:password].nil? && current_or_guest_user.update(user_params)
       respond_to do |format|
@@ -24,12 +25,14 @@ class RegistrationsController < ApplicationController
       end
     end
 
+    current_or_guest_user.upvotes.create(proposal: Proposal.find(params["proposal_id"])) if params["proposal_id"]
+
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :first_name)
+    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, upvotes: [:id, :user, :proposal_id])
   end
 
 end

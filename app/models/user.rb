@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
-  has_many :notifications
-  has_many :choogles
-  has_many :upvotes
-  has_many :proposals
-  has_many :comments
+  has_many :notifications, dependent: :destroy
+  has_many :choogles, dependent: :destroy
+  has_many :upvotes, dependent: :destroy
+  has_many :proposals, dependent: :destroy
+  has_many :comments, dependent: :destroy
   # With this and has_many tags on proposal we can call user.tags
   # to get all the tags used by a user on his proposals.
   has_many :tags, through: :proposals

@@ -4,10 +4,13 @@
       <div class="modal-body">
         <%= simple_form_for current_or_guest_user, url: create_registration_path, remote: true do |f| %>
 
-        <h1 class="text-center">Who are you ?</h1>
-            <%= f.input :first_name, label: "Let your friends know who you are", placeholder: "Your name", input_html: {value: nil}, required: true, autofocus: true %>
+        <h1 class="text-center">Who are you?</h1>
+            <%= f.input :first_name, label: "To upvote this, let your friends know who you are", placeholder: "Your name", input_html: {value: nil}, required: true, autofocus: true %>
 
-          <%= f.button :submit, "Add your name", class: "btn btn-choogle btn-proposal-margin"  %>
+          <%= hidden_field_tag(:proposal_id, proposal_id) %>
+
+
+          <%= f.button :submit, "Add your name", class: "btn btn-choogle btn-proposal-margin", name: "upvote"  %>
         <% end %>
 
       </div>
