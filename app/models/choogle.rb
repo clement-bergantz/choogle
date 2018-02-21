@@ -1,8 +1,8 @@
 class Choogle < ApplicationRecord
   belongs_to :user
-  has_many :comments
-  has_many :proposals
-  has_many :notifications
+  has_many :comments, dependent: :destroy
+  has_many :proposals, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   has_many :places, through: :proposals
 
   validates :slug, presence: true
